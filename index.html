@@ -1093,7 +1093,7 @@ function endless(lane, own, offset) {
   const one = () => own[0].offsetWidth + parseFloat(getComputedStyle(row).columnGap || 16);
   const setW = one() * own.length;
   const room = lane.clientWidth * 1.5;
-  const before = Math.ceil(room / setW), after = before + 1 + Math.ceil((lane.clientWidth + room) / setW);
+  const before = Math.ceil(room / setW), after = Math.ceil((lane.clientWidth + room) / setW); /* room on both sides of the middle copy */
   const copy = () => own.map(c => {
     const k = c.cloneNode(true);
     k.dataset.clone = ''; k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1; k.hidden = false;
