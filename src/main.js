@@ -100,79 +100,116 @@ function count(el) {
 }
 if (!reduce) $$('.num[data-to]').forEach(n => soon(n, () => count(n), '0px'));
 
-/* ---------- work rows: they only move when the viewer moves them ----------
-   Swipe on touch, drag or the arrows with a mouse. Mouse: the hovered card plays. Touch: the centred card plays. */
+/* ---------- work rows: endless, and they only move when the viewer moves them ----------
+   Swipe on touch, drag or the arrows with a mouse, or scroll the page (see scroll-linked strips).
+   Each row repeats its cards; when the position leaves the middle copy it jumps by exactly one copy, which looks the same.
+   Mouse: the hovered card plays. Touch: the centred card plays. */
 const lanes = $('#lanes'), rows = [$('#row1'), $('#row2')];
 const cards = $$('.card', lanes);
 let pick = null;
 seen(lanes, on => { if (!on && pick) { stop(pick); pick = null; cardActive = false; } }, '100px');
-if (fine) cards.forEach(c => {
+const hoverPlay = c => {
   const v = $('video', c);
   c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
   c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
-});
+};
 const ioSwipe = new IntersectionObserver(es => {
   es.forEach(e => { e.target._r = e.isIntersecting ? e.intersectionRatio : 0; });
-  const best = cards.filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
+  const best = $$('.card', lanes).filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
   const v = best && best._r >= .6 ? $('video', best) : null;
   if (v === pick) return;
   if (pick) stop(pick);
   pick = v; cardActive = !!v;
   if (v) solo(v); else if (reelOK()) solo(reelVids[ri]);
 }, {threshold: [0, .3, .6, .9]});
-if (!fine) cards.forEach(c => ioSwipe.observe(c));
+const wire = c => { if (fine) hoverPlay(c); else ioSwipe.observe(c); };
+cards.forEach(wire);
 
-/* drag to scroll with a mouse (rows and the stills carousels); a drag never counts as a click */
+/* move a scroller without breaking a drag in progress */
+const shift = (el, d) => { el.scrollLeft += d; if (el._drag) el._drag.left += d; };
+
+/* drag to scroll with a mouse (rows, formats strip, stills carousels); a drag never counts as a click */
 function draggable(el) {
-  let s = null;
   el.addEventListener('pointerdown', e => {
     if (e.pointerType !== 'mouse' || e.button !== 0 || el.scrollWidth <= el.clientWidth) return;
-    s = {x: e.clientX, left: el.scrollLeft, id: e.pointerId, moved: false};
+    el._drag = {x: e.clientX, left: el.scrollLeft, id: e.pointerId, moved: false};
   });
   el.addEventListener('pointermove', e => {
+    const s = el._drag;
     if (!s || e.pointerId !== s.id) return;
     const dx = e.clientX - s.x;
     if (!s.moved && Math.abs(dx) < 6) return;
     if (!s.moved) { s.moved = true; el.classList.add('dragging'); try { el.setPointerCapture(e.pointerId); } catch (_) {} }
     el.scrollLeft = s.left - dx;
+    el._wrap?.();
   });
   const end = e => {
+    const s = el._drag;
     if (!s || e.pointerId !== s.id) return;
     if (s.moved) { el.classList.remove('dragging'); el._dragEnd = performance.now(); }
-    s = null;
+    el._drag = null;
   };
   el.addEventListener('pointerup', end);
   el.addEventListener('pointercancel', end);
   el.addEventListener('dragstart', e => e.preventDefault());
   el.addEventListener('click', e => { if (performance.now() - (el._dragEnd || 0) < 250) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
 }
+
+/* endless scroller: copies of the originals on both sides; the position is kept inside one band of width = one copy.
+   Jumps happen instantly while dragging or page-scrolling, and only once a swipe/arrow glide has settled. */
+function endless(lane, own, offset) {
+  const row = lane.firstElementChild;
+  $$('[data-clone]', row).forEach(k => { ioSwipe.unobserve(k); k.remove(); });
+  if (!own.length) { lane._wrap = null; return; }
+  const one = () => own[0].offsetWidth + parseFloat(getComputedStyle(row).columnGap || 16);
+  const setW = one() * own.length;
+  const room = lane.clientWidth * 1.5;
+  const before = Math.ceil(room / setW), after = before + 1 + Math.ceil((lane.clientWidth + room) / setW);
+  const copy = () => own.map(c => {
+    const k = c.cloneNode(true);
+    k.dataset.clone = ''; k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1; k.hidden = false;
+    $('video', k).removeAttribute('src');
+    wire(k);
+    return k;
+  });
+  for (let i = 0; i < before; i++) row.prepend(...copy());
+  for (let i = 0; i < after; i++) row.append(...copy());
+  const lo = before * setW, hi = lo + setW;
+  lane._wrap = () => {
+    if (lane.scrollLeft < lo) shift(lane, setW * Math.ceil((lo - lane.scrollLeft) / setW));
+    else if (lane.scrollLeft >= hi) shift(lane, -setW * Math.ceil((lane.scrollLeft - hi + 1) / setW));
+  };
+  lane.scrollLeft = lo + offset * setW;
+  if (!lane._idle) {
+    let t = 0;
+    lane.addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(() => lane._wrap?.(), 140); }, {passive: true});
+    lane._idle = true;
+  }
+}
 $$('.lane, .sgal, .tgal').forEach(draggable);
 
-/* arrows (mouse devices): a screen at a time; hidden at the ends */
+/* arrows (mouse devices): most of a screen at a time */
 $$('.lane-wrap').forEach(w => {
-  const lane = $('.lane', w), prev = $('.ln.prev', w), next = $('.ln.next', w);
-  const ends = () => {
-    prev.disabled = lane.scrollLeft < 8;
-    next.disabled = lane.scrollLeft + lane.clientWidth > lane.scrollWidth - 8;
-  };
-  prev.addEventListener('click', () => lane.scrollBy({left: -lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
-  next.addEventListener('click', () => lane.scrollBy({left: lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
-  lane.addEventListener('scroll', ends, {passive: true});
-  addEventListener('resize', ends);
-  w._ends = ends; ends();
+  const lane = $('.lane', w);
+  $('.ln.prev', w).addEventListener('click', () => { lane._wrap?.(); lane.scrollBy({left: -lane.clientWidth * .7, behavior: reduce ? 'auto' : 'smooth'}); });
+  $('.ln.next', w).addEventListener('click', () => { lane._wrap?.(); lane.scrollBy({left: lane.clientWidth * .7, behavior: reduce ? 'auto' : 'smooth'}); });
 });
 
+let workFilter = 'all';
 function renderWork(f) {
+  workFilter = f;
   const show = cards.filter(c => f === 'all' || c.dataset.f === f);
   cards.forEach(c => { c.hidden = !show.includes(c); });
   const wraps = rows.map(r => r.closest('.lane-wrap'));
-  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); wraps[1].hidden = false; }
+  const half = Math.ceil(cards.length / 2);
+  if (f === 'all') { cards.forEach((c, i) => rows[i < half ? 0 : 1].appendChild(c)); wraps[1].hidden = false; }
   else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); wraps[1].hidden = true; }
-  /* row 1 starts at its beginning, row 2 at its end, so scrolling the page moves them apart */
-  rows.forEach((r, i) => { const l = r.parentElement; l.scrollLeft = i ? l.scrollWidth : 0; });
-  wraps.forEach(w => w._ends && w._ends());
+  /* the second row starts half a copy along, so the two rows never line up */
+  rows.forEach((r, i) => endless(r.parentElement, $$('.card:not([data-clone]):not([hidden])', r), i ? .5 : 0));
 }
 renderWork('all');
+let rw = innerWidth;
+addEventListener('resize', () => { if (Math.abs(innerWidth - rw) > 40) { rw = innerWidth; renderWork(workFilter); } });
 $$('.chip').forEach(c => c.addEventListener('click', () => {
   $$('.chip').forEach(x => x.setAttribute('aria-pressed', x === c));
   renderWork(c.dataset.f);
@@ -408,9 +445,9 @@ $$('.hero, .marquee, .results, #systems, #stack').forEach(el => seen(el, on => e
 const mq = $('.marquee'), mtrack = $('#mtrack');
 draggable(mq);
 const loopW = () => { const half = mtrack.children[mtrack.children.length / 2]; return half ? half.offsetLeft - mtrack.firstElementChild.offsetLeft : 0; };
-const wrapLoop = () => { const w = loopW(); if (!w) return; if (mq.scrollLeft >= w * 1.5) mq.scrollLeft -= w; else if (mq.scrollLeft < w * .5) mq.scrollLeft += w; };
+mq._wrap = () => { const w = loopW(); if (!w) return; if (mq.scrollLeft >= w * 1.5) shift(mq, -w); else if (mq.scrollLeft < w * .5) shift(mq, w); };
 mq.scrollLeft = loopW() * .75;
-mq.addEventListener('scroll', wrapLoop, {passive: true});
+mq.addEventListener('scroll', mq._wrap, {passive: true});
 const linked = [[$('#lane-row1'), 1], [$('#lane-row2'), -1], [mq, 1]];
 linked.forEach(l => seen(l[0], on => { l.on = on; }, '80px'));
 if (!reduce) {
@@ -420,7 +457,62 @@ if (!reduce) {
     if (raf) return;
     raf = requestAnimationFrame(() => {
       const dy = queued; queued = 0; raf = 0;
-      linked.forEach(l => { if (l.on && !l[0].classList.contains('dragging') && !l[0].closest('[hidden]')) l[0].scrollLeft += dy * .55 * l[1]; });
+      linked.forEach(l => { if (l.on && !l[0].classList.contains('dragging') && !l[0].closest('[hidden]')) { l[0].scrollLeft += dy * .55 * l[1]; l[0]._wrap?.(); } });
     });
   }, {passive: true});
+}
+
+/* ---------- cursor lens: halftone bubble with a liquid trail; inside it purple and green trade places ----------
+   The lens is a backdrop-filter (hue rotation) whose mask is an SVG redrawn each frame: trail circles merged by a
+   "goo" filter (blur + alpha threshold) give the water shape, two dot grids give the halftone (big dots in the core,
+   small ones at the edge), and every image or video under it is cut out, so only text and backgrounds change. */
+if (fine && !reduce && CSS.supports('backdrop-filter', 'hue-rotate(1deg)') || fine && !reduce && CSS.supports('-webkit-backdrop-filter', 'hue-rotate(1deg)')) {
+  const lens = $('#lens'), lens2 = $('#lens2');
+  const N = 14, R = 82, PAD = R + 30, GRID = 9;
+  const pts = Array.from({length: N}, () => ({x: -500, y: -500}));
+  const media = () => $$('img, video, .still, .case-vid, .ico').filter(el => !el.closest('dialog'));
+  let mediaEls = media(), mx = -500, my = -500, raf = 0, still = 0, inside = false;
+  addEventListener('load', () => { mediaEls = media(); });
+  const f = n => Math.round(n * 10) / 10;
+  function frame(t) {
+    raf = 0;
+    pts[0].x += (mx - pts[0].x) * .3; pts[0].y += (my - pts[0].y) * .3;
+    for (let i = 1; i < N; i++) { pts[i].x += (pts[i - 1].x - pts[i].x) * .24; pts[i].y += (pts[i - 1].y - pts[i].y) * .24; }
+    const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+    const L = Math.floor(Math.min(...xs) - PAD), T = Math.floor(Math.min(...ys) - PAD);
+    const W = Math.ceil(Math.max(...xs) + PAD) - L, H = Math.ceil(Math.max(...ys) + PAD) - T;
+    const wob = t / 260;
+    const circ = k => pts.map((p, i) => `<circle cx="${f(p.x - L)}" cy="${f(p.y - T)}" r="${f(R * k * (1 - i / N * .7) * (1 + .08 * Math.sin(wob + i * 1.3)))}"/>`).join('');
+    const holes = [];
+    for (const el of mediaEls) {
+      const r = el.getBoundingClientRect();
+      if (r.right < L || r.left > L + W || r.bottom < T || r.top > T + H || !r.width) continue;
+      holes.push(`<rect x="${f(r.left - L)}" y="${f(r.top - T)}" width="${f(r.width)}" height="${f(r.height)}"/>`);
+    }
+    const ox = -((L % GRID) + GRID) % GRID, oy = -((T % GRID) + GRID) % GRID; /* dots stay on a fixed screen grid */
+    const hole = holes.length ? `<g fill="#000">${holes.join('')}</g>` : '';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><defs>`
+      + `<filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 24 -10"/></filter>`
+      + `<pattern id="s" x="${ox}" y="${oy}" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="2.1" fill="#fff"/></pattern>`
+      + `<pattern id="b" x="${ox}" y="${oy}" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="4" fill="#fff"/></pattern>`
+      + `<mask id="o"><g fill="#fff" filter="url(#g)">${circ(1)}</g>${hole}</mask>`
+      + `<mask id="i"><g fill="#fff" filter="url(#g)">${circ(.6)}</g>${hole}</mask></defs>`
+      + `<rect width="100%" height="100%" fill="url(#s)" mask="url(#o)"/><rect width="100%" height="100%" fill="url(#b)" mask="url(#i)"/></svg>`;
+    const url = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+    lens.style.cssText = lens2.style.cssText = `transform:translate(${L}px,${T}px);width:${W}px;height:${H}px;mask-image:${url};-webkit-mask-image:${url}`;
+    const moving = Math.abs(pts[N - 1].x - mx) + Math.abs(pts[N - 1].y - my) > .5;
+    still = moving ? 0 : still + 1;
+    if (still < 30) raf = requestAnimationFrame(frame); /* keeps wobbling a moment after the mouse stops, then idles */
+  }
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    mx = e.clientX; my = e.clientY; still = 0;
+    if (!inside) { inside = true; pts.forEach(p => { p.x = mx; p.y = my; }); }
+    lens.classList.toggle('on', !$('dialog[open]')); lens2.classList.toggle('on', lens.classList.contains('on'));
+    if (!raf) raf = requestAnimationFrame(frame);
+  }, {passive: true});
+  addEventListener('scroll', () => { if (inside && !raf) raf = requestAnimationFrame(frame); }, {passive: true});
+  document.addEventListener('mouseleave', () => { inside = false; lens.classList.remove('on'); lens2.classList.remove('on'); });
+  $$('dialog').forEach(d => d.addEventListener('close', () => { if (inside) { lens.classList.add('on'); lens2.classList.add('on'); } }));
+  document.addEventListener('click', () => { if ($('dialog[open]')) { lens.classList.remove('on'); lens2.classList.remove('on'); } });
 }
