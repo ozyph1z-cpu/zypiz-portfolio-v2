@@ -383,9 +383,8 @@ def r_marquee(d):
 
 def card(w):
     k = e(w['k'])
-    return (f'<a class="card" href="media/full/{k}.mp4" data-play="{k}" data-f="{e(w["filter"])}" data-title="{e(w["title"])}">'
+    return (f'<a class="card" href="media/full/{k}.mp4" data-play="{k}" data-prev="media/{k}.mp4" data-f="{e(w["filter"])}" data-title="{e(w["title"])}">'
             f'<span class="vid"><img class="pv" src="assets/poster-{k}.webp" width="270" height="480" alt="" loading="lazy" decoding="async">'
-            f'<video muted loop playsinline preload="none" data-src="media/{k}.mp4" aria-hidden="true"></video>'
             f'<span class="stat-pill">{e(w["pill"])}</span>'
             f'<span class="play"><span>{PLAY_ICON}</span><em>Click for sound</em></span>'
             f'<span class="dur">{SOUND_ICON}<span class="sr">Length </span>{mmss(w["duration"])}</span>'

@@ -108,15 +108,26 @@ const lanes = $('#lanes'), rows = [$('#row1'), $('#row2')];
 const cards = $$('.card', lanes);
 let pick = null;
 seen(lanes, on => { if (!on && pick) { stop(pick); pick = null; cardActive = false; } }, '100px');
+/* a card's preview video only exists once it is needed (hovered or centred) */
+const vidOf = c => {
+  let v = $('video', c);
+  if (!v) {
+    v = document.createElement('video');
+    Object.assign(v, {muted: true, loop: true, playsInline: true, preload: 'auto'});
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+    v.dataset.src = c.dataset.prev;
+    $('.pv', c).after(v);
+  }
+  return v;
+};
 const hoverPlay = c => {
-  const v = $('video', c);
-  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
-  c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
+  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(vidOf(c)); } });
+  c.addEventListener('pointerleave', () => { const v = $('video', c); if (v) stop(v); cardActive = false; });
 };
 const ioSwipe = new IntersectionObserver(es => {
   es.forEach(e => { e.target._r = e.isIntersecting ? e.intersectionRatio : 0; });
   const best = $$('.card', lanes).filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
-  const v = best && best._r >= .6 ? $('video', best) : null;
+  const v = best && best._r >= .6 ? vidOf(best) : null;
   if (v === pick) return;
   if (pick) stop(pick);
   pick = v; cardActive = !!v;
@@ -168,7 +179,7 @@ function endless(lane, own, offset) {
   const copy = () => own.map(c => {
     const k = c.cloneNode(true);
     k.dataset.clone = ''; k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1; k.hidden = false;
-    $('video', k).removeAttribute('src');
+    $('video', k)?.remove();
     wire(k);
     return k;
   });

@@ -97,12 +97,6 @@
       "label": "Views on videos I edited"
     },
     {
-      "to": 99.998,
-      "dec": 3,
-      "suf": "%",
-      "label": "Less catalog time, 15 days → 20 s"
-    },
-    {
       "to": 69.9,
       "dec": 1,
       "suf": "%",
