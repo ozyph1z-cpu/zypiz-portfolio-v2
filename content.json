@@ -1,0 +1,272 @@
+{
+  "site": {
+    "url": "https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/",
+    "lang": "en",
+    "locale": "en_US",
+    "name": "Zypiz",
+    "title": "Zypiz · AI Animation & AI UGC Editor",
+    "description": "AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts. Video editor for 9 years, developer for 3.",
+    "og_image": "og.jpg",
+    "og_image_alt": "Zypiz, AI animation and AI UGC editor: the goblin mascot next to the headline AI makes the footage, I make it bite.",
+    "theme_color": "#0b0710",
+    "favicon": "favicon.webp",
+    "apple_touch_icon": "apple-touch-icon.png",
+    "logo": "assets/logo.webp"
+  },
+
+  "contact": {
+    "email": "ozyph1z@gmail.com",
+    "discord": "zypizediting",
+    "x_handle": "@zyp1z",
+    "x_url": "https://x.com/zyp1z"
+  },
+
+  "nav": [
+    {"label": "Work", "href": "#work"},
+    {"label": "Cases", "href": "#cases"},
+    {"label": "Systems", "href": "#systems"},
+    {"label": "Process", "href": "#process"},
+    {"label": "About", "href": "#about"},
+    {"label": "FAQ", "href": "#faq"}
+  ],
+
+  "cta_label": "Send a brief",
+
+  "hero": {
+    "eyebrow": ["Video editor", "AI engineer", "Developer"],
+    "title": "AI makes the footage. I make it <em>bite.</em>",
+    "sub": "AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts.",
+    "hint_mouse": "hover her. then click.",
+    "hint_touch": "tap her. she bites.",
+    "reel": [
+      {"k": "p_trailer", "label": "AI Animation · 6 styles"},
+      {"k": "g_glossa", "label": "AI Song Ad · Glossa"},
+      {"k": "z_alexander", "label": "AI Animation · 69.9% stayed"},
+      {"k": "t_yig", "label": "Analog Horror · TEORIZA"},
+      {"k": "z_vampire", "label": "AI Animation"},
+      {"k": "c_pull", "label": "AI UGC · Crown Cards"}
+    ],
+    "reel_cuts": ["p_trailer", "g_glossa", "t_yig", "c_pull"]
+  },
+
+  "stats": [
+    {"to": 1.8, "dec": 1, "suf": "M+", "label": "Views on videos I edited"},
+    {"to": 99.998, "dec": 3, "suf": "%", "label": "Less catalog time, 15 days → 20 s"},
+    {"to": 69.9, "dec": 1, "suf": "%", "label": "Stayed to watch, best AI Short"},
+    {"to": 12, "dec": 0, "suf": "+", "label": "Countries I've worked for"},
+    {"to": 9, "dec": 0, "suf": " yrs", "label": "Editing and motion"},
+    {"to": 3, "dec": 0, "suf": " yrs", "label": "Building software"}
+  ],
+
+  "formats": ["AI UGC", "AI voice ads", "AI clip ads", "Faceless story ads", "iMessage ads", "Reddit-post ads", "Static ads", "App demo cuts", "Pack-pull reactions", "Toon Shorts", "POV Shorts", "Mythology explainers", "Music videos", "YouTube edits", "Thumbnails"],
+
+  "work": [
+    {"k": "p_trailer", "title": "Zypiz · Still Doubting Me?", "tag": "AI Animation", "filter": "anim", "pill": "6 styles · one take", "duration": 47},
+    {"k": "g_glossa", "title": "Glossa · Cloud Balm", "tag": "AI Song Ad", "filter": "anim", "pill": "Pixar-style 3D", "duration": 29},
+    {"k": "z_alexander", "title": "Alexander · Road Through the Sea", "tag": "AI Animation", "filter": "anim", "pill": "▶ 11.6K · 69.9% stayed", "duration": 37},
+    {"k": "z_vampire", "title": "Mercy Brown · Real Vampire", "tag": "AI Animation", "filter": "anim", "pill": "▶ 3.9K views", "duration": 48},
+    {"k": "t_yig", "title": "TEORIZA · The Curse of Yig", "tag": "Analog Horror", "filter": "anim", "pill": "Episode intro", "duration": 20},
+    {"k": "z_medusa", "title": "Medusa · The Gorgon", "tag": "AI Animation", "filter": "anim", "pill": "▶ 2.3K views", "duration": 36},
+    {"k": "z_kraken", "title": "The Kraken", "tag": "AI Animation", "filter": "anim", "pill": "3D Short", "duration": 43},
+    {"k": "d_snooze", "title": "Snoozebrick · Cloud Pillow", "tag": "Brick Toy", "filter": "anim", "pill": "Toy stop-motion", "duration": 23},
+    {"k": "z_dracula", "title": "Dracula · Real Blood?", "tag": "AI Animation", "filter": "anim", "pill": "▶ 1.2K · day 1", "duration": 28},
+    {"k": "z_poseidon", "title": "Poseidon · God of the Sea", "tag": "AI Animation", "filter": "anim", "pill": "3D Short", "duration": 46},
+    {"k": "z_wendigo", "title": "Wendigo · Swift Runner", "tag": "AI Animation", "filter": "anim", "pill": "▶ 1.2K · day 1", "duration": 29},
+    {"k": "z_godzilla", "title": "Godzilla · Lucky Dragon", "tag": "AI Animation", "filter": "anim", "pill": "Short", "duration": 41},
+    {"k": "z_talos", "title": "Talos · Bronze Robot", "tag": "AI Animation", "filter": "anim", "pill": "Short", "duration": 34},
+    {"k": "z_kuchisake", "title": "Kuchisake-onna", "tag": "AI Animation", "filter": "anim", "pill": "Japanese legend", "duration": 38},
+    {"k": "z_whales", "title": "Whales in the Desert", "tag": "AI Animation", "filter": "anim", "pill": "Short", "duration": 36},
+    {"k": "z_mapinguari", "title": "Mapinguari · Ground Sloth", "tag": "AI Animation", "filter": "anim", "pill": "Amazon legend", "duration": 37},
+    {"k": "z_cyclops", "title": "Cyclops · Elephant Skulls", "tag": "AI Animation", "filter": "anim", "pill": "Short", "duration": 33},
+    {"k": "a_knight", "title": "Fallen Knight · Butterfly", "tag": "AI Animation", "filter": "anim", "pill": "Dark fantasy", "duration": 10},
+    {"k": "a_ruins", "title": "Overgrown Ruins · FPV Run", "tag": "AI Animation", "filter": "anim", "pill": "Dark fantasy", "duration": 5},
+    {"k": "c_pull", "title": "Crown Cards · Pack Pull", "tag": "AI UGC", "filter": "ugc", "pill": "Ad", "duration": 23},
+    {"k": "c_packs", "title": "Crown Cards · Sealed Packs", "tag": "AI UGC", "filter": "ugc", "pill": "Ad", "duration": 10},
+    {"k": "c_katana", "title": "Katana Unboxing · Hook", "tag": "AI UGC", "filter": "ugc", "pill": "Ad hook", "duration": 6},
+    {"k": "s_sneaker", "title": "Sneaker · Product Spot", "tag": "AI Product Ad", "filter": "ugc", "pill": "Spec ad", "duration": 4}
+  ],
+
+  "cases_intro": "Real numbers from YouTube Studio, each one labelled with what it measures. Read on 26 Oct 2026, last 28 days.",
+  "cases": [
+    {
+      "publish": true,
+      "k": "z_alexander",
+      "title": "Alexander's road through the sea",
+      "client": "Zypiz channel · YouTube Shorts",
+      "problem": "Make a 2,300-year-old siege hold a viewer who is one swipe away from leaving.",
+      "did": "Script built around one visual question, voice, toon 3D scenes made through my Claude workflow in Creatorize's engine, sound design and a frame-by-frame QA pass.",
+      "results": [
+        {"value": "11.6K", "label": "views", "measures": "YouTube views"},
+        {"value": "69.9%", "label": "stayed to watch", "measures": "YouTube Shorts retention"},
+        {"value": "27 s", "label": "average view, 38 s Short", "measures": "Average view duration"}
+      ],
+      "proof": null,
+      "todo": "proof: YouTube Studio screenshot of this Short's overview (assets/proof-alexander.webp)"
+    },
+    {
+      "publish": true,
+      "k": "z_vampire",
+      "title": "Mercy Brown, the real vampire panic",
+      "client": "Zypiz channel · YouTube Shorts",
+      "problem": "Turn an 1892 New England news story into a 49-second Short that people finish.",
+      "did": "Hook written as a question the first frame answers, character scenes, voice and a sound bed mixed under the narration.",
+      "results": [
+        {"value": "3.9K", "label": "views", "measures": "YouTube views"},
+        {"value": "60.2%", "label": "stayed to watch", "measures": "YouTube Shorts retention"},
+        {"value": "33 s", "label": "average view, 49 s Short", "measures": "Average view duration"}
+      ],
+      "proof": null,
+      "todo": "proof: YouTube Studio screenshot (assets/proof-vampire.webp)"
+    },
+    {
+      "publish": true,
+      "k": "z_medusa",
+      "title": "Medusa, told in 36 seconds",
+      "client": "Zypiz channel · YouTube Shorts",
+      "problem": "Retell a myth everyone thinks they know without losing the viewer in the first seconds.",
+      "did": "Script, voice, 3D scenes and captions placed so the face of the story is always centred on a phone.",
+      "results": [
+        {"value": "2.3K", "label": "views", "measures": "YouTube views"},
+        {"value": "59.0%", "label": "stayed to watch", "measures": "YouTube Shorts retention"},
+        {"value": "26 s", "label": "average view, 36 s Short", "measures": "Average view duration"}
+      ],
+      "proof": null,
+      "todo": "proof: YouTube Studio screenshot (assets/proof-medusa.webp)"
+    },
+    {
+      "publish": false,
+      "k": "c_pull",
+      "title": "Crown Cards paid ads",
+      "client": "Crown Cards · Meta ads",
+      "problem": "TODO: the brief in one line",
+      "did": "TODO: what I cut and changed",
+      "results": [],
+      "proof": null,
+      "todo": "Needs real Ads Manager numbers (CTR, hook rate, CPA or ROAS, saying which) + permission from Crown Cards + a screenshot. Stays hidden until publish=true."
+    }
+  ],
+
+  "testimonials": [],
+  "testimonials_todo": "Add {\"quote\", \"name\", \"role\", \"company\"} items with written permission (Crown Cards: Samuel?). The section only renders when this list is not empty.",
+
+  "statics": {
+    "kicker": "Statics and thumbnails",
+    "title": "Stills that stop the scroll",
+    "note": "Crown Cards ads · YouTube thumbnails",
+    "ads": [
+      {"src": "assets/ad-imessage.webp", "label": "iMessage ad", "alt": "iMessage-style static ad for Crown Cards"},
+      {"src": "assets/ad-reddit.webp", "label": "Reddit post ad", "alt": "Reddit post-style static ad for Crown Cards"},
+      {"src": "assets/ad-keep-or-sell.webp", "label": "Keep or sell", "alt": "Keep or sell static ad"},
+      {"src": "assets/ad-notes.webp", "label": "Notes app ad", "alt": "Notes app-style static ad"},
+      {"src": "assets/ad-meme.webp", "label": "Meme ad", "alt": "Meme-style static ad"},
+      {"src": "assets/ad-pikachu.webp", "label": "Pikachu meme", "alt": "Pikachu meme static ad"},
+      {"src": "assets/ad-real-money.webp", "label": "Real money", "alt": "Turn packs into real money static ad"},
+      {"src": "assets/ad-wait-online.webp", "label": "Wait... online?", "alt": "Wait, you can open packs online static ad"}
+    ],
+    "thumbs": [
+      {"src": "assets/thumb-dark-souls.webp", "label": "Dark Souls", "alt": "Dark Souls YouTube thumbnail"},
+      {"src": "assets/thumb-cuphead.webp", "label": "Cuphead", "alt": "Cuphead YouTube thumbnail"},
+      {"src": "assets/thumb-novo-jogo.webp", "label": "Novo Jogo", "alt": "New game YouTube thumbnail"},
+      {"src": "assets/thumb-bendy.webp", "label": "Bendy", "alt": "Bendy YouTube thumbnail"},
+      {"src": "assets/thumb-lethal-company.webp", "label": "Lethal Company", "alt": "Lethal Company YouTube thumbnail"},
+      {"src": "assets/thumb-minecraft.webp", "label": "Minecraft", "alt": "Minecraft YouTube thumbnail"}
+    ]
+  },
+
+  "systems": {
+    "featured": {
+      "role": "AI engineer + developer · 2025",
+      "title": "BeeCatalog",
+      "tagline": "Amazon listings from a product photo. Then from the invoice alone.",
+      "paras": [
+        "I started as a catalog specialist on Amazon listings, entering every product by hand. A batch took about 15 days. In early 2025 I studied AI and built a prototype: upload the image, title and code, and the listing is ready.",
+        "V2, which I was building when I left, reads the invoice (NF-e), generates the product images with AI and fills Amazon's own bulk spreadsheet in batches, so it needs no Amazon API."
+      ],
+      "badges": [
+        {"text": "99.998% less time · 64,800× faster", "hi": true},
+        {"text": "Got me promoted", "hi": true},
+        {"text": "Prototype sold to another company", "hi": false},
+        {"text": "V2 in progress when I left", "hi": false}
+      ],
+      "flow": ["Invoice (NF-e) in", "AI reads every item, stock and price", "AI generates the product images", "Fills Amazon's bulk spreadsheet", "Whole batch listed"],
+      "before": "15 days",
+      "after": "20 seconds"
+    },
+    "cards": [
+      {
+        "viz": "chain",
+        "role": "My own product · 2026",
+        "title": "Claude → 3D animation",
+        "text": "A workflow that turns a script into an animated 3D Short through Claude: voice, scenes, sound design and a QA pass on every frame. My Zypiz channel runs on it, with scenes rendered in Creatorize's 3D engine.",
+        "badges": [{"text": "69.9% stayed to watch", "hi": true}, {"text": "In progress", "hi": false}]
+      },
+      {
+        "viz": "plate",
+        "role": "Architecture · Jan to Jul 2026",
+        "title": "Nowey",
+        "text": "Automotive management. Take a photo of the license plate and the car is registered, catalogued and managed from there. I designed the architecture, then left the team.",
+        "badges": [{"text": "System architecture", "hi": false}, {"text": "Plate recognition", "hi": false}]
+      },
+      {
+        "viz": "box",
+        "role": "Product design + engineering",
+        "title": "Mironga",
+        "text": "A religious goods brand built from zero: a monthly subscription box delivered at home. I made the brand and the product, and worked out how it could stand apart from other brands.",
+        "badges": [{"text": "Brand from zero", "hi": false}, {"text": "Subscription box", "hi": false}]
+      }
+    ]
+  },
+
+  "process": [
+    {"title": "Brief and references", "text": "Top ads in the account, the hook, and what has to stay real: the app, the pack, the price.", "who": "me", "who_label": "I decide"},
+    {"title": "Script and hooks", "text": "Several hooks per concept. One picture per line, first second built as the thumbnail.", "who": "ai", "who_label": "AI drafts · I pick"},
+    {"title": "Generate", "text": "Scenes, voices, characters and layered CTA art, generated as parts I can animate.", "who": "ai", "who_label": "AI generates"},
+    {"title": "Cut, motion, sound", "text": "After Effects and Premiere. Levels checked against the voice, every frame watched before delivery.", "who": "me", "who_label": "I finish"}
+  ],
+
+  "tools": [
+    {"group": "// ai-and-agents", "items": [["Claude Code", "claude"], ["Codex", "openai"], ["ChatGPT · GPT Image", "chatgpt"], ["Cursor", "cursor"], ["Trae", "trae"], ["Antigravity", "antigravity"], ["Gemini · Nano Banana", "gemini"], ["DeepSeek", "deepseek"], ["Kimi", "kimi"], ["Hermes", "hermes"]]},
+    {"group": "// generate-and-voice", "items": [["Higgsfield", "higgsfield"], ["Google Flow", "flow"], ["Kie.ai", "kie"], ["Creatorize", "creatorize"], ["ElevenLabs", "elevenlabs"], ["VoiceStudio", "voicestudio"], ["Kokoro TTS", "kokoro"], ["Chatterbox", "chatterbox"]]},
+    {"group": "// build", "items": [["Java", "java"], ["Python", "python"], ["JavaScript", "js"], ["React", "react"], ["Next.js", "nextjs"], ["VS Code", "vscode"], ["Git · GitHub", "github"], ["Figma", "figma"], ["Notion", "notion"], ["Obsidian", "obsidian"]]},
+    {"group": "// edit-and-motion", "items": [["After Effects", "ae"], ["Premiere Pro", "pr"], ["Photoshop", "ps"], ["DaVinci Resolve", "davinci2"], ["Vegas Pro", "vegas2"], ["Blender", "blender"], ["FFmpeg", "ffmpeg"]]}
+  ],
+
+  "about": {
+    "photo": "assets/photo-marcelo.webp",
+    "photo_alt": "Marcelo, the human behind Zypiz, wearing glasses",
+    "title": "The human behind the goblin",
+    "bio": "I'm Marcelo, online <em>Zypiz</em>. I've edited for <em>9 years</em>: musicians and YouTubers in Brazil, now clients in <em>12+ countries</em>. I'm on Crown Cards today, cutting their ads and improving the system behind them. I also make static ads and thumbnails, and I've been building software for <em>3 years</em>.",
+    "roles": [
+      {"y": "9 yrs", "label": "Video editor", "na": false},
+      {"y": "3 yrs", "label": "Developer", "na": false},
+      {"y": "since 2025", "label": "AI engineer", "na": true},
+      {"y": "brand + UX", "label": "Product design", "na": true}
+    ],
+    "edu": [
+      {"name": "Systems Analysis and Development", "where": "Cruzeiro do Sul Virtual · degree", "status": "In progress", "done": false},
+      {"name": "Java Full Stack Developer", "where": "EBAC · technical course, 2023 to 2025", "status": "Completed", "done": true},
+      {"name": "Development courses", "where": "Alura", "status": "Ongoing", "done": false}
+    ]
+  },
+
+  "cta": {
+    "title": "Got an ad that needs to <em>bite?</em>",
+    "text": "Send the brief, the footage or just the product page. I send back a first cut you can run."
+  },
+
+  "faq": [
+    {"publish": true, "q": "What is AI and what stays real in your ads?", "a": "The product stays real: app screens, packs, cards and prices come from real footage. AI makes what you can't shoot, like scenes, voices and characters. Anything a viewer can check on screen matches the footage."},
+    {"publish": true, "q": "Which platforms do you cut for?", "a": "Meta (Facebook and Instagram), TikTok and YouTube Shorts, all in vertical 9:16. Each hook is cut as its own variation so you can test them against each other."},
+    {"publish": true, "q": "What do you need from me?", "a": "The offer, any raw footage or screen recordings, and the ads that already work for you. A product page is enough to start."},
+    {"publish": false, "q": "How fast do you deliver?", "a": "TODO: first cut in X days, revisions in Y.", "todo": "real turnaround"},
+    {"publish": false, "q": "How many videos can you make per week?", "a": "TODO: N finished ads per week.", "todo": "real weekly capacity"},
+    {"publish": false, "q": "Do you do a test ad?", "a": "TODO: free or paid, and what the test includes.", "todo": "free or paid test"},
+    {"publish": true, "q": "Can you build the system, not just the video?", "a": "Yes. I'm a developer and AI engineer as well as an editor. BeeCatalog and my Claude animation workflow are both systems I designed and built."},
+    {"publish": true, "q": "How do I send a brief?", "a": "Email ozyph1z@gmail.com, message zypizediting on Discord or DM @zyp1z on X. Whichever you use, I answer there."}
+  ],
+
+  "footer": {
+    "place": "Brazil · UTC−3 · working worldwide",
+    "year": 2026
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/sitemap.xml

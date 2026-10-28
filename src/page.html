@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{url}}">
+<meta name="theme-color" content="{{theme_color}}">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="{{favicon}}" type="image/webp">
+<link rel="apple-touch-icon" href="{{apple_touch_icon}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{name}}">
+<meta property="og:locale" content="{{locale}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{og_image_url}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{og_image_alt}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{x_handle}}">
+<meta name="twitter:creator" content="{{x_handle}}">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{og_image_url}}">
+<meta name="twitter:image:alt" content="{{og_image_alt}}">
+<script type="application/ld+json">{{jsonld}}</script>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="{{fonts}}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{fonts}}"></noscript>
+<link rel="preload" as="image" href="assets/hand.webp" fetchpriority="high">
+<style>
+{{css}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+{{header}}
+<main id="main">
+{{hero}}
+{{stats}}
+{{marquee}}
+{{work}}
+{{cases}}
+{{testimonials}}
+{{statics}}
+{{systems}}
+{{process}}
+{{stack}}
+{{about}}
+{{contact}}
+{{faq}}
+</main>
+{{footer}}
+{{dialogs}}
+<div class="gc" id="gc" aria-hidden="true"></div>
+<script>
+{{js}}
+</script>
+</body>
+</html>

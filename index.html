@@ -4,11 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Zypiz · AI Animation &amp; AI UGC Editor</title>
-<meta name="description" content="Zypiz: AI animation, AI UGC ads and editing systems. Video editor for 9 years, developer for 3.">
+<meta name="description" content="AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts. Video editor for 9 years, developer for 3.">
+<link rel="canonical" href="https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/">
+<meta name="theme-color" content="#0b0710">
+<meta name="robots" content="index,follow">
 <link rel="icon" href="favicon.webp" type="image/webp">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zypiz">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/">
+<meta property="og:title" content="Zypiz · AI Animation &amp; AI UGC Editor">
+<meta property="og:description" content="AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts. Video editor for 9 years, developer for 3.">
+<meta property="og:image" content="https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zypiz, AI animation and AI UGC editor: the goblin mascot next to the headline AI makes the footage, I make it bite.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@zyp1z">
+<meta name="twitter:creator" content="@zyp1z">
+<meta name="twitter:title" content="Zypiz · AI Animation &amp; AI UGC Editor">
+<meta name="twitter:description" content="AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts. Video editor for 9 years, developer for 3.">
+<meta name="twitter:image" content="https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/og.jpg">
+<meta name="twitter:image:alt" content="Zypiz, AI animation and AI UGC editor: the goblin mascot next to the headline AI makes the footage, I make it bite.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Marcelo", "alternateName": "Zypiz", "url": "https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/", "image": "https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/assets/photo-marcelo.webp", "jobTitle": "Video editor, AI engineer and developer", "email": "mailto:ozyph1z@gmail.com", "sameAs": ["https://x.com/zyp1z"]}</script>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&amp;family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Permanent+Marker&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&amp;family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Permanent+Marker&amp;display=swap"></noscript>
+<link rel="preload" as="image" href="assets/hand.webp" fetchpriority="high">
 <style>
 /* Layout: nodenvironment's sequence (hero → numbers → work → systems → process → stack → about → CTA → FAQ) in the Zypiz cave palette. Lime = action and numbers, purple = the goblin layer. */
 :root{
@@ -59,15 +84,13 @@ button{font:inherit;color:inherit}
 
 /* goblin cursor (from the current site) */
 .has-gc,.has-gc *{cursor:none!important}
-.gc{position:fixed;left:0;top:0;width:40px;height:40px;z-index:9999;pointer-events:none;background:var(--c-default) 0 0/contain no-repeat;opacity:0;transition:opacity .15s;will-change:transform}
+.gc{position:fixed;left:0;top:0;width:40px;height:40px;z-index:9999;pointer-events:none;background:url(assets/cursor.png) 0 0/contain no-repeat;opacity:0;transition:opacity .15s;will-change:transform}
 .gc.on{opacity:1}
-.gc[data-s="link"]{background-image:var(--c-link)}
-.gc[data-s="click"]{background-image:var(--c-click)}
+.gc[data-s="link"]{background-image:url(assets/cursor-link.png)}
+.gc[data-s="click"]{background-image:url(assets/cursor-click.png)}
 .spark{position:fixed;width:6px;height:6px;border-radius:50%;background:var(--lime);pointer-events:none;z-index:9998;animation:spark .5s var(--out) forwards}
 @keyframes spark{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
 
-.proto-note{background:var(--purple);color:#fff;font:600 13px/1.35 var(--label);letter-spacing:.06em;text-align:center;padding:7px 16px}
-.proto-note b{color:var(--acid)}
 
 /* header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(11,7,16,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)}
@@ -96,7 +119,7 @@ h1 .bite path{stroke:var(--lime);stroke-width:5;fill:none;stroke-linecap:round;s
 .arrow{position:absolute;left:258px;top:40px;width:200px;height:110px;overflow:visible;pointer-events:none}
 .arrow path{fill:none;stroke:var(--lilac);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:520;animation:draw2 1.3s .9s var(--out) backwards}
 @keyframes draw2{from{stroke-dashoffset:520}}
-.arrow-note{position:absolute;left:316px;top:146px;font:400 18px/1.2 var(--hand);color:var(--lilac);transform:rotate(-4deg)}
+.arrow-note{white-space:nowrap;position:absolute;left:316px;top:146px;font:400 18px/1.2 var(--hand);color:var(--lilac);transform:rotate(-4deg)}
 
 /* goblin mascot: image layers with parallax */
 .mascot{position:absolute;left:0;top:0;width:250px;height:280px;background:none;border:0;padding:0;cursor:pointer;perspective:700px}
@@ -147,10 +170,11 @@ h1 .bite path{stroke:var(--lime);stroke-width:5;fill:none;stroke-linecap:round;s
 
 /* results */
 .results{border-bottom:1px solid var(--edge)}
-.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
-.stat{padding:34px 18px 30px;border-right:1px solid var(--edge);min-width:0}
-.stat:last-child{border-right:0}
-.num{font:400 clamp(26px,3vw,44px)/1 var(--display);white-space:nowrap;font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat{padding:30px 22px 28px;border-right:1px solid var(--edge);min-width:0}
+.stat:nth-child(3n){border-right:0}
+.stat:nth-child(-n+3){border-bottom:1px solid var(--edge)}
+.num{font:400 clamp(28px,4vw,48px)/1 var(--display);white-space:nowrap;font-variant-numeric:tabular-nums}
 .num small{font-size:.55em;color:var(--soft)}
 .stat:first-child .num{color:var(--lime);text-shadow:0 0 28px rgba(183,242,41,.45)}
 .lab{margin-top:12px;font:600 13px/1.3 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
@@ -179,28 +203,29 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .chip:hover{color:var(--bone);border-color:var(--lilac)}
 .chip[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
 .lanes{display:grid;gap:22px;position:relative}
-.lanes::before,.lanes::after{content:"";position:absolute;top:0;bottom:0;width:4%;z-index:3;pointer-events:none}
-.lanes::before{left:0;background:linear-gradient(90deg,var(--cave),transparent)}
-.lanes::after{right:0;background:linear-gradient(-90deg,var(--cave),transparent)}
-.lanes.swipe::before,.lanes.swipe::after{display:none}
-.lane{overflow:hidden}
-.row{display:flex;gap:18px;width:max-content;animation:lane var(--dur,70s) linear infinite;will-change:transform}
-.lanes.off .row{animation-play-state:paused}
-/* touch: lanes become native swipe rows, no marquee, only the centred cards play */
-.lanes.swipe .lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-.lanes.swipe .lane::-webkit-scrollbar{display:none}
-.lanes.swipe .row{animation:none;will-change:auto;padding-inline:max(16px,env(safe-area-inset-left,0px));gap:12px}
-.lanes.swipe .card{scroll-snap-align:center}
-.lanes.swipe .card .vid{touch-action:auto}
-.lanes.swipe .card .play{opacity:1;place-items:end start;padding:10px}
-.lanes.swipe .card .play span{width:34px;height:34px;transform:none}
-.lanes.swipe .card .play svg{width:12px;height:12px;margin-left:2px}
-.lanes.swipe .card .play em{display:none}
-.lane.rev .row{animation-direction:reverse}
-.lanes:hover .row{animation-play-state:paused}
+.lane[hidden]{display:none}
+/* default (touch, reduced motion, no JS): native swipe rows; the centred card plays */
+.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.lane::-webkit-scrollbar{display:none}
+.row{display:flex;gap:12px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
+.lanes:not(.auto) .card{scroll-snap-align:center}
+.lanes:not(.auto) .card .play{opacity:1;place-items:end start;padding:10px}
+.lanes:not(.auto) .card .play span{width:34px;height:34px;transform:none}
+.lanes:not(.auto) .card .play svg{width:12px;height:12px;margin-left:2px}
+.lanes:not(.auto) .card .play em{display:none}
+/* mouse: two marquee rows that pause on hover; the hovered card plays */
+.lanes.auto::before,.lanes.auto::after{content:"";position:absolute;top:0;bottom:0;width:4%;z-index:3;pointer-events:none}
+.lanes.auto::before{left:0;background:linear-gradient(90deg,var(--cave),transparent)}
+.lanes.auto::after{right:0;background:linear-gradient(-90deg,var(--cave),transparent)}
+.lanes.auto .lane{overflow:hidden;scroll-snap-type:none}
+.lanes.auto .row{gap:18px;padding-inline:0;animation:lane var(--dur,70s) linear infinite;will-change:transform}
+.lanes.auto .lane.rev .row{animation-direction:reverse}
+.lanes.auto:hover .row,.lanes.off .row{animation-play-state:paused}
+.card[hidden]{display:none}
+.lanes-hint{margin-top:14px;color:var(--soft);font:600 13px/1.3 var(--label);letter-spacing:.12em;text-transform:uppercase}
 @keyframes lane{to{transform:translateX(-50%)}}
-.card{width:206px;flex:none;cursor:pointer;background:none;border:0;padding:0;text-align:left}
-.card .vid{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--cave-2);border:1px solid var(--edge);transition:transform .35s var(--out),border-color .2s}
+.card{display:block;width:206px;flex:none;cursor:pointer;color:inherit;text-decoration:none;text-align:left}
+.card .vid{display:block;position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--cave-2);border:1px solid var(--edge);transition:transform .35s var(--out),border-color .2s}
 .card:hover .vid{transform:translateY(-6px) rotate(-1deg);border-color:var(--lime)}
 .card video{width:100%;height:100%;object-fit:cover;display:block;background:var(--cave-2)}
 .card .stat-pill{position:absolute;left:10px;top:10px;z-index:2;background:rgba(11,7,16,.82);color:var(--lime);font:700 12px/1 var(--label);letter-spacing:.06em;padding:6px 9px;border-radius:999px}
@@ -222,7 +247,7 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .scrubbing{cursor:ew-resize}
 .scrubbing .sbar,.scrubbing .stc,.player .sbar{opacity:1}
 .card .vid.scrubbing .play{opacity:0}
-.lanes.scrubbing .row{animation-play-state:paused}
+.lanes.scrubbing .row{animation-play-state:paused!important}
 
 /* statics + thumbnails */
 .sgal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;perspective:900px}
@@ -273,8 +298,8 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .plate{position:relative;width:150px;height:50px;border-radius:7px;background:#f4f4f0;border:3px solid #1b1b1b;overflow:hidden;display:grid;place-items:center;color:#111;font:700 24px/1 var(--mono);letter-spacing:.06em}
 .plate::before{content:"BRASIL";position:absolute;top:0;left:0;right:0;height:11px;background:#1f4fbf;color:#fff;font:700 8px/11px var(--label);letter-spacing:.3em;text-align:center}
 .plate span{margin-top:9px}
-.scan{position:absolute;left:0;right:0;height:2px;background:var(--lime);box-shadow:0 0 12px 2px rgba(183,242,41,.7);animation:scan 2.2s ease-in-out infinite}
-@keyframes scan{0%,100%{top:12%}50%{top:86%}}
+.scan{position:absolute;left:0;right:0;top:0;height:2px;background:var(--lime);box-shadow:0 0 12px 2px rgba(183,242,41,.7);animation:scan 2.2s ease-in-out infinite}
+@keyframes scan{0%,100%{transform:translateY(6px)}50%{transform:translateY(42px)}}
 .box3{width:84px;height:70px;position:relative}
 .box3 .b{position:absolute;bottom:0;left:6px;right:6px;height:44px;background:var(--purple);border:3px solid var(--ink);border-radius:4px}
 .box3 .b::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:10px;margin-left:-5px;background:var(--lime)}
@@ -297,7 +322,7 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .head-line{position:absolute;top:0;bottom:-4px;left:calc(46px + (100% - 46px) * var(--p,0));width:2px;background:var(--lime);box-shadow:0 0 10px rgba(183,242,41,.6);pointer-events:none}
 .head-line::before{content:"";position:absolute;top:-6px;left:-6px;border:7px solid transparent;border-top-color:var(--lime)}
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
-.step{background:var(--cave-1);border:1px solid var(--edge);border-radius:18px;padding:22px;transition:border-color .3s,transform .4s var(--snap),opacity .3s;opacity:.55}
+.step{background:var(--cave-1);border:1px solid var(--edge);border-radius:18px;padding:22px;transition:border-color .3s,transform .4s var(--snap),opacity .3s;opacity:.8}
 .step.on{border-color:var(--lime);opacity:1;transform:translateY(-4px)}
 .step .n{font:400 30px/1 var(--display);color:var(--rock);transition:color .3s}
 .step.on .n{color:var(--lime)}
@@ -319,7 +344,7 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 @keyframes caret{50%{opacity:0}}
 .tgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:8px 8px 14px}
 .tcol{padding:12px}
-.tcol h4{margin:0 0 10px;font:600 12px/1 var(--mono);color:var(--lilac);letter-spacing:.02em}
+.tcol h3{margin:0 0 10px;font:600 12px/1 var(--mono);color:var(--lilac);letter-spacing:.02em}
 .tr{display:flex;align-items:center;gap:12px;padding:8px 8px;border-radius:9px;font:600 16px/1.1 var(--label);letter-spacing:.03em;color:var(--bone);position:relative;transition:background .2s,transform .25s var(--snap)}
 .tr:hover{background:var(--cave-2);transform:translateX(4px)}
 .ico{width:32px;height:32px;flex:none;border-radius:9px;background:#fbf8f1;border:1px solid var(--edge);display:grid;place-items:center;overflow:hidden;transition:transform .25s var(--snap),box-shadow .2s}
@@ -341,9 +366,9 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .rolec{border:1px solid var(--edge);border-radius:14px;padding:16px;background:var(--cave-1)}
 .rolec .y{font:400 26px/1 var(--display);color:var(--lime)}
 .rolec .y.na{color:var(--lilac);font-size:20px}
-.rolec div:last-child{margin-top:8px;font:600 14px/1.25 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.rolec p:last-child{margin-top:8px;font:600 14px/1.25 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
 .edu{display:grid;gap:0;border-top:1px solid var(--edge)}
-.edu div{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--edge)}
+.edu li{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--edge)}
 .edu b{font:600 17px/1.3 var(--body)}
 .edu small{display:block;color:var(--soft);font-size:15px}
 .edu em{font-style:normal;font:700 12px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);align-self:center;white-space:nowrap}
@@ -357,9 +382,6 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .big{font-size:17px;padding:18px 30px}
 .peek{display:block;margin:0 auto 10px;width:120px;animation:peek 4s ease-in-out infinite;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
 @keyframes peek{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(4deg) translateY(-8px)}}
-.socials{display:flex;justify-content:center;gap:12px;margin-top:34px}
-.soc{width:46px;height:46px;border-radius:50%;border:1px solid var(--rock);display:grid;place-items:center;background:var(--cave-1);color:var(--bone);text-decoration:none;font:700 13px/1 var(--label);cursor:pointer;transition:transform .25s var(--snap),border-color .2s}
-.soc:hover{transform:translateY(-3px);border-color:var(--lime)}
 
 /* faq */
 .faq .wrap{max-width:820px}
@@ -377,7 +399,8 @@ details[open] summary .x::before,details[open] summary .x::after{background:var(
 .mark{background:rgba(215,255,63,.14);color:var(--acid);padding:1px 5px;border-radius:4px;font-size:.92em}
 
 footer{border-top:1px solid var(--edge);padding-block:26px;color:var(--soft);font:600 14px/1.4 var(--label);letter-spacing:.06em}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer b{color:var(--bone)}
 
 /* dialogs */
 dialog{border:1px solid var(--rock);background:var(--cave-1);color:var(--bone);border-radius:22px;padding:28px;width:min(440px,calc(100vw - 32px));max-height:min(85vh,calc(100svh - 32px))}
@@ -385,7 +408,7 @@ dialog::backdrop{background:rgba(5,3,8,.7);backdrop-filter:blur(4px)}
 dialog[open]{animation:pop .22s ease-out}
 dialog[open]::backdrop{animation:pop .22s ease-out}
 @keyframes pop{from{opacity:0}}
-dialog h3{font:400 26px/1.1 var(--display);margin-bottom:8px;padding-right:30px}
+dialog h2{font:400 26px/1.1 var(--display);margin:0 0 8px;padding-right:30px}
 dialog .close{position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:50%;border:1px solid var(--rock);background:none;cursor:pointer;color:var(--soft)}
 dialog p{color:var(--soft);margin-bottom:18px}
 .opt{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 16px;margin-top:10px;border:1px solid var(--edge);border-radius:14px;background:var(--cave-2);color:var(--bone);text-decoration:none;cursor:pointer;text-align:left;transition:border-color .2s,transform .2s}
@@ -404,9 +427,6 @@ dialog p{color:var(--soft);margin-bottom:18px}
 .flist span{border:1px solid var(--rock);border-radius:999px;padding:8px 12px;font:600 14px/1 var(--label);letter-spacing:.06em}
 
 @media (max-width:1020px){
-  .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .stat:nth-child(3){border-right:0}
-  .stat:nth-child(-n+3){border-bottom:1px solid var(--edge)}
   .steps,.roles{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sgrid{grid-template-columns:1fr 1fr}
@@ -428,7 +448,7 @@ dialog p{color:var(--soft);margin-bottom:18px}
   .phone-col{justify-content:center;align-self:auto;margin:0 0 -150px;width:100%}
   .handphone{width:min(100vw,420px);margin-right:-8vw}
   .burst{display:none}
-  .num{font-size:30px}
+  .num{font-size:26px}
   .stat{padding:24px 14px 22px}
   .lab{font-size:12px;letter-spacing:.08em}
   .marquee{padding-block:12px}
@@ -458,12 +478,12 @@ dialog p{color:var(--soft);margin-bottom:18px}
   .rolec{padding:12px}
   .rolec .y{font-size:22px}
   .rolec .y.na{font-size:17px}
-  .edu div{grid-template-columns:1fr;gap:6px}
+  .edu li{grid-template-columns:1fr;gap:6px}
   .edu em{justify-self:start}
   summary{font-size:17px;padding:18px 2px}
   footer .wrap{justify-content:center;text-align:center}
   dialog{padding:22px}
-  dialog h3{font-size:22px}
+  dialog h2{font-size:22px}
   .burger{display:block}
   .top .pill{padding:11px 14px;font-size:13px}
   .hero{padding-block:34px 44px}
@@ -487,64 +507,125 @@ dialog p{color:var(--soft);margin-bottom:18px}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+/* 27/10 rebuild: static content, cases, contacts, a11y helpers */
+ul.flow,ol.flow,ol.steps,ul.edu,ul.res,ul.flist,.tcol ul,.socials,.fcontacts{list-style:none;margin:0;padding:0}
+.flist li{border:1px solid var(--rock);border-radius:999px;padding:8px 12px;font:600 14px/1 var(--label);letter-spacing:.06em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--lime);color:var(--ink);font:700 14px/1 var(--label);padding:12px 16px;border-radius:999px;text-decoration:none}
+.skip:focus{top:12px}
+html:not(.js) .chips,html:not(.js) .arrow,html:not(.js) .arrow-note,html:not(.js) .snd{display:none}
+a.pill{display:inline-block;text-decoration:none}
+.top-r{display:flex;gap:10px;align-items:center}
+.hero-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+.hero-cta .link-btn{text-decoration:none}
+.sec-note{font:700 13px/1.4 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);max-width:46ch}
+.about-grid h2{margin-bottom:18px}
+/* cases */
+.cases{display:grid;gap:18px}
+.case{display:grid;grid-template-columns:200px 1fr;gap:28px;background:var(--cave-1);border:1px solid var(--edge);border-radius:22px;padding:22px;align-items:start}
+.case-vid{position:relative;display:block;aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid var(--rock);background:var(--cave-2)}
+.case-vid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--out)}
+.case-vid .play{position:absolute;inset:0;display:grid;place-items:center}
+.case-vid .play span{width:52px;height:52px;border-radius:50%;background:rgba(242,236,223,.92);display:grid;place-items:center;transition:transform .3s var(--snap)}
+.case-vid .play svg{width:18px;height:18px;margin-left:3px;fill:var(--ink)}
+.case-vid:hover img{transform:scale(1.05)}
+.case-vid:hover .play span{transform:scale(1.1)}
+.case-vid .dur{position:absolute;right:10px;bottom:10px;display:flex;align-items:center;gap:5px;background:rgba(11,7,16,.85);color:var(--bone);font:700 12px/1 var(--label);letter-spacing:.06em;padding:6px 8px;border-radius:999px}
+.case-vid .dur svg{width:13px;height:13px;fill:var(--lime);color:var(--lime)}
+.case h3{font:400 clamp(24px,2.6vw,32px)/1.08 var(--display);margin:10px 0 14px}
+.pdr{margin:0;display:grid;gap:12px}
+.pdr div{display:grid;grid-template-columns:110px 1fr;gap:14px}
+.pdr dt{font:700 12px/1.6 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--lilac)}
+.pdr dd{margin:0;color:var(--soft);font-size:16px}
+.res-h{margin-top:18px;font:700 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.res li{border:1px solid var(--edge);border-radius:14px;padding:14px;background:var(--cave-2)}
+.res b{display:block;font:400 clamp(24px,2.6vw,32px)/1 var(--display);color:var(--lime)}
+.res span{display:block;margin-top:6px;font:600 14px/1.25 var(--label);letter-spacing:.04em;color:var(--bone)}
+.res small{display:block;margin-top:4px;font:500 12px/1.3 var(--mono);color:var(--soft)}
+.proof{margin:16px 0 0}
+.proof img{display:block;max-width:100%;height:auto;border-radius:12px;border:1px solid var(--edge)}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.quote{margin:0;background:var(--cave-1);border:1px solid var(--edge);border-radius:20px;padding:24px}
+.quote blockquote{margin:0 0 14px;font-size:18px}
+.quote figcaption{color:var(--soft);font:600 14px/1.3 var(--label);letter-spacing:.06em}
+/* contact links (CTA + footer) */
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+.socials a,.fcontacts a{display:flex;align-items:center;gap:8px;border:1px solid var(--rock);border-radius:999px;padding:10px 16px;background:var(--cave-1);color:var(--bone);text-decoration:none;font:600 15px/1 var(--label);letter-spacing:.04em;transition:transform .25s var(--snap),border-color .2s}
+.socials a:hover,.fcontacts a:hover{transform:translateY(-2px);border-color:var(--lime)}
+.socials b,.fcontacts b{color:var(--lime);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
+.fcontacts{display:flex;flex-wrap:wrap;gap:8px}
+.fcontacts a{padding:8px 12px;font-size:14px}
+.faq-cta{margin-top:24px;color:var(--soft)}
+.faq-cta a{color:var(--lime)}
+@media (max-width:760px){
+  .case{grid-template-columns:1fr;padding:18px;gap:18px}
+  .case-vid{width:150px}
+  .pdr div{grid-template-columns:1fr;gap:4px}
+  .res{grid-template-columns:1fr 1fr}
+  .hero-cta{gap:14px}
+  footer .wrap{flex-direction:column}
+}
+/* below the fold: skip layout and paint until near the screen; decorative loops pause off screen */
+#statics,#systems,#process,#stack,#about,#contact,#faq,#cases{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.idle *,.idle *::before,.idle *::after{animation-play-state:paused!important}
+
 </style>
-
-
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
-    <a href="#top" aria-label="Zypiz home"><img class="logo" src="assets/img-16088a60.webp" alt="Zypiz"></a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
-    </nav>
-    <div style="display:flex;gap:10px;align-items:center">
-      <button class="pill" data-open="talk">Send a brief</button>
-      <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><i></i></button>
+    <a href="#main" aria-label="Zypiz home"><img class="logo" src="assets/logo.webp" width="89" height="34" alt="Zypiz"></a>
+    <nav class="nav" aria-label="Sections"><a href="#work">Work</a><a href="#cases">Cases</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+    <div class="top-r">
+      <a class="pill" href="#contact" data-open="talk">Send a brief</a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><i></i></button>
     </div>
   </div>
-  <nav class="mnav" id="mnav" aria-label="Sections" hidden>
-    <a href="#work">Work</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a>
-  </nav>
+  <nav class="mnav" id="mnav" aria-label="Sections (mobile)" hidden><a href="#work">Work</a><a href="#cases">Cases</a><a href="#systems">Systems</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
 </header>
-
-<main id="top">
+<main id="main">
 <section class="hero" aria-label="Intro">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Video editor <i>·</i> AI engineer <i>·</i> Developer</div>
+      <p class="eyebrow">Video editor <i>·</i> AI engineer <i>·</i> Developer</p>
       <h1>AI makes the footage. I make it <span class="bite">bite.<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 50 4, 110 18, 196 6"/></svg></span></h1>
-      <p class="sub">AI UGC ads and animated shorts, plus the AI systems that make them faster to produce.</p>
+      <p class="sub">AI UGC ads and animated Shorts for brands and creators on Meta, TikTok and YouTube Shorts.</p>
+      <div class="hero-cta"><a class="pill big" href="#contact" data-open="talk">Send a brief →</a><a class="link-btn" href="#work">See the work</a></div>
       <div class="mascot-row">
-        <button class="mascot" id="mascot" aria-label="Send a brief">
+        <a class="mascot" id="mascot" href="#contact" data-open="talk" aria-label="Send a brief">
           <span class="glow"></span>
           <span class="gob" id="gob">
-            <span class="lay ear-l" data-d="3"><img src="assets/img-6627fdce.webp" alt=""></span>
-            <span class="lay ear-r" data-d="3"><img src="assets/img-73a15cbf.webp" alt=""></span>
+            <span class="lay ear-l" data-d="3"><img src="assets/gob-ear-l.webp" width="240" height="240" alt=""></span>
+            <span class="lay ear-r" data-d="3"><img src="assets/gob-ear-r.webp" width="240" height="240" alt=""></span>
             <span class="lay head" data-d="3.5">
-              <img class="st on" data-st="rest" src="assets/img-a2addeb7.webp" alt="">
-              <img class="st" data-st="open" src="assets/img-795fb790.webp" alt="">
-              <img class="st" data-st="bite" src="assets/img-467101dd.webp" alt="">
-              <img class="st" data-st="blink" src="assets/img-a2addeb7.webp" alt="">
+              <img class="st on" data-st="rest" src="assets/gob-rest.webp" width="240" height="240" alt="">
+              <img class="st" data-st="open" src="assets/gob-open.webp" width="240" height="240" alt="" loading="lazy">
+              <img class="st" data-st="bite" src="assets/gob-bite.webp" width="240" height="240" alt="" loading="lazy">
             </span>
-            <span class="lay hairw" data-d="8"><img class="hair" src="assets/img-d03eb564.webp" alt=""></span>
+            <span class="lay hairw" data-d="8"><img class="hair" src="assets/gob-hair.webp" width="240" height="240" alt=""></span>
           </span>
-          <span class="plaque">SEND A BRIEF</span>
-        </button>
+          <span class="plaque" aria-hidden="true">SEND A BRIEF</span>
+        </a>
         <svg class="arrow" viewBox="0 0 200 110" aria-hidden="true">
           <path d="M194 30 C 172 8, 140 12, 132 34 C 124 56, 156 60, 158 40 C 160 20, 124 20, 100 40 C 76 60, 48 68, 14 64"/>
           <path d="M30 50 L12 64 L32 78"/>
         </svg>
-        <div class="arrow-note"><span class="hint-mouse">hover her. then click.</span><span class="hint-touch">tap her. she bites.</span></div>
+        <p class="arrow-note" aria-hidden="true"><span class="hint-mouse">hover her. then click.</span><span class="hint-touch">tap her. she bites.</span></p>
       </div>
     </div>
     <div class="phone-col">
       <div class="handphone" id="handphone">
         <div class="hp-float">
-          <div class="phone" id="phone" role="button" tabindex="0" aria-label="Play this clip with sound">
+          <a class="phone" id="phone" href="media/full/p_trailer.mp4" data-play="p_trailer" aria-label="Play the reel clip with sound">
+            <video class="on" muted loop playsinline preload="none" poster="assets/poster-p_trailer.webp" data-src="media/reel_p_trailer.mp4" data-k="p_trailer" data-label="AI Animation · 6 styles" aria-hidden="true"></video><video muted loop playsinline preload="none" poster="assets/poster-g_glossa.webp" data-src="media/reel_g_glossa.mp4" data-k="g_glossa" data-label="AI Song Ad · Glossa" aria-hidden="true"></video><video muted loop playsinline preload="none" poster="assets/poster-z_alexander.webp" data-src="media/z_alexander.mp4" data-k="z_alexander" data-label="AI Animation · 69.9% stayed" aria-hidden="true"></video><video muted loop playsinline preload="none" poster="assets/poster-t_yig.webp" data-src="media/reel_t_yig.mp4" data-k="t_yig" data-label="Analog Horror · TEORIZA" aria-hidden="true"></video><video muted loop playsinline preload="none" poster="assets/poster-z_vampire.webp" data-src="media/z_vampire.mp4" data-k="z_vampire" data-label="AI Animation" aria-hidden="true"></video><video muted loop playsinline preload="none" poster="assets/poster-c_pull.webp" data-src="media/reel_c_pull.mp4" data-k="c_pull" data-label="AI UGC · Crown Cards" aria-hidden="true"></video>
+            <span class="tagline" id="phoneTag">AI Animation · 6 styles</span>
             <span class="snd"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Tap for sound</span>
-            <span class="tagline" id="phoneTag">AI Animation</span>
-            <div class="dots" id="dots"></div>
-          </div>
-          <img class="hand" decoding="async" src="assets/img-c038d3ed.webp" alt="">
+            <span class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </a>
+          <img class="hand" src="assets/hand.webp" width="540" height="746" alt="" fetchpriority="high">
         </div>
         <svg class="burst b1" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L32 24 M12 14 L22 28 M6 34 L20 36"/></svg>
         <svg class="burst b2" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L28 24 M48 14 L38 28 M54 34 L40 36"/></svg>
@@ -552,108 +633,136 @@ dialog p{color:var(--soft);margin-bottom:18px}
     </div>
   </div>
 </section>
-
-<div class="results" id="results">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><div class="num" data-to="1.8" data-dec="1" data-suf="M+">1.8M+</div><div class="lab">Views on videos I edited</div></div>
-      <div class="stat"><div class="num" data-to="99.9" data-dec="1" data-suf="%+">99.9%+</div><div class="lab">Less catalog time, 15 days → 20 s</div></div>
-      <div class="stat"><div class="num" data-to="69.9" data-dec="1" data-suf="%">69.9%</div><div class="lab">Stayed to watch, best AI Short</div></div>
-      <div class="stat"><div class="num" data-to="12" data-suf="+">12+</div><div class="lab">Countries I've worked for</div></div>
-      <div class="stat"><div class="num" data-to="9" data-suf=" yrs">9 yrs</div><div class="lab">Editing and motion</div></div>
-      <div class="stat"><div class="num" data-to="3" data-suf=" yrs">3 yrs</div><div class="lab">Building software</div></div>
-    </div>
-  </div>
-  <div class="full"><button class="link-btn" data-open="formats">See every format I cut →</button></div>
-</div>
-
-<div class="marquee" aria-hidden="true">
-  <div class="mtrack" id="mtrack"></div>
-</div>
-
+<section class="results" id="results" aria-label="Results">
+  <div class="wrap"><div class="stats"><div class="stat"><p class="num" data-to="1.8" data-dec="1" data-suf="M+">1.8M+</p><p class="lab">Views on videos I edited</p></div><div class="stat"><p class="num" data-to="99.998" data-dec="3" data-suf="%">99.998%</p><p class="lab">Less catalog time, 15 days → 20 s</p></div><div class="stat"><p class="num" data-to="69.9" data-dec="1" data-suf="%">69.9%</p><p class="lab">Stayed to watch, best AI Short</p></div><div class="stat"><p class="num" data-to="12" data-dec="0" data-suf="+">12+</p><p class="lab">Countries I&#x27;ve worked for</p></div><div class="stat"><p class="num" data-to="9" data-dec="0" data-suf=" yrs">9 yrs</p><p class="lab">Editing and motion</p></div><div class="stat"><p class="num" data-to="3" data-dec="0" data-suf=" yrs">3 yrs</p><p class="lab">Building software</p></div></div></div>
+  <div class="full"><button class="link-btn" type="button" data-open="formats">See every format I cut →</button></div>
+</section>
+<div class="marquee" aria-hidden="true"><div class="mtrack" id="mtrack"><span>AI UGC</span><i>·</i><span>AI voice ads</span><i>·</i><span>AI clip ads</span><i>·</i><span>Faceless story ads</span><i>·</i><span>iMessage ads</span><i>·</i><span>Reddit-post ads</span><i>·</i><span>Static ads</span><i>·</i><span>App demo cuts</span><i>·</i><span>Pack-pull reactions</span><i>·</i><span>Toon Shorts</span><i>·</i><span>POV Shorts</span><i>·</i><span>Mythology explainers</span><i>·</i><span>Music videos</span><i>·</i><span>YouTube edits</span><i>·</i><span>Thumbnails</span><i>·</i><span>AI UGC</span><i>·</i><span>AI voice ads</span><i>·</i><span>AI clip ads</span><i>·</i><span>Faceless story ads</span><i>·</i><span>iMessage ads</span><i>·</i><span>Reddit-post ads</span><i>·</i><span>Static ads</span><i>·</i><span>App demo cuts</span><i>·</i><span>Pack-pull reactions</span><i>·</i><span>Toon Shorts</span><i>·</i><span>POV Shorts</span><i>·</i><span>Mythology explainers</span><i>·</i><span>Music videos</span><i>·</i><span>YouTube edits</span><i>·</i><span>Thumbnails</span><i>·</i></div></div>
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="kicker">Recent work</div><h2>Fresh from the cave</h2></div>
+      <div><p class="kicker">Recent work</p><h2>Fresh from the cave</h2></div>
       <div class="chips" role="group" aria-label="Filter work">
-        <button class="chip" aria-pressed="true" data-f="all">All</button>
-        <button class="chip" aria-pressed="false" data-f="ugc">AI UGC</button>
-        <button class="chip" aria-pressed="false" data-f="anim">AI Animation</button>
+        <button class="chip" type="button" aria-pressed="true" data-f="all">All</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="ugc">AI UGC</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="anim">AI Animation</button>
       </div>
     </div>
   </div>
   <div class="lanes" id="lanes">
-    <div class="lane"><div class="row" id="row1"></div></div>
-    <div class="lane rev"><div class="row" id="row2" style="--dur:84s"></div></div>
+    <div class="lane"><div class="row" id="row1"><a class="card" href="media/full/p_trailer.mp4" data-play="p_trailer" data-f="anim" data-title="Zypiz · Still Doubting Me?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-p_trailer.webp" data-src="media/p_trailer.mp4" aria-hidden="true"></video><span class="stat-pill">6 styles · one take</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:47</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Zypiz · Still Doubting Me?</b><span>AI Animation</span></span></a><a class="card" href="media/full/g_glossa.mp4" data-play="g_glossa" data-f="anim" data-title="Glossa · Cloud Balm"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-g_glossa.webp" data-src="media/g_glossa.mp4" aria-hidden="true"></video><span class="stat-pill">Pixar-style 3D</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Glossa · Cloud Balm</b><span>AI Song Ad</span></span></a><a class="card" href="media/full/z_alexander.mp4" data-play="z_alexander" data-f="anim" data-title="Alexander · Road Through the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_alexander.webp" data-src="media/z_alexander.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 11.6K · 69.9% stayed</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Alexander · Road Through the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_vampire.mp4" data-play="z_vampire" data-f="anim" data-title="Mercy Brown · Real Vampire"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_vampire.webp" data-src="media/z_vampire.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 3.9K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:48</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Mercy Brown · Real Vampire</b><span>AI Animation</span></span></a><a class="card" href="media/full/t_yig.mp4" data-play="t_yig" data-f="anim" data-title="TEORIZA · The Curse of Yig"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-t_yig.webp" data-src="media/t_yig.mp4" aria-hidden="true"></video><span class="stat-pill">Episode intro</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:20</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>TEORIZA · The Curse of Yig</b><span>Analog Horror</span></span></a><a class="card" href="media/full/z_medusa.mp4" data-play="z_medusa" data-f="anim" data-title="Medusa · The Gorgon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_medusa.webp" data-src="media/z_medusa.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 2.3K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Medusa · The Gorgon</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kraken.mp4" data-play="z_kraken" data-f="anim" data-title="The Kraken"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kraken.webp" data-src="media/z_kraken.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:43</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>The Kraken</b><span>AI Animation</span></span></a><a class="card" href="media/full/d_snooze.mp4" data-play="d_snooze" data-f="anim" data-title="Snoozebrick · Cloud Pillow"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-d_snooze.webp" data-src="media/d_snooze.mp4" aria-hidden="true"></video><span class="stat-pill">Toy stop-motion</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Snoozebrick · Cloud Pillow</b><span>Brick Toy</span></span></a><a class="card" href="media/full/z_dracula.mp4" data-play="z_dracula" data-f="anim" data-title="Dracula · Real Blood?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_dracula.webp" data-src="media/z_dracula.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:28</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Dracula · Real Blood?</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_poseidon.mp4" data-play="z_poseidon" data-f="anim" data-title="Poseidon · God of the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_poseidon.webp" data-src="media/z_poseidon.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:46</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Poseidon · God of the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_wendigo.mp4" data-play="z_wendigo" data-f="anim" data-title="Wendigo · Swift Runner"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_wendigo.webp" data-src="media/z_wendigo.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Wendigo · Swift Runner</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_godzilla.mp4" data-play="z_godzilla" data-f="anim" data-title="Godzilla · Lucky Dragon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_godzilla.webp" data-src="media/z_godzilla.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:41</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Godzilla · Lucky Dragon</b><span>AI Animation</span></span></a></div></div>
+    <div class="lane rev"><div class="row" id="row2" style="--dur:84s"><a class="card" href="media/full/z_talos.mp4" data-play="z_talos" data-f="anim" data-title="Talos · Bronze Robot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_talos.webp" data-src="media/z_talos.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:34</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Talos · Bronze Robot</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kuchisake.mp4" data-play="z_kuchisake" data-f="anim" data-title="Kuchisake-onna"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kuchisake.webp" data-src="media/z_kuchisake.mp4" aria-hidden="true"></video><span class="stat-pill">Japanese legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:38</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Kuchisake-onna</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_whales.mp4" data-play="z_whales" data-f="anim" data-title="Whales in the Desert"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_whales.webp" data-src="media/z_whales.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Whales in the Desert</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_mapinguari.mp4" data-play="z_mapinguari" data-f="anim" data-title="Mapinguari · Ground Sloth"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_mapinguari.webp" data-src="media/z_mapinguari.mp4" aria-hidden="true"></video><span class="stat-pill">Amazon legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Mapinguari · Ground Sloth</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_cyclops.mp4" data-play="z_cyclops" data-f="anim" data-title="Cyclops · Elephant Skulls"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_cyclops.webp" data-src="media/z_cyclops.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:33</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Cyclops · Elephant Skulls</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_knight.mp4" data-play="a_knight" data-f="anim" data-title="Fallen Knight · Butterfly"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_knight.webp" data-src="media/a_knight.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Fallen Knight · Butterfly</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_ruins.mp4" data-play="a_ruins" data-f="anim" data-title="Overgrown Ruins · FPV Run"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_ruins.webp" data-src="media/a_ruins.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:05</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Overgrown Ruins · FPV Run</b><span>AI Animation</span></span></a><a class="card" href="media/full/c_pull.mp4" data-play="c_pull" data-f="ugc" data-title="Crown Cards · Pack Pull"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_pull.webp" data-src="media/c_pull.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Crown Cards · Pack Pull</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_packs.mp4" data-play="c_packs" data-f="ugc" data-title="Crown Cards · Sealed Packs"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_packs.webp" data-src="media/c_packs.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Crown Cards · Sealed Packs</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_katana.mp4" data-play="c_katana" data-f="ugc" data-title="Katana Unboxing · Hook"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_katana.webp" data-src="media/c_katana.mp4" aria-hidden="true"></video><span class="stat-pill">Ad hook</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:06</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Katana Unboxing · Hook</b><span>AI UGC</span></span></a><a class="card" href="media/full/s_sneaker.mp4" data-play="s_sneaker" data-f="ugc" data-title="Sneaker · Product Spot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-s_sneaker.webp" data-src="media/s_sneaker.mp4" aria-hidden="true"></video><span class="stat-pill">Spec ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:04</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Sneaker · Product Spot</b><span>AI Product Ad</span></span></a></div></div>
+  </div>
+  <p class="wrap lanes-hint">Every clip opens the full cut with sound.</p>
+</section>
+<section class="bt" id="cases">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Proof, not promises</p><h2>Mini cases</h2></div><p class="sec-note">Real numbers from YouTube Studio, each one labelled with what it measures. Read on 26 Oct 2026, last 28 days.</p></div>
+    <div class="cases"><article class="case">
+      <a class="case-vid" href="media/full/z_alexander.mp4" data-play="z_alexander" data-title="Alexander · Road Through the Sea">
+        <img src="assets/poster-z_alexander.webp" width="270" height="480" alt="" loading="lazy">
+        <span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Watch with sound, </span>0:37</span>
+      </a>
+      <div class="case-body">
+        <p class="role">Zypiz channel · YouTube Shorts</p>
+        <h3>Alexander&#x27;s road through the sea</h3>
+        <dl class="pdr">
+          <div><dt>Problem</dt><dd>Make a 2,300-year-old siege hold a viewer who is one swipe away from leaving.</dd></div>
+          <div><dt>What I did</dt><dd>Script built around one visual question, voice, toon 3D scenes made through my Claude workflow in Creatorize&#x27;s engine, sound design and a frame-by-frame QA pass.</dd></div>
+        </dl>
+        <p class="res-h">Result</p>
+        <ul class="res"><li><b>11.6K</b><span>views</span><small>YouTube views</small></li><li><b>69.9%</b><span>stayed to watch</span><small>YouTube Shorts retention</small></li><li><b>27 s</b><span>average view, 38 s Short</span><small>Average view duration</small></li></ul>
+        <!-- TODO proof: proof: YouTube Studio screenshot of this Short&#x27;s overview (assets/proof-alexander.webp) -->
+      </div>
+    </article><article class="case">
+      <a class="case-vid" href="media/full/z_vampire.mp4" data-play="z_vampire" data-title="Mercy Brown · Real Vampire">
+        <img src="assets/poster-z_vampire.webp" width="270" height="480" alt="" loading="lazy">
+        <span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Watch with sound, </span>0:48</span>
+      </a>
+      <div class="case-body">
+        <p class="role">Zypiz channel · YouTube Shorts</p>
+        <h3>Mercy Brown, the real vampire panic</h3>
+        <dl class="pdr">
+          <div><dt>Problem</dt><dd>Turn an 1892 New England news story into a 49-second Short that people finish.</dd></div>
+          <div><dt>What I did</dt><dd>Hook written as a question the first frame answers, character scenes, voice and a sound bed mixed under the narration.</dd></div>
+        </dl>
+        <p class="res-h">Result</p>
+        <ul class="res"><li><b>3.9K</b><span>views</span><small>YouTube views</small></li><li><b>60.2%</b><span>stayed to watch</span><small>YouTube Shorts retention</small></li><li><b>33 s</b><span>average view, 49 s Short</span><small>Average view duration</small></li></ul>
+        <!-- TODO proof: proof: YouTube Studio screenshot (assets/proof-vampire.webp) -->
+      </div>
+    </article><article class="case">
+      <a class="case-vid" href="media/full/z_medusa.mp4" data-play="z_medusa" data-title="Medusa · The Gorgon">
+        <img src="assets/poster-z_medusa.webp" width="270" height="480" alt="" loading="lazy">
+        <span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Watch with sound, </span>0:36</span>
+      </a>
+      <div class="case-body">
+        <p class="role">Zypiz channel · YouTube Shorts</p>
+        <h3>Medusa, told in 36 seconds</h3>
+        <dl class="pdr">
+          <div><dt>Problem</dt><dd>Retell a myth everyone thinks they know without losing the viewer in the first seconds.</dd></div>
+          <div><dt>What I did</dt><dd>Script, voice, 3D scenes and captions placed so the face of the story is always centred on a phone.</dd></div>
+        </dl>
+        <p class="res-h">Result</p>
+        <ul class="res"><li><b>2.3K</b><span>views</span><small>YouTube views</small></li><li><b>59.0%</b><span>stayed to watch</span><small>YouTube Shorts retention</small></li><li><b>26 s</b><span>average view, 36 s Short</span><small>Average view duration</small></li></ul>
+        <!-- TODO proof: proof: YouTube Studio screenshot (assets/proof-medusa.webp) -->
+      </div>
+    </article></div>
   </div>
 </section>
-
+<!-- TODO testimonials: add them to content.json (see testimonials_todo); the section renders when the list is not empty -->
 <section class="bt" id="statics">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Statics and thumbnails</div><h2>Stills that stop the scroll</h2></div><p class="kicker" style="letter-spacing:.14em">Crown Cards ads · YouTube thumbnails</p></div>
-    <div class="sgal"><button class="still ad" aria-label="iMessage ad"><img src="assets/img-32b4609d.webp" alt="iMessage ad" loading="lazy"><span>iMessage ad</span></button><button class="still ad" aria-label="Reddit post ad"><img src="assets/img-ceb28162.webp" alt="Reddit post ad" loading="lazy"><span>Reddit post ad</span></button><button class="still ad" aria-label="Keep or sell"><img src="assets/img-474cdbe9.webp" alt="Keep or sell" loading="lazy"><span>Keep or sell</span></button><button class="still ad" aria-label="Notes app ad"><img src="assets/img-c13852d1.webp" alt="Notes app ad" loading="lazy"><span>Notes app ad</span></button><button class="still ad" aria-label="Meme ad"><img src="assets/img-952abbf3.webp" alt="Meme ad" loading="lazy"><span>Meme ad</span></button><button class="still ad" aria-label="Pikachu meme"><img src="assets/img-bc69b867.webp" alt="Pikachu meme" loading="lazy"><span>Pikachu meme</span></button><button class="still ad" aria-label="Real money"><img src="assets/img-f6f8fe1f.webp" alt="Real money" loading="lazy"><span>Real money</span></button><button class="still ad" aria-label="Wait... online?"><img src="assets/img-ec786c2f.webp" alt="Wait... online?" loading="lazy"><span>Wait... online?</span></button></div>
-    <div class="tgal"><button class="still th" aria-label="Dark Souls"><img src="assets/img-6946cdf1.webp" alt="Dark Souls" loading="lazy"><span>Dark Souls</span></button><button class="still th" aria-label="Cuphead"><img src="assets/img-4c99229d.webp" alt="Cuphead" loading="lazy"><span>Cuphead</span></button><button class="still th" aria-label="Novo Jogo"><img src="assets/img-0aaffdc5.webp" alt="Novo Jogo" loading="lazy"><span>Novo Jogo</span></button><button class="still th" aria-label="Bendy"><img src="assets/img-65a20e9d.webp" alt="Bendy" loading="lazy"><span>Bendy</span></button><button class="still th" aria-label="Lethal Company"><img src="assets/img-4b5e4404.webp" alt="Lethal Company" loading="lazy"><span>Lethal Company</span></button><button class="still th" aria-label="Minecraft"><img src="assets/img-64889f1e.webp" alt="Minecraft" loading="lazy"><span>Minecraft</span></button></div>
+    <div class="sec-head"><div><p class="kicker">Statics and thumbnails</p><h2>Stills that stop the scroll</h2></div><p class="sec-note">Crown Cards ads · YouTube thumbnails</p></div>
+    <div class="sgal"><button class="still ad" type="button" data-full="assets/ad-imessage.webp" aria-label="Enlarge: iMessage-style static ad for Crown Cards"><img src="assets/ad-imessage.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">iMessage ad</span></button><button class="still ad" type="button" data-full="assets/ad-reddit.webp" aria-label="Enlarge: Reddit post-style static ad for Crown Cards"><img src="assets/ad-reddit.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Reddit post ad</span></button><button class="still ad" type="button" data-full="assets/ad-keep-or-sell.webp" aria-label="Enlarge: Keep or sell static ad"><img src="assets/ad-keep-or-sell.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Keep or sell</span></button><button class="still ad" type="button" data-full="assets/ad-notes.webp" aria-label="Enlarge: Notes app-style static ad"><img src="assets/ad-notes.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Notes app ad</span></button><button class="still ad" type="button" data-full="assets/ad-meme.webp" aria-label="Enlarge: Meme-style static ad"><img src="assets/ad-meme.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Meme ad</span></button><button class="still ad" type="button" data-full="assets/ad-pikachu.webp" aria-label="Enlarge: Pikachu meme static ad"><img src="assets/ad-pikachu.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Pikachu meme</span></button><button class="still ad" type="button" data-full="assets/ad-real-money.webp" aria-label="Enlarge: Turn packs into real money static ad"><img src="assets/ad-real-money.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Real money</span></button><button class="still ad" type="button" data-full="assets/ad-wait-online.webp" aria-label="Enlarge: Wait, you can open packs online static ad"><img src="assets/ad-wait-online.webp" width="360" height="540" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Wait... online?</span></button></div>
+    <div class="tgal"><button class="still th" type="button" data-full="assets/thumb-dark-souls.webp" aria-label="Enlarge: Dark Souls YouTube thumbnail"><img src="assets/thumb-dark-souls.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Dark Souls</span></button><button class="still th" type="button" data-full="assets/thumb-cuphead.webp" aria-label="Enlarge: Cuphead YouTube thumbnail"><img src="assets/thumb-cuphead.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Cuphead</span></button><button class="still th" type="button" data-full="assets/thumb-novo-jogo.webp" aria-label="Enlarge: New game YouTube thumbnail"><img src="assets/thumb-novo-jogo.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Novo Jogo</span></button><button class="still th" type="button" data-full="assets/thumb-bendy.webp" aria-label="Enlarge: Bendy YouTube thumbnail"><img src="assets/thumb-bendy.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Bendy</span></button><button class="still th" type="button" data-full="assets/thumb-lethal-company.webp" aria-label="Enlarge: Lethal Company YouTube thumbnail"><img src="assets/thumb-lethal-company.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Lethal Company</span></button><button class="still th" type="button" data-full="assets/thumb-minecraft.webp" aria-label="Enlarge: Minecraft YouTube thumbnail"><img src="assets/thumb-minecraft.webp" width="480" height="270" alt="" loading="lazy" decoding="async"><span aria-hidden="true">Minecraft</span></button></div>
   </div>
 </section>
-
 <section class="bt" id="systems">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Dev and AI engineering</div><h2>Systems I built</h2></div></div>
+    <div class="sec-head"><div><p class="kicker">Dev and AI engineering</p><h2>Systems I built</h2></div></div>
     <div class="sys">
       <article class="feat">
         <div>
-          <div class="role">AI engineer + developer · 2025</div>
+          <p class="role">AI engineer + developer · 2025</p>
           <h3>BeeCatalog</h3>
-          <div class="tagl">Amazon listings from a product photo. Then from the invoice alone.</div>
-          <p>I started as a catalog specialist on Amazon listings, entering every product by hand. A batch took about 15 days. In early 2025 I studied AI and built a prototype: upload the image, title and code, and the listing is ready.</p>
-          <p>V2, which I was building when I left, reads the invoice (NF-e), generates the product images with AI and fills Amazon's own bulk spreadsheet in batches, so it needs no Amazon API.</p>
+          <p class="tagl">Amazon listings from a product photo. Then from the invoice alone.</p>
+          <p>I started as a catalog specialist on Amazon listings, entering every product by hand. A batch took about 15 days. In early 2025 I studied AI and built a prototype: upload the image, title and code, and the listing is ready.</p><p>V2, which I was building when I left, reads the invoice (NF-e), generates the product images with AI and fills Amazon&#x27;s own bulk spreadsheet in batches, so it needs no Amazon API.</p>
           <div class="badges"><span class="badge g">99.998% less time · 64,800× faster</span><span class="badge g">Got me promoted</span><span class="badge">Prototype sold to another company</span><span class="badge">V2 in progress when I left</span></div>
         </div>
         <div>
-          <div class="flow" id="flow">
-            <div class="node"><span class="k">01</span>Invoice (NF-e) in</div>
-            <div class="node"><span class="k">02</span>AI reads every item, stock and price</div>
-            <div class="node"><span class="k">03</span>AI generates the product images</div>
-            <div class="node"><span class="k">04</span>Fills Amazon's bulk spreadsheet</div>
-            <div class="node"><span class="k">05</span>Whole batch listed</div>
-          </div>
+          <ol class="flow" id="flow"><li class="node"><span class="k">01</span>Invoice (NF-e) in</li><li class="node"><span class="k">02</span>AI reads every item, stock and price</li><li class="node"><span class="k">03</span>AI generates the product images</li><li class="node"><span class="k">04</span>Fills Amazon&#x27;s bulk spreadsheet</li><li class="node"><span class="k">05</span>Whole batch listed</li></ol>
           <div class="bars" id="bars">
             <div class="bar"><span>Before</span><div class="t"><i style="--w:100%"></i></div><b>15 days</b></div>
             <div class="bar after"><span>After</span><div class="t"><i style="--w:2%"></i></div><b>20 seconds</b></div>
           </div>
         </div>
       </article>
-      <div class="sgrid">
-        <article class="sc">
-          <div class="viz"><div class="chain"><span style="--i:0">script</span><span style="--i:1">voice</span><span style="--i:2">3D scenes</span><span style="--i:3">sound</span><span style="--i:4">QA</span><span style="--i:5">export</span></div></div>
-          <div class="role">My own product · 2026</div>
+      <div class="sgrid"><article class="sc">
+          <div class="viz" aria-hidden="true"><div class="chain"><span style="--i:0">script</span><span style="--i:1">voice</span><span style="--i:2">3D scenes</span><span style="--i:3">sound</span><span style="--i:4">QA</span><span style="--i:5">export</span></div></div>
+          <p class="role">My own product · 2026</p>
           <h3>Claude → 3D animation</h3>
-          <p>A system that turns a script into an animated 3D Short through Claude: voice, scenes, sound design and a QA pass on every frame. My ZYPIZ channel runs on it.</p>
+          <p>A workflow that turns a script into an animated 3D Short through Claude: voice, scenes, sound design and a QA pass on every frame. My Zypiz channel runs on it, with scenes rendered in Creatorize&#x27;s 3D engine.</p>
           <div class="badges"><span class="badge g">69.9% stayed to watch</span><span class="badge">In progress</span></div>
-        </article>
-        <article class="sc">
-          <div class="viz"><div class="plate"><span>ZYP1Z26</span><i class="scan"></i></div></div>
-          <div class="role">Architecture · Jan to Jul 2026</div>
+        </article><article class="sc">
+          <div class="viz" aria-hidden="true"><div class="plate"><span>ZYP1Z26</span><i class="scan"></i></div></div>
+          <p class="role">Architecture · Jan to Jul 2026</p>
           <h3>Nowey</h3>
           <p>Automotive management. Take a photo of the license plate and the car is registered, catalogued and managed from there. I designed the architecture, then left the team.</p>
           <div class="badges"><span class="badge">System architecture</span><span class="badge">Plate recognition</span></div>
-        </article>
-        <article class="sc">
-          <div class="viz"><div class="box3"><div class="b"></div><div class="lidb"></div><span class="star" style="left:-14px;top:4px">✦</span><span class="star" style="right:-14px;top:0">✦</span></div></div>
-          <div class="role">Product design + engineering</div>
+        </article><article class="sc">
+          <div class="viz" aria-hidden="true"><div class="box3"><div class="b"></div><div class="lidb"></div><span class="star" style="left:-14px;top:4px">✦</span><span class="star" style="right:-14px;top:0">✦</span></div></div>
+          <p class="role">Product design + engineering</p>
           <h3>Mironga</h3>
           <p>A religious goods brand built from zero: a monthly subscription box delivered at home. I made the brand and the product, and worked out how it could stand apart from other brands.</p>
           <div class="badges"><span class="badge">Brand from zero</span><span class="badge">Subscription box</span></div>
-        </article>
-      </div>
+        </article></div>
     </div>
   </div>
 </section>
-
 <section class="bt" id="process">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">Process</div><h2>Where AI works, where I decide</h2></div><p class="kicker" style="letter-spacing:.14em">Scroll to scrub</p></div>
-    <div class="tl" id="tl">
+    <div class="sec-head"><div><p class="kicker">Process</p><h2>Where AI works, where I decide</h2></div><p class="sec-note">Scroll to scrub</p></div>
+    <div class="tl" id="tl" aria-hidden="true">
       <div class="tl-top"><span>ad_v3_final_FINAL.prproj</span><span class="tc" id="tc">00:00:00:00</span></div>
       <div class="tracks">
         <div class="ruler"></div>
@@ -663,176 +772,126 @@ dialog p{color:var(--soft);margin-bottom:18px}
         <div class="head-line" id="playhead"></div>
       </div>
     </div>
-    <div class="steps" id="steps">
-      <div class="step"><div class="n">01</div><h3>Brief and references</h3><p>Top ads in the account, the hook, and what has to stay real: the app, the pack, the price.</p><span class="who me">I decide</span></div>
-      <div class="step"><div class="n">02</div><h3>Script and hooks</h3><p>Several hooks per concept. One picture per line, first second built as the thumbnail.</p><span class="who ai">AI drafts · I pick</span></div>
-      <div class="step"><div class="n">03</div><h3>Generate</h3><p>Scenes, voices, characters and layered CTA art, generated as parts I can animate.</p><span class="who ai">AI generates</span></div>
-      <div class="step"><div class="n">04</div><h3>Cut, motion, sound</h3><p>After Effects and Premiere. Levels checked against the voice, every frame watched before delivery.</p><span class="who me">I finish</span></div>
-    </div>
+    <ol class="steps" id="steps"><li class="step"><p class="n" aria-hidden="true">01</p><h3>Brief and references</h3><p>Top ads in the account, the hook, and what has to stay real: the app, the pack, the price.</p><span class="who me">I decide</span></li><li class="step"><p class="n" aria-hidden="true">02</p><h3>Script and hooks</h3><p>Several hooks per concept. One picture per line, first second built as the thumbnail.</p><span class="who ai">AI drafts · I pick</span></li><li class="step"><p class="n" aria-hidden="true">03</p><h3>Generate</h3><p>Scenes, voices, characters and layered CTA art, generated as parts I can animate.</p><span class="who ai">AI generates</span></li><li class="step"><p class="n" aria-hidden="true">04</p><h3>Cut, motion, sound</h3><p>After Effects and Premiere. Levels checked against the voice, every frame watched before delivery.</p><span class="who me">I finish</span></li></ol>
   </div>
 </section>
-
 <section class="bt" id="stack">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">The stack</div><h2>Tools in the cave</h2></div></div>
+    <div class="sec-head"><div><p class="kicker">The stack</p><h2>Tools in the cave</h2></div></div>
     <div class="term">
-      <div class="term-bar"><i></i><i></i><i></i><span>zypiz@cave — tools</span></div>
-      <div class="cmd"><b>zypiz@cave</b>:~$ <span id="typed">ls ./tools --by-use</span><span class="caret"></span></div>
-      <div class="tgrid" id="tgrid"></div>
+      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>zypiz@cave — tools</span></div>
+      <p class="cmd" aria-hidden="true"><b>zypiz@cave</b>:~$ <span id="typed">ls ./tools --by-use</span><span class="caret"></span></p>
+      <div class="tgrid" id="tgrid"><div class="tcol"><h3>// ai-and-agents</h3><ul><li class="tr" style="--i:0"><span class="ico"><img src="assets/logo-claude.png" width="24" height="24" alt="" loading="lazy"></span>Claude Code</li><li class="tr" style="--i:1"><span class="ico"><img src="assets/logo-openai.png" width="24" height="24" alt="" loading="lazy"></span>Codex</li><li class="tr" style="--i:2"><span class="ico"><img src="assets/logo-chatgpt.png" width="24" height="24" alt="" loading="lazy"></span>ChatGPT · GPT Image</li><li class="tr" style="--i:3"><span class="ico"><img src="assets/logo-cursor.png" width="24" height="24" alt="" loading="lazy"></span>Cursor</li><li class="tr" style="--i:4"><span class="ico"><img src="assets/logo-trae.png" width="24" height="24" alt="" loading="lazy"></span>Trae</li><li class="tr" style="--i:5"><span class="ico"><img src="assets/logo-antigravity.png" width="24" height="24" alt="" loading="lazy"></span>Antigravity</li><li class="tr" style="--i:6"><span class="ico"><img src="assets/logo-gemini.png" width="24" height="24" alt="" loading="lazy"></span>Gemini · Nano Banana</li><li class="tr" style="--i:7"><span class="ico"><img src="assets/logo-deepseek.png" width="24" height="24" alt="" loading="lazy"></span>DeepSeek</li><li class="tr" style="--i:8"><span class="ico"><img src="assets/logo-kimi.png" width="24" height="24" alt="" loading="lazy"></span>Kimi</li><li class="tr" style="--i:9"><span class="ico"><img src="assets/logo-hermes.png" width="24" height="24" alt="" loading="lazy"></span>Hermes</li></ul></div><div class="tcol"><h3>// generate-and-voice</h3><ul><li class="tr" style="--i:10"><span class="ico"><img src="assets/logo-higgsfield.png" width="24" height="24" alt="" loading="lazy"></span>Higgsfield</li><li class="tr" style="--i:11"><span class="ico"><img src="assets/logo-flow.png" width="24" height="24" alt="" loading="lazy"></span>Google Flow</li><li class="tr" style="--i:12"><span class="ico"><img src="assets/logo-kie.png" width="24" height="24" alt="" loading="lazy"></span>Kie.ai</li><li class="tr" style="--i:13"><span class="ico"><img src="assets/logo-creatorize.png" width="24" height="24" alt="" loading="lazy"></span>Creatorize</li><li class="tr" style="--i:14"><span class="ico"><img src="assets/logo-elevenlabs.png" width="24" height="24" alt="" loading="lazy"></span>ElevenLabs</li><li class="tr" style="--i:15"><span class="ico"><img src="assets/logo-voicestudio.png" width="24" height="24" alt="" loading="lazy"></span>VoiceStudio</li><li class="tr" style="--i:16"><span class="ico"><img src="assets/logo-kokoro.png" width="24" height="24" alt="" loading="lazy"></span>Kokoro TTS</li><li class="tr" style="--i:17"><span class="ico"><img src="assets/logo-chatterbox.png" width="24" height="24" alt="" loading="lazy"></span>Chatterbox</li></ul></div><div class="tcol"><h3>// build</h3><ul><li class="tr" style="--i:18"><span class="ico"><img src="assets/logo-java.svg" width="24" height="24" alt="" loading="lazy"></span>Java</li><li class="tr" style="--i:19"><span class="ico"><img src="assets/logo-python.png" width="24" height="24" alt="" loading="lazy"></span>Python</li><li class="tr" style="--i:20"><span class="ico"><img src="assets/logo-js.png" width="24" height="24" alt="" loading="lazy"></span>JavaScript</li><li class="tr" style="--i:21"><span class="ico"><img src="assets/logo-react.png" width="24" height="24" alt="" loading="lazy"></span>React</li><li class="tr" style="--i:22"><span class="ico"><img src="assets/logo-nextjs.svg" width="24" height="24" alt="" loading="lazy"></span>Next.js</li><li class="tr" style="--i:23"><span class="ico"><img src="assets/logo-vscode.png" width="24" height="24" alt="" loading="lazy"></span>VS Code</li><li class="tr" style="--i:24"><span class="ico"><img src="assets/logo-github.png" width="24" height="24" alt="" loading="lazy"></span>Git · GitHub</li><li class="tr" style="--i:25"><span class="ico"><img src="assets/logo-figma.png" width="24" height="24" alt="" loading="lazy"></span>Figma</li><li class="tr" style="--i:26"><span class="ico"><img src="assets/logo-notion.png" width="24" height="24" alt="" loading="lazy"></span>Notion</li><li class="tr" style="--i:27"><span class="ico"><img src="assets/logo-obsidian.png" width="24" height="24" alt="" loading="lazy"></span>Obsidian</li></ul></div><div class="tcol"><h3>// edit-and-motion</h3><ul><li class="tr" style="--i:28"><span class="ico"><img src="assets/logo-ae.png" width="24" height="24" alt="" loading="lazy"></span>After Effects</li><li class="tr" style="--i:29"><span class="ico"><img src="assets/logo-pr.png" width="24" height="24" alt="" loading="lazy"></span>Premiere Pro</li><li class="tr" style="--i:30"><span class="ico"><img src="assets/logo-ps.png" width="24" height="24" alt="" loading="lazy"></span>Photoshop</li><li class="tr" style="--i:31"><span class="ico"><img src="assets/logo-davinci2.png" width="24" height="24" alt="" loading="lazy"></span>DaVinci Resolve</li><li class="tr" style="--i:32"><span class="ico"><img src="assets/logo-vegas2.png" width="24" height="24" alt="" loading="lazy"></span>Vegas Pro</li><li class="tr" style="--i:33"><span class="ico"><img src="assets/logo-blender.png" width="24" height="24" alt="" loading="lazy"></span>Blender</li><li class="tr" style="--i:34"><span class="ico"><img src="assets/logo-ffmpeg.png" width="24" height="24" alt="" loading="lazy"></span>FFmpeg</li></ul></div></div>
     </div>
   </div>
 </section>
-
 <section class="bt" id="about">
   <div class="wrap about-grid">
-    <figure class="photo" style="margin:0"><img loading="lazy" decoding="async" width="300" height="447" src="assets/img-032b3822.webp" alt="Marcelo, the human behind Zypiz"></figure>
+    <figure class="photo"><img src="assets/photo-marcelo.webp" width="300" height="447" alt="Marcelo, the human behind Zypiz, wearing glasses" loading="lazy" decoding="async"></figure>
     <div>
-      <div class="kicker">About</div>
-      <h2 style="margin-bottom:18px">The human behind the goblin</h2>
-      <p class="bio">I'm Marcelo, online <b>Zypiz</b>. I've edited for <b>9 years</b>: musicians and YouTubers in Brazil, now clients in <b>12+ countries</b>. I'm on Crown Cards today, cutting their ads and improving the system behind them. I also make static ads and thumbnails, and I've been building software for <b>3 years</b>.</p>
-      <div class="roles">
-        <div class="rolec"><div class="y">9 yrs</div><div>Video editor</div></div>
-        <div class="rolec"><div class="y">3 yrs</div><div>Developer</div></div>
-        <div class="rolec"><div class="y na">since 2025</div><div>AI engineer</div></div>
-        <div class="rolec"><div class="y na">brand + UX</div><div>Product design</div></div>
-      </div>
-      <div class="edu">
-        <div><span><b>Systems Analysis and Development</b><small>Cruzeiro do Sul Virtual · degree</small></span><em>In progress</em></div>
-        <div><span><b>Java Full Stack Developer</b><small>EBAC · technical course, 2023 to 2025</small></span><em class="done">Completed</em></div>
-        <div><span><b>Development courses</b><small>Alura</small></span><em>Ongoing</em></div>
-      </div>
+      <p class="kicker">About</p>
+      <h2>The human behind the goblin</h2>
+      <p class="bio">I&#x27;m Marcelo, online <em>Zypiz</em>. I&#x27;ve edited for <em>9 years</em>: musicians and YouTubers in Brazil, now clients in <em>12+ countries</em>. I&#x27;m on Crown Cards today, cutting their ads and improving the system behind them. I also make static ads and thumbnails, and I&#x27;ve been building software for <em>3 years</em>.</p>
+      <div class="roles"><div class="rolec"><p class="y">9 yrs</p><p>Video editor</p></div><div class="rolec"><p class="y">3 yrs</p><p>Developer</p></div><div class="rolec"><p class="y na">since 2025</p><p>AI engineer</p></div><div class="rolec"><p class="y na">brand + UX</p><p>Product design</p></div></div>
+      <ul class="edu"><li><span><b>Systems Analysis and Development</b><small>Cruzeiro do Sul Virtual · degree</small></span><em class="">In progress</em></li><li><span><b>Java Full Stack Developer</b><small>EBAC · technical course, 2023 to 2025</small></span><em class="done">Completed</em></li><li><span><b>Development courses</b><small>Alura</small></span><em class="">Ongoing</em></li></ul>
     </div>
   </div>
 </section>
-
 <section class="bt cta" id="contact">
   <div class="wrap">
-    <img class="peek" loading="lazy" decoding="async" src="assets/img-477a5da7.webp" alt="">
+    <img class="peek" src="assets/peek.webp" width="120" height="125" alt="" loading="lazy">
     <h2>Got an ad that needs to <em>bite?</em></h2>
     <p>Send the brief, the footage or just the product page. I send back a first cut you can run.</p>
-    <button class="pill big" data-open="talk">Send a brief →</button>
-    <div class="socials">
-      <a class="soc" href="https://x.com/zyp1z" target="_blank" rel="noopener" aria-label="X">X</a>
-      <button class="soc" data-open="talk" aria-label="Discord">DC</button>
-      <button class="soc" data-open="talk" aria-label="Email">@</button>
-    </div>
+    <a class="pill big" href="#contact" data-open="talk">Send a brief →</a>
+    <ul class="socials"><li><a href="mailto:ozyph1z@gmail.com" data-copy="ozyph1z@gmail.com"><b>Email</b><span>ozyph1z@gmail.com</span></a></li><li><a href="https://discord.com/app" data-copy="zypizediting" target="_blank" rel="noopener"><b>Discord</b><span>zypizediting</span></a></li><li><a href="https://x.com/zyp1z" target="_blank" rel="noopener"><b>X</b><span>@zyp1z</span></a></li></ul>
   </div>
 </section>
-
 <section class="bt faq" id="faq">
   <div class="wrap">
-    <div class="sec-head"><div><div class="kicker">FAQ</div><h2>Before you send it</h2></div></div>
-    <details><summary>What is AI and what stays real in your ads?<span class="x"></span></summary><div class="ans">The product stays real: app screens, packs, cards and prices come from real footage. AI makes what you can't shoot, like scenes, voices and characters. Anything a viewer can check on screen matches the footage.</div></details>
-    <details><summary>Can you build the system, not just the video?<span class="x"></span></summary><div class="ans">Yes. I'm a developer and AI engineer as well as an editor. BeeCatalog and my Claude animation pipeline are both systems I designed and built.</div></details>
-    <details><summary>What do you need from me?<span class="x"></span></summary><div class="ans">The offer, any raw footage or screen recordings, and the ads that already work for you. A product page is enough to start.</div></details>
-    <details><summary>Which platforms do you cut for?<span class="x"></span></summary><div class="ans">Vertical 9:16 for Meta and YouTube Shorts. Each hook is cut as its own variation so you can test them.</div></details>
+    <div class="sec-head"><div><p class="kicker">FAQ</p><h2>Before you send it</h2></div></div>
+    <details><summary>What is AI and what stays real in your ads?<span class="x" aria-hidden="true"></span></summary><div class="ans">The product stays real: app screens, packs, cards and prices come from real footage. AI makes what you can&#x27;t shoot, like scenes, voices and characters. Anything a viewer can check on screen matches the footage.</div></details><details><summary>Which platforms do you cut for?<span class="x" aria-hidden="true"></span></summary><div class="ans">Meta (Facebook and Instagram), TikTok and YouTube Shorts, all in vertical 9:16. Each hook is cut as its own variation so you can test them against each other.</div></details><details><summary>What do you need from me?<span class="x" aria-hidden="true"></span></summary><div class="ans">The offer, any raw footage or screen recordings, and the ads that already work for you. A product page is enough to start.</div></details><details><summary>Can you build the system, not just the video?<span class="x" aria-hidden="true"></span></summary><div class="ans">Yes. I&#x27;m a developer and AI engineer as well as an editor. BeeCatalog and my Claude animation workflow are both systems I designed and built.</div></details><details><summary>How do I send a brief?<span class="x" aria-hidden="true"></span></summary><div class="ans">Email ozyph1z@gmail.com, message zypizediting on Discord or DM @zyp1z on X. Whichever you use, I answer there.</div></details><!-- TODO faq hidden: How fast do you deliver? (real turnaround) --><!-- TODO faq hidden: How many videos can you make per week? (real weekly capacity) --><!-- TODO faq hidden: Do you do a test ad? (free or paid test) -->
+    <p class="faq-cta">Still unsure? <a href="#contact" data-open="talk">Send a brief</a> and ask.</p>
   </div>
 </section>
 </main>
-
-<footer><div class="wrap"><span>zypiz</span><span>Brazil · UTC−3 · working worldwide</span><span>2026</span></div></footer>
-
-<dialog id="talk">
-  <button class="close" data-close aria-label="Close">✕</button>
-  <h3>I know you want to work with me.</h3>
+<footer>
+  <div class="wrap">
+    <p><b>Zypiz</b> · Brazil · UTC−3 · working worldwide</p>
+    <ul class="fcontacts"><li><a href="mailto:ozyph1z@gmail.com" data-copy="ozyph1z@gmail.com"><b>Email</b><span>ozyph1z@gmail.com</span></a></li><li><a href="https://discord.com/app" data-copy="zypizediting" target="_blank" rel="noopener"><b>Discord</b><span>zypizediting</span></a></li><li><a href="https://x.com/zyp1z" target="_blank" rel="noopener"><b>X</b><span>@zyp1z</span></a></li></ul>
+    <p>© 2026 Zypiz</p>
+  </div>
+</footer>
+<dialog id="talk" aria-labelledby="talkTitle">
+  <button class="close" type="button" data-close aria-label="Close">✕</button>
+  <h2 id="talkTitle">I know you want to work with me.</h2>
   <p>Message me here:</p>
-  <button class="opt" data-copy="ozyph1z@gmail.com"><span><b>Email</b><small>ozyph1z@gmail.com</small></span><em>Copy</em></button>
-  <button class="opt" data-copy="zypizediting"><span><b>Discord</b><small>zypizediting</small></span><em>Copy</em></button>
+  <button class="opt" type="button" data-copy="ozyph1z@gmail.com"><span><b>Email</b><small>ozyph1z@gmail.com</small></span><em>Copy</em></button>
+  <button class="opt" type="button" data-copy="zypizediting"><span><b>Discord</b><small>zypizediting</small></span><em>Copy</em></button>
   <a class="opt" href="https://x.com/zyp1z" target="_blank" rel="noopener"><span><b>X</b><small>@zyp1z</small></span><em>Open ↗</em></a>
 </dialog>
-
-<dialog id="player" class="player">
-  <button class="close" data-close aria-label="Close">✕</button>
-  <h3 id="playerTitle"></h3>
+<dialog id="player" class="player" aria-labelledby="playerTitle">
+  <button class="close" type="button" data-close aria-label="Close">✕</button>
+  <h2 id="playerTitle">Video</h2>
   <video id="playerVid" playsinline controls preload="metadata"></video>
 </dialog>
-
-<dialog id="imgbox" class="imgbox">
-  <button class="close" data-close aria-label="Close">✕</button>
+<dialog id="imgbox" class="imgbox" aria-label="Enlarged image">
+  <button class="close" type="button" data-close aria-label="Close">✕</button>
   <img id="imgboxImg" alt="">
 </dialog>
-
-<dialog id="formats">
-  <button class="close" data-close aria-label="Close">✕</button>
-  <h3>Formats I cut</h3>
+<dialog id="formats" aria-labelledby="formatsTitle">
+  <button class="close" type="button" data-close aria-label="Close">✕</button>
+  <h2 id="formatsTitle">Formats I cut</h2>
   <p>From real deliveries and my own channel.</p>
-  <div class="flist" id="flist"></div>
+  <ul class="flist"><li>AI UGC</li><li>AI voice ads</li><li>AI clip ads</li><li>Faceless story ads</li><li>iMessage ads</li><li>Reddit-post ads</li><li>Static ads</li><li>App demo cuts</li><li>Pack-pull reactions</li><li>Toon Shorts</li><li>POV Shorts</li><li>Mythology explainers</li><li>Music videos</li><li>YouTube edits</li><li>Thumbnails</li></ul>
 </dialog>
-
-<div class="gc" id="gc" aria-hidden="true" style="--c-default:url(assets/img-da185b3a.png);--c-link:url(assets/img-81cee1c2.png);--c-click:url(assets/img-2462e8d3.png)"></div>
-
+<div class="gc" id="gc" aria-hidden="true"></div>
 <script>
-const POSTERS = {};
-const LOGOS = {"ae": "assets/logo-ae.png", "antigravity": "assets/logo-antigravity.png", "blender": "assets/logo-blender.png", "chatgpt": "assets/logo-chatgpt.png", "chatterbox": "assets/logo-chatterbox.png", "claude": "assets/logo-claude.png", "creatorize": "assets/logo-creatorize.png", "cursor": "assets/logo-cursor.png", "davinci": "assets/logo-davinci.png", "davinci2": "assets/logo-davinci2.png", "deepseek": "assets/logo-deepseek.png", "elevenlabs": "assets/logo-elevenlabs.png", "ffmpeg": "assets/logo-ffmpeg.png", "figma": "assets/logo-figma.png", "flow": "assets/logo-flow.png", "gemini": "assets/logo-gemini.png", "github": "assets/logo-github.png", "github2": "assets/logo-github2.png", "hermes": "assets/logo-hermes.png", "higgsfield": "assets/logo-higgsfield.png", "java": "assets/logo-java.svg", "js": "assets/logo-js.png", "kie": "assets/logo-kie.png", "kimi": "assets/logo-kimi.png", "kokoro": "assets/logo-kokoro.png", "nextjs": "assets/logo-nextjs.svg", "notion": "assets/logo-notion.png", "obsidian": "assets/logo-obsidian.png", "openai": "assets/logo-openai.png", "pr": "assets/logo-pr.png", "ps": "assets/logo-ps.png", "python": "assets/logo-python.png", "react": "assets/logo-react.png", "trae": "assets/logo-trae.png", "vegas": "assets/logo-vegas.png", "vegas2": "assets/logo-vegas2.png", "voicestudio": "assets/logo-voicestudio.png", "vscode": "assets/logo-vscode.png"};
-const urls = {}, full = {};
+/* Interactions only: every piece of content is already in the HTML (build.py). */
+const WORK = {"p_trailer": {"t": "Zypiz · Still Doubting Me?"}, "g_glossa": {"t": "Glossa · Cloud Balm"}, "z_alexander": {"t": "Alexander · Road Through the Sea"}, "z_vampire": {"t": "Mercy Brown · Real Vampire"}, "t_yig": {"t": "TEORIZA · The Curse of Yig"}, "z_medusa": {"t": "Medusa · The Gorgon"}, "z_kraken": {"t": "The Kraken"}, "d_snooze": {"t": "Snoozebrick · Cloud Pillow"}, "z_dracula": {"t": "Dracula · Real Blood?"}, "z_poseidon": {"t": "Poseidon · God of the Sea"}, "z_wendigo": {"t": "Wendigo · Swift Runner"}, "z_godzilla": {"t": "Godzilla · Lucky Dragon"}, "z_talos": {"t": "Talos · Bronze Robot"}, "z_kuchisake": {"t": "Kuchisake-onna"}, "z_whales": {"t": "Whales in the Desert"}, "z_mapinguari": {"t": "Mapinguari · Ground Sloth"}, "z_cyclops": {"t": "Cyclops · Elephant Skulls"}, "a_knight": {"t": "Fallen Knight · Butterfly"}, "a_ruins": {"t": "Overgrown Ruins · FPV Run"}, "c_pull": {"t": "Crown Cards · Pack Pull"}, "c_packs": {"t": "Crown Cards · Sealed Packs"}, "c_katana": {"t": "Katana Unboxing · Hook"}, "s_sneaker": {"t": "Sneaker · Product Spot"}};
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
-const seen = (el, fn, margin = '0px') => new IntersectionObserver(es => es.forEach(e => fn(e.isIntersecting)), {rootMargin: margin}).observe(el);
-const load = v => { if (!v.src && v.dataset.src) v.src = v.dataset.src; };
+const seen = (el, fn, margin = '0px') => new IntersectionObserver(es => es.forEach(e => fn(e.isIntersecting, e)), {rootMargin: margin}).observe(el);
 const soon = (el, fn, margin = '0px 0px 160px 0px') => new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { fn(); o.disconnect(); } }), {rootMargin: margin}).observe(el);
+const load = v => { if (!v.src && v.dataset.src) v.src = v.dataset.src; };
+const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
 
-/* d = length in seconds of the full cut (media/full/<k>.mp4, with sound) */
-const WORK = [
-  {k:'p_trailer', t:'ZYPIZ · Still Doubting Me?', tag:'AI Animation', f:'anim', s:'6 styles · one take', d:47},
-  {k:'g_glossa', t:'Glossa · Cloud Balm', tag:'AI Song Ad', f:'anim', s:'Pixar-style 3D', d:29},
-  {k:'z_vampire', t:'Mercy Brown · Real Vampire', tag:'AI Animation', f:'anim', s:'▶ 3.9K views', d:48},
-  {k:'t_yig', t:'TEORIZA · The Curse of Yig', tag:'Analog Horror', f:'anim', s:'Episode intro', d:20},
-  {k:'z_kraken', t:'The Kraken', tag:'AI Animation', f:'anim', s:'3D Short', d:43},
-  {k:'d_snooze', t:'Snoozebrick · Cloud Pillow', tag:'Brick Toy', f:'anim', s:'Toy stop-motion', d:23},
-  {k:'z_dracula', t:'Dracula · Real Blood?', tag:'AI Animation', f:'anim', s:'▶ 1.2K · day 1', d:28},
-  {k:'z_poseidon', t:'Poseidon · God of the Sea', tag:'AI Animation', f:'anim', s:'3D Short', d:46},
-  {k:'z_wendigo', t:'Wendigo · Swift Runner', tag:'AI Animation', f:'anim', s:'▶ 1.2K · day 1', d:29},
-  {k:'z_godzilla', t:'Godzilla · Lucky Dragon', tag:'AI Animation', f:'anim', s:'Short', d:41},
-  {k:'z_talos', t:'Talos · Bronze Robot', tag:'AI Animation', f:'anim', s:'Short', d:34},
-  {k:'z_kuchisake', t:'Kuchisake-onna', tag:'AI Animation', f:'anim', s:'Japanese legend', d:38},
-  {k:'z_whales', t:'Whales in the Desert', tag:'AI Animation', f:'anim', s:'Short', d:36},
-  {k:'z_mapinguari', t:'Mapinguari · Ground Sloth', tag:'AI Animation', f:'anim', s:'Amazon legend', d:37},
-  {k:'z_cyclops', t:'Cyclops · Elephant Skulls', tag:'AI Animation', f:'anim', s:'Short', d:33},
-  {k:'a_knight', t:'Fallen Knight · Butterfly', tag:'AI Animation', f:'anim', s:'Dark fantasy', d:10},
-  {k:'a_ruins', t:'Overgrown Ruins · FPV Run', tag:'AI Animation', f:'anim', s:'Dark fantasy', d:5},
-  {k:'c_pull', t:'Crown Cards · Pack Pull', tag:'AI UGC', f:'ugc', s:'Ad', d:23},
-  {k:'c_packs', t:'Crown Cards · Sealed Packs', tag:'AI UGC', f:'ugc', s:'Ad', d:10},
-  {k:'c_katana', t:'Katana Unboxing · Hook', tag:'AI UGC', f:'ugc', s:'Ad hook', d:6},
-  {k:'s_sneaker', t:'Sneaker · Product Spot', tag:'AI Product Ad', f:'ugc', s:'Spec ad', d:4}
-];
-WORK.forEach(w => { urls[w.k] = `media/${w.k}.mp4`; full[w.k] = `media/full/${w.k}.mp4`; POSTERS[w.k] = `assets/poster-${w.k}.webp`; });
-
-/* hero reel */
-const REEL = [['p_trailer','AI Animation · 6 styles'],['g_glossa','AI Song Ad · Glossa'],['z_dracula','AI Animation'],['t_yig','Analog Horror · TEORIZA'],['z_vampire','AI Animation'],['c_pull','AI UGC · Crown Cards']];
-const phone = document.getElementById('phone'), dots = document.getElementById('dots'), tag = document.getElementById('phoneTag');
-const REEL_CUT = {p_trailer: 1, g_glossa: 1, t_yig: 1, c_pull: 1};
-const reelVids = REEL.map(([k], i) => {
-  const v = document.createElement('video');
-  Object.assign(v, {poster: POSTERS[k], muted: true, loop: true, playsInline: true, preload: i ? 'none' : 'auto'});
-  v.dataset.src = REEL_CUT[k] ? `media/reel_${k}.mp4` : urls[k];
-  v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-  if (i === 0) v.classList.add('on');
-  phone.insertBefore(v, tag);
-  dots.appendChild(document.createElement('i'));
-  return v;
-});
-let ri = 0, heroOn = true;
-function showReel(i) {
-  reelVids.forEach((v, j) => { v.classList.toggle('on', j === i); if (j !== i) v.pause(); });
-  load(reelVids[i]); load(reelVids[(i + 1) % reelVids.length]);
-  [...dots.children].forEach((d, j) => { d.classList.remove('on'); if (j === i) { void d.offsetWidth; d.classList.add('on'); } });
-  tag.textContent = REEL[i][1];
-  const hp = document.getElementById('handphone');
-  hp.classList.remove('pop'); void hp.offsetWidth; hp.classList.add('pop');
-  hp.querySelectorAll('.burst').forEach(b => { b.style.animation = 'none'; void b.offsetWidth; b.style.animation = ''; });
-  reelVids[i].currentTime = 0; if (heroOn) reelVids[i].play().catch(() => {});
+/* one video at a time: starting one pauses every other */
+let current = null;
+function solo(v) {
+  if (current && current !== v) current.pause();
+  current = v; load(v);
+  v.play().catch(() => {});
 }
+function stop(v) { v.pause(); if (current === v) current = null; }
+
+/* ---------- hero reel ---------- */
+const phone = $('#phone'), tag = $('#phoneTag'), dots = $$('#dots i');
+const reelVids = $$('video', phone);
+let ri = 0, heroOn = true, cardActive = false;
+const reelOK = () => heroOn && !cardActive && !document.hidden && !$('dialog[open]');
+function showReel(i) {
+  ri = i;
+  reelVids.forEach((v, j) => { v.classList.toggle('on', j === i); if (j !== i) v.pause(); });
+  load(reelVids[(i + 1) % reelVids.length]);
+  dots.forEach((d, j) => { d.classList.remove('on'); if (j === i) { void d.offsetWidth; d.classList.add('on'); } });
+  tag.textContent = reelVids[i].dataset.label;
+  phone.href = `media/full/${reelVids[i].dataset.k}.mp4`;
+  phone.dataset.play = reelVids[i].dataset.k;
+  const hp = $('#handphone');
+  hp.classList.remove('pop'); void hp.offsetWidth; hp.classList.add('pop');
+  reelVids[i].currentTime = 0;
+  if (reelOK()) solo(reelVids[i]); else load(reelVids[i]);
+}
+reelVids[0].preload = 'auto';
 showReel(0);
-seen(phone, on => { heroOn = on; if (on) reelVids[ri].play().catch(() => {}); else reelVids[ri].pause(); });
-if (!reduce) setInterval(() => { if (!heroOn || document.hidden) return; ri = (ri + 1) % REEL.length; showReel(ri); }, 3200);
+seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });
+if (!reduce) setInterval(() => { if (reelOK()) showReel((ri + 1) % reelVids.length); }, 3200);
+document.addEventListener('visibilitychange', () => { if (document.hidden && current) current.pause(); });
 
-phone.addEventListener('click', () => openPlayer(REEL[ri][0]));
-phone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPlayer(REEL[ri][0]); } });
-
-/* goblin: parallax layers, blink, mouth opens on hover, bites on click */
-const mascot = document.getElementById('mascot'), gob = document.getElementById('gob');
-const lays = [...gob.querySelectorAll('.lay')];
-const states = [...gob.querySelectorAll('.st')];
+/* ---------- goblin: parallax layers, blink, mouth opens on hover, bites on click ---------- */
+const mascot = $('#mascot'), gob = $('#gob');
+const lays = $$('.lay', gob), states = $$('.st', gob);
 const show = st => states.forEach(i => i.classList.toggle('on', i.dataset.st === st));
 let mouth = 'rest', hovering = false, biting = false;
 const setMouth = m => { mouth = m; show(m); };
@@ -843,177 +902,169 @@ const parallax = e => {
   gob.style.transform = `rotateY(${(nx * 14).toFixed(2)}deg) rotateX(${(-ny * 10).toFixed(2)}deg)`;
   lays.forEach(l => { const d = +l.dataset.d; l.style.transform = `translate(${(nx * d).toFixed(2)}px, ${(ny * d * .6).toFixed(2)}px)`; });
 };
-(function blink() {
-  if (!reduce && mouth === 'rest') { show('blink'); setTimeout(() => { if (mouth === 'rest') show('rest'); }, 140); }
-  setTimeout(blink, 2200 + Math.random() * 2800);
-})();
 mascot.addEventListener('pointerenter', () => { hovering = true; if (!biting) setMouth('open'); });
 mascot.addEventListener('pointerleave', () => { hovering = false; if (!biting) setMouth('rest'); });
 mascot.addEventListener('focus', () => { if (!biting) setMouth('open'); });
 mascot.addEventListener('blur', () => { if (!biting) setMouth('rest'); });
-/* bite sound: two real chomps (Mixkit, free license). The audio context starts inside the click itself. */
-const BITES = ["assets/bite1.mp3", "assets/bite2.mp3"];
+/* bite sound: two real chomps (Mixkit, free license); the audio context starts inside the click */
 let ac, bitesReady, biteN = 0;
 function primeAudio() {
   try {
     ac = ac || new (window.AudioContext || window.webkitAudioContext)();
     if (ac.state === 'suspended') ac.resume();
-    bitesReady = bitesReady || Promise.all(BITES.map(u => fetch(u).then(r => r.arrayBuffer()).then(b => ac.decodeAudioData(b))));
+    bitesReady = bitesReady || Promise.all(['assets/bite1.mp3', 'assets/bite2.mp3'].map(u => fetch(u).then(r => r.arrayBuffer()).then(b => ac.decodeAudioData(b))));
   } catch (e) {}
 }
 async function chomp() {
   try {
-    const bufs = await bitesReady;
-    const src = ac.createBufferSource(), g = ac.createGain();
+    const bufs = await bitesReady, src = ac.createBufferSource(), g = ac.createGain();
     src.buffer = bufs[biteN++ % bufs.length];
     src.playbackRate.value = .96 + Math.random() * .08;
     g.gain.value = .8;
     src.connect(g).connect(ac.destination); src.start();
   } catch (e) {}
 }
-mascot.addEventListener('click', () => {
+mascot.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation();
   if (biting) return;
+  if (reduce) { openDialog('talk', mascot); return; }
   biting = true;
   primeAudio();
   mascot.classList.remove('chomp'); void mascot.offsetWidth; mascot.classList.add('chomp');
   [['open', 0], ['bite', 80], ['open', 250], ['bite', 330]].forEach(([m, t]) => setTimeout(() => { setMouth(m); if (m === 'bite') chomp(); }, t));
-  setTimeout(() => { biting = false; mascot.classList.remove('chomp'); setMouth(hovering ? 'open' : 'rest'); document.getElementById('talk').showModal(); }, 640);
+  setTimeout(() => { biting = false; mascot.classList.remove('chomp'); setMouth(hovering ? 'open' : 'rest'); openDialog('talk', mascot); }, 640);
 });
 
-/* counters */
+/* ---------- counters ---------- */
 function count(el) {
-  const to = +el.dataset.to, dec = +(el.dataset.dec || 0), suf = el.dataset.suf || '';
-  const t0 = performance.now(), dur = 1400;
+  const to = +el.dataset.to, dec = +el.dataset.dec, suf = el.dataset.suf || '', t0 = performance.now(), dur = 1400;
   (function step(t) {
-    const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-    el.textContent = (to * e).toFixed(dec) + suf;
+    const p = Math.min(1, (t - t0) / dur), k = 1 - Math.pow(1 - p, 3);
+    el.textContent = (to * k).toFixed(dec) + suf;
     if (p < 1) requestAnimationFrame(step);
   })(t0);
 }
-document.querySelectorAll('.num[data-to]').forEach(n => soon(n, () => { if (!reduce) count(n); }, '0px'));
+if (!reduce) $$('.num[data-to]').forEach(n => soon(n, () => count(n), '0px'));
 
-/* marquee + formats */
-const FORMATS = ['AI UGC','AI voice ads','AI clip ads','Faceless story ads','iMessage ads','Reddit-post ads','Static ads','App demo cuts','Pack-pull reactions','Toon shorts','POV shorts','Mythology explainers','Music videos','YouTube edits','Thumbnails'];
-document.getElementById('mtrack').innerHTML = [...FORMATS, ...FORMATS].map(f => `<span>${f}</span><i>·</i>`).join('');
-document.getElementById('flist').innerHTML = FORMATS.map(f => `<span>${f}</span>`).join('');
-
-/* hold and drag on a video to scrub it; a plain click still opens the player */
-const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
-function scrubbable(box, vid) {
-  const tc = box.querySelector('.stc');
+/* ---------- hold and drag on a card to scrub it (mouse only); a plain click opens the player ---------- */
+function scrubbable(box, v) {
+  const tc = $('.stc', box);
   let s = null, raf = 0, moved = false;
-  const show = () => {
-    const v = vid(), d = v.duration;
-    if (!(d > 0)) return;
-    box.style.setProperty('--p', v.currentTime / d);
-    tc.textContent = `${mmss(v.currentTime)} / ${mmss(d)}`;
-  };
-  box.addEventListener('pointerdown', e => {
-    if (e.button !== 0) return;
-    moved = false;
-    s = {x: e.clientX, id: e.pointerId, t0: vid().currentTime, on: false};
-  });
+  const paint = () => { const d = v.duration; if (!(d > 0)) return; box.style.setProperty('--p', v.currentTime / d); tc.textContent = `${mmss(v.currentTime)} / ${mmss(d)}`; };
+  box.addEventListener('pointerdown', e => { if (e.button !== 0 || e.pointerType !== 'mouse') return; moved = false; load(v); s = {x: e.clientX, id: e.pointerId, t0: v.currentTime, on: false}; });
   box.addEventListener('pointermove', e => {
     if (!s || e.pointerId !== s.id) return;
-    const v = vid(), d = v.duration, dx = e.clientX - s.x;
+    const d = v.duration, dx = e.clientX - s.x;
     if (!s.on) {
       if (Math.abs(dx) < 6 || !(d > 0)) return;
-      s.on = true; s.wasPlaying = !v.paused; v.pause();
+      s.on = true; v.pause();
       try { box.setPointerCapture(e.pointerId); } catch (_) {}
-      box.classList.add('scrubbing'); box.closest('.lanes')?.classList.add('scrubbing');
+      box.classList.add('scrubbing'); $('#lanes').classList.add('scrubbing');
     }
     s.to = Math.max(0, Math.min(d - .05, s.t0 + dx / box.clientWidth * d));
-    if (!raf) raf = requestAnimationFrame(() => { raf = 0; if (s) { v.currentTime = s.to; show(); } });
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; if (s) { v.currentTime = s.to; paint(); } });
   });
   const end = e => {
     if (!s || e.pointerId !== s.id) return;
     if (s.on) {
-      moved = true;
-      cancelAnimationFrame(raf); raf = 0;
-      if (s.to != null) { vid().currentTime = s.to; show(); }
-      box.classList.remove('scrubbing'); box.closest('.lanes')?.classList.remove('scrubbing');
-      if (s.wasPlaying) vid().play().catch(() => {});
+      moved = true; cancelAnimationFrame(raf); raf = 0;
+      if (s.to != null) { v.currentTime = s.to; paint(); }
+      box.classList.remove('scrubbing'); $('#lanes').classList.remove('scrubbing');
     }
     s = null;
   };
   box.addEventListener('pointerup', end);
   box.addEventListener('pointercancel', end);
-  box.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  box.closest('.card').addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopImmediatePropagation(); moved = false; } }, true);
   box.addEventListener('dragstart', e => e.preventDefault());
-  return show;
 }
-/* player: the full cut with sound and native controls */
-const playerDlg = document.getElementById('player'), playerVid = document.getElementById('playerVid');
-const titleOf = k => (WORK.find(w => w.k === k) || {}).t || '';
-function openPlayer(k) {
-  document.querySelectorAll('.card video, #phone video').forEach(v => v.pause());
-  playerVid.poster = POSTERS[k]; playerVid.src = full[k]; playerVid.muted = false;
-  document.getElementById('playerTitle').textContent = titleOf(k);
-  playerDlg.showModal();
-  playerVid.play().catch(() => {});
-}
-playerDlg.addEventListener('close', () => {
-  playerVid.pause(); playerVid.removeAttribute('src'); playerVid.load();
-  if (heroOn) reelVids[ri].play().catch(() => {});
-});
 
-/* work lanes */
-const swipe = !fine;
-const lanesEl = document.getElementById('lanes');
-if (swipe) lanesEl.classList.add('swipe');
-/* a card's clip is fetched only once it is on screen, and plays only while it is */
-const ioVid = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { load(v); v.play().catch(() => {}); } else v.pause(); }), {threshold: swipe ? .6 : .1});
-seen(lanesEl, on => lanesEl.classList.toggle('off', !on), '100px');
-function card(w) {
-  const b = document.createElement('button');
-  b.className = 'card'; b.dataset.play = w.k; b.dataset.title = w.t;
-  b.innerHTML = `<div class="vid"><span class="stat-pill">${w.s}</span><div class="play"><span><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>${swipe ? '' : 'Click for sound · drag to scrub'}</em></div><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>${mmss(w.d)}</span><i class="sbar"><b></b></i><span class="stc"></span></div><div class="meta"><b>${w.t}</b><span>${w.tag}</span></div>`;
-  const v = document.createElement('video');
-  Object.assign(v, {poster: POSTERS[w.k], muted: true, loop: true, playsInline: true, preload: 'none'});
-  v.dataset.src = urls[w.k];
-  v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-  b.querySelector('.vid').prepend(v);
-  if (!swipe) scrubbable(b.querySelector('.vid'), () => v);
-  ioVid.observe(v);
-  return b;
-}
-function fillRow(row, items) {
-  row.querySelectorAll('video').forEach(v => ioVid.unobserve(v));
-  row.innerHTML = '';
-  if (swipe) { items.forEach(w => row.appendChild(card(w))); row.parentElement.scrollLeft = 0; return; }
-  let list = items.slice();
-  while (list.length < 7) list = list.concat(items);
-  [0, 1].forEach(pass => list.forEach(w => { const c = card(w); if (pass) { c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; } row.appendChild(c); }));
-}
+/* ---------- work lanes ---------- */
+/* mouse: two marquee rows, a card plays while hovered. touch / reduced motion: swipe rows, the centred card plays */
+const lanes = $('#lanes'), rows = [$('#row1'), $('#row2')];
+const cards = $$('.card', lanes);
+const marquee = fine && !reduce;
+lanes.classList.add(marquee ? 'auto' : 'swipe');
+seen(lanes, on => lanes.classList.toggle('off', !on), '100px');
+cards.forEach(c => {
+  const v = $('video', c);
+  if (marquee) {
+    scrubbable($('.vid', c), v);
+    c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
+    c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
+  }
+});
+let pick = null;
+const ioSwipe = new IntersectionObserver(es => {
+  es.forEach(e => { e.target._r = e.isIntersecting ? e.intersectionRatio : 0; });
+  const best = cards.filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
+  const v = best && best._r >= .6 ? $('video', best) : null;
+  if (v === pick) return;
+  if (pick) stop(pick);
+  pick = v; cardActive = !!v;
+  if (v) solo(v); else if (reelOK()) solo(reelVids[ri]);
+}, {threshold: [0, .3, .6, .9]});
+if (!marquee) cards.forEach(c => ioSwipe.observe(c));
+
 function renderWork(f) {
-  const items = WORK.filter(w => f === 'all' || w.f === f);
-  const half = Math.ceil(items.length / 2);
-  fillRow(document.getElementById('row1'), f === 'all' ? items.slice(0, half) : items);
-  fillRow(document.getElementById('row2'), f === 'all' ? items.slice(half) : items.slice().reverse());
+  $$('.card[aria-hidden]', lanes).forEach(c => c.remove());
+  const show = cards.filter(c => f === 'all' || c.dataset.f === f);
+  cards.forEach(c => { c.hidden = !show.includes(c); });
+  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); rows[1].parentElement.hidden = false; }
+  else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); rows[1].parentElement.hidden = true; }
+  rows.forEach(r => { r.parentElement.scrollLeft = 0; });
+  if (!marquee) return;
+  /* marquee: repeat the row until it is wider than two screens, then once more for the seamless loop */
+  rows.forEach(r => {
+    const own = $$('.card:not([hidden])', r);
+    if (!own.length) return;
+    const extra = [];
+    let w = own.length * 224;
+    while (w < innerWidth * 2) { own.forEach(c => extra.push(c)); w += own.length * 224; }
+    [...extra, ...own, ...extra].forEach(c => {
+      const k = c.cloneNode(true);
+      k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1;
+      const v = $('video', k); v.removeAttribute('src');
+      k.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
+      k.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
+      r.appendChild(k);
+    });
+  });
 }
 renderWork('all');
-document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
-  document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === c));
+$$('.chip').forEach(c => c.addEventListener('click', () => {
+  $$('.chip').forEach(x => x.setAttribute('aria-pressed', x === c));
   renderWork(c.dataset.f);
 }));
 
-/* BeeCatalog: flow lights up in a loop, bars grow when reached */
-const nodes = [...document.querySelectorAll('#flow .node')];
-let ni = 0;
-let flowOn = false;
-seen(document.getElementById('flow'), on => { flowOn = on; });
+/* ---------- player: the full cut with sound and native controls ---------- */
+const playerVid = $('#playerVid');
+function openPlayer(k, opener) {
+  if (current) current.pause();
+  playerVid.poster = `assets/poster-${k}.webp`; playerVid.src = `media/full/${k}.mp4`; playerVid.muted = false;
+  $('#playerTitle').textContent = (WORK[k] || {}).t || 'Video';
+  openDialog('player', opener);
+  playerVid.play().catch(() => {});
+}
+$('#player').addEventListener('close', () => {
+  playerVid.pause(); playerVid.removeAttribute('src'); playerVid.load();
+  if (reelOK()) solo(reelVids[ri]);
+});
+
+/* ---------- BeeCatalog: flow lights up while visible, bars grow when reached ---------- */
+const nodes = $$('#flow .node');
+let ni = 0, flowOn = false;
+seen($('#flow'), on => { flowOn = on; });
 if (!reduce) setInterval(() => { if (!flowOn) return; nodes.forEach((n, i) => n.classList.toggle('lit', i <= ni)); ni = (ni + 1) % (nodes.length + 1); }, 650);
 else nodes.forEach(n => n.classList.add('lit'));
-const bars = document.getElementById('bars');
-soon(bars, () => { if (!reduce) bars.classList.add('go'); });
+soon($('#bars'), () => { if (!reduce) $('#bars').classList.add('go'); });
 
-/* process timeline: playhead follows scroll */
-const tl = document.getElementById('tl'), tc = document.getElementById('tc');
-const steps = [...document.querySelectorAll('#steps .step')];
+/* ---------- process timeline: playhead follows scroll ---------- */
+const tl = $('#tl'), tc = $('#tc'), steps = $$('#steps .step');
 const pad = n => String(n).padStart(2, '0');
 function scrub() {
-  const r = tl.getBoundingClientRect(), vh = innerHeight;
-  let p = reduce ? 1 : (vh * .9 - r.top) / (vh * .75);
+  const r = tl.getBoundingClientRect();
+  let p = reduce ? 1 : (innerHeight * .9 - r.top) / (innerHeight * .75);
   p = Math.max(0, Math.min(1, p));
   tl.style.setProperty('--p', p);
   const f = Math.round(p * 30 * 24);
@@ -1025,19 +1076,8 @@ addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimat
 addEventListener('resize', scrub);
 scrub();
 
-/* stack as terminal */
-const TOOLS = [
-  ['// ai-and-agents', [['Claude Code','claude'],['Codex','openai'],['ChatGPT · GPT Image','chatgpt'],['Cursor','cursor'],['Trae','trae'],['Antigravity','antigravity'],['Gemini · Nano Banana','gemini'],['DeepSeek','deepseek'],['Kimi','kimi'],['Hermes','hermes']]],
-  ['// generate-and-voice', [['Higgsfield','higgsfield'],['Google Flow','flow'],['Kie.ai','kie'],['Creatorize','creatorize'],['ElevenLabs','elevenlabs'],['VoiceStudio','voicestudio'],['Kokoro TTS','kokoro'],['Chatterbox','chatterbox']]],
-  ['// build', [['Java','java'],['Python','python'],['JavaScript','js'],['React','react'],['Next.js','nextjs'],['VS Code','vscode'],['Git · GitHub','github'],['Figma','figma'],['Notion','notion'],['Obsidian','obsidian']]],
-  ['// edit-and-motion', [['After Effects','ae'],['Premiere Pro','pr'],['Photoshop','ps'],['DaVinci Resolve','davinci2'],['Vegas Pro','vegas2'],['Blender','blender'],['FFmpeg','ffmpeg']]]
-];
-const tg = document.getElementById('tgrid');
-let ti = 0;
-tg.innerHTML = TOOLS.map(([h, list]) => `<div class="tcol"><h4>${h}</h4>${list.map(([n, ic]) => {
-  return `<div class="tr" style="--i:${ti++}"><span class="ico"><img src="${LOGOS[ic]}" alt="" loading="lazy"></span>${n}</div>`;
-}).join('')}</div>`).join('');
-const typed = document.getElementById('typed');
+/* ---------- stack terminal types itself ---------- */
+const typed = $('#typed'), tg = $('#tgrid');
 soon(tg, () => {
   if (reduce) return;
   const full = typed.textContent; typed.textContent = '';
@@ -1045,9 +1085,9 @@ soon(tg, () => {
   setTimeout(() => tg.classList.add('print'), full.length * 35);
 }, '0px 0px 80px 0px');
 
-/* goblin cursor + click sparks */
-const gc = document.getElementById('gc');
-if (matchMedia('(pointer: fine)').matches && !reduce) {
+/* ---------- goblin cursor + click sparks (mouse only) ---------- */
+const gc = $('#gc');
+if (fine && !reduce) {
   document.documentElement.classList.add('has-gc');
   const HOT = {default: [3, 2], link: [14, 2], click: [20, 20]};
   const LINKY = 'a,button,summary,.tr,[data-play],details,.still';
@@ -1058,7 +1098,7 @@ if (matchMedia('(pointer: fine)').matches && !reduce) {
     x = e.clientX; y = e.clientY; gc.classList.add('on');
     if (state !== 'click') { state = e.target.closest(LINKY) ? 'link' : 'default'; gc.dataset.s = state; }
     place();
-  });
+  }, {passive: true});
   addEventListener('pointerdown', e => {
     if (e.pointerType !== 'mouse') return;
     state = 'click'; gc.dataset.s = 'click'; place();
@@ -1074,27 +1114,44 @@ if (matchMedia('(pointer: fine)').matches && !reduce) {
   document.addEventListener('mouseleave', () => gc.classList.remove('on'));
 }
 
-/* dialogs + copy */
+/* ---------- dialogs: native modal (focus stays inside, Esc closes), focus returns to the opener ---------- */
+let lenis = null;
+function openDialog(id, opener) {
+  const d = document.getElementById(id);
+  d._opener = opener || document.activeElement;
+  lenis?.stop();
+  d.showModal();
+  d.appendChild(gc);
+  ($('.close', d) || d).focus();
+}
+$$('dialog').forEach(d => d.addEventListener('close', () => {
+  lenis?.start();
+  document.body.appendChild(gc);
+  d._opener?.focus?.({preventScroll: true});
+}));
 document.addEventListener('click', e => {
   const o = e.target.closest('[data-open]');
-  if (o) { document.getElementById(o.dataset.open).showModal(); return; }
+  if (o) { e.preventDefault(); closeMenu(); openDialog(o.dataset.open, o); return; }
   const c = e.target.closest('[data-close]');
   if (c) { c.closest('dialog').close(); return; }
   const pl = e.target.closest('[data-play]');
-  if (pl) { openPlayer(pl.dataset.play); return; }
+  if (pl) { e.preventDefault(); openPlayer(pl.dataset.play, pl); return; }
+  const st = e.target.closest('.still');
+  if (st) { const im = $('#imgboxImg'); im.src = st.dataset.full; im.alt = st.getAttribute('aria-label').replace(/^Enlarge: /, ''); openDialog('imgbox', st); return; }
   const cp = e.target.closest('[data-copy]');
   if (cp) {
-    const label = cp.querySelector('em');
-    navigator.clipboard.writeText(cp.dataset.copy).then(() => { label.textContent = 'Copied'; }).catch(() => {
-      const r = document.createRange(); r.selectNodeContents(cp.querySelector('small')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Selected';
+    e.preventDefault();
+    const label = $('em', cp) || $('span', cp), was = label.textContent, text = cp.dataset.copy;
+    navigator.clipboard.writeText(text).then(() => { label.textContent = 'Copied'; }).catch(() => {
+      const r = document.createRange(); r.selectNodeContents($('small', cp) || label); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Selected';
     });
-    setTimeout(() => { label.textContent = 'Copy'; }, 1600);
+    setTimeout(() => { label.textContent = was; }, 1600);
+    return;
   }
   if (e.target.tagName === 'DIALOG') { const r = e.target.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) e.target.close(); }
 });
 
-/* smooth scroll: Lenis, anchors with header offset, paused while a dialog is open */
-let lenis = null;
+/* ---------- smooth scroll: Lenis only with a mouse; anchors land below the sticky header ---------- */
 if (fine && !reduce) {
   const sc = document.createElement('script');
   sc.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js';
@@ -1104,35 +1161,48 @@ if (fine && !reduce) {
   };
   document.head.appendChild(sc);
 }
-const goTo = el => { const off = -(document.querySelector('.top').offsetHeight + 8); if (lenis) lenis.scrollTo(el, {offset: off, duration: 1.3}); else scrollTo({top: el.getBoundingClientRect().top + scrollY + off, behavior: reduce ? 'auto' : 'smooth'}); };
-document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-  const t = document.querySelector(a.getAttribute('href'));
+/* sections render as they come near (content-visibility), so heights change mid-scroll:
+   after each scroll ends, measure again and correct until the target sits under the header */
+const goTo = (el, tries = 4) => {
+  const off = -($('.top').offsetHeight + 8);
+  const miss = () => el.getBoundingClientRect().top + off;
+  const again = () => { if (tries > 1 && Math.abs(miss()) > 3) goTo(el, tries - 1); };
+  if (lenis) { lenis.scrollTo(el, {offset: off, duration: tries === 4 ? 1.3 : .35, onComplete: again}); return; }
+  scrollTo({top: scrollY + miss(), behavior: reduce || tries < 4 ? 'auto' : 'smooth'});
+  let t = 0;
+  const done = () => { clearTimeout(t); removeEventListener('scroll', wait); requestAnimationFrame(again); };
+  const wait = () => { clearTimeout(t); t = setTimeout(done, 140); };
+  addEventListener('scroll', wait, {passive: true});
+  t = setTimeout(done, 140);
+};
+$$('a[href^="#"]:not([data-open])').forEach(a => a.addEventListener('click', e => {
+  const t = $(a.getAttribute('href'));
   if (!t) return;
   e.preventDefault(); closeMenu(); goTo(t);
+  t.setAttribute('tabindex', '-1'); t.focus({preventScroll: true});
 }));
-const showModal = HTMLDialogElement.prototype.showModal;
-HTMLDialogElement.prototype.showModal = function () { lenis?.stop(); const r = showModal.call(this); this.appendChild(document.getElementById('gc')); return r; };
-document.querySelectorAll('dialog').forEach(d => d.addEventListener('close', () => { lenis?.start(); document.body.appendChild(document.getElementById('gc')); }));
 
-/* mobile menu */
-const burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
+/* ---------- mobile menu ---------- */
+const burger = $('#burger'), mnav = $('#mnav');
 function closeMenu() { burger.setAttribute('aria-expanded', 'false'); mnav.hidden = true; }
 burger.addEventListener('click', () => { const open = burger.getAttribute('aria-expanded') !== 'true'; burger.setAttribute('aria-expanded', open); mnav.hidden = !open; });
+addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
 
-/* section reveals: only for blocks still below the fold at load */
+/* ---------- section reveals: only for blocks still below the fold at load ---------- */
 if (!reduce) {
-  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal .still', '.tgal .still'];
+  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal .still', '.tgal .still', '.case'];
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('rv-in'); e.target.classList.remove('rv'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
-  groups.forEach(sel => document.querySelectorAll(sel).forEach((el, i) => {
-    if (el.getBoundingClientRect().top < innerHeight * .92) return;
+  groups.forEach(sel => $$(sel).forEach((el, i) => {
+    /* sections below the fold are not laid out yet (content-visibility), so measure the section */
+    if ((el.closest('section') || el).getBoundingClientRect().top < innerHeight * .92 && el.getBoundingClientRect().top < innerHeight * .92) return;
     el.style.setProperty('--rd', (Math.min(i, 5) * .07) + 's');
     el.classList.add('rv'); io.observe(el);
   }));
 }
 
-/* FAQ: answers slide open and closed */
-document.querySelectorAll('details').forEach(d => {
-  const sum = d.querySelector('summary'), ans = d.querySelector('.ans');
+/* ---------- FAQ: answers slide open and closed ---------- */
+$$('details').forEach(d => {
+  const sum = $('summary', d), ans = $('.ans', d);
   sum.addEventListener('click', e => {
     if (reduce) return;
     e.preventDefault();
@@ -1147,23 +1217,21 @@ document.querySelectorAll('details').forEach(d => {
   });
 });
 
-/* stills: 3D tilt toward the cursor, click to enlarge */
-document.querySelectorAll('.still').forEach(c => {
+/* ---------- stills: 3D tilt toward the cursor ---------- */
+if (fine && !reduce) $$('.still').forEach(c => {
   c.addEventListener('pointermove', e => {
-    if (reduce || e.pointerType !== 'mouse') return;
     const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
     c.style.transform = `rotateY(${(x * 12).toFixed(2)}deg) rotateX(${(-y * 12).toFixed(2)}deg) translateZ(8px)`;
   });
   c.addEventListener('pointerleave', () => { c.style.transform = ''; });
-  c.addEventListener('click', () => { document.getElementById('imgboxImg').src = c.querySelector('img').src; document.getElementById('imgbox').showModal(); });
 });
 
-/* hand + phone: drifts a little toward the cursor */
-const hpEl = document.getElementById('handphone');
+/* ---------- hero: goblin parallax + hand drift, mouse only, one frame per move ---------- */
+const hpEl = $('#handphone');
 const drift = e => {
-  const hp = hpEl, r = hp.getBoundingClientRect();
+  const r = hpEl.getBoundingClientRect();
   const nx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / 600)), ny = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / 600));
-  hp.style.setProperty('--hx', (nx * 10).toFixed(1) + 'px'); hp.style.setProperty('--hy', (ny * 6).toFixed(1) + 'px');
+  hpEl.style.setProperty('--hx', (nx * 10).toFixed(1) + 'px'); hpEl.style.setProperty('--hy', (ny * 6).toFixed(1) + 'px');
 };
 if (fine && !reduce) {
   let last = null, pending = false;
@@ -1175,6 +1243,10 @@ if (fine && !reduce) {
     requestAnimationFrame(() => { pending = false; if (scrollY < innerHeight * 1.2) { parallax(last); drift(last); } });
   }, {passive: true});
 }
-</script>
 
+/* ---------- decorative loops only run while their block is on screen ---------- */
+$$('.hero, .marquee, .results, #systems, #stack').forEach(el => seen(el, on => el.classList.toggle('idle', !on), '50px'));
+
+</script>
+</body>
 </html>
