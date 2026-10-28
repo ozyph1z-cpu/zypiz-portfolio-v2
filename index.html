@@ -31,7 +31,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bowlby-one-sc-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlow-400.woff2" crossorigin>
-<link rel="preload" as="image" href="assets/hand.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hand.webp" imagesrcset="assets/hand-360.webp 360w, assets/hand-480.webp 480w, assets/hand.webp 540w" imagesizes="(max-width:760px) 84vw, 600px" fetchpriority="high">
 <style>
 /* self-hosted Google Fonts (OFL), latin subset */
 @font-face {
@@ -703,6 +703,7 @@ a.pill{display:inline-block;text-decoration:none}
   .res span{font-size:12px}
   .res small{font-size:10px}
 }
+@media (max-width:760px){.hp-float{animation:none}.handphone.pop .hp-float{animation:hpshake .42s var(--snap)}}
 
 </style>
 </head>
@@ -731,14 +732,14 @@ a.pill{display:inline-block;text-decoration:none}
         <a class="mascot" id="mascot" href="#contact" data-open="talk" aria-label="Send a brief">
           <span class="glow"></span>
           <span class="gob" id="gob">
-            <span class="lay ear-l" data-d="3"><img src="assets/gob-ear-l.webp" width="240" height="240" alt=""></span>
-            <span class="lay ear-r" data-d="3"><img src="assets/gob-ear-r.webp" width="240" height="240" alt=""></span>
+            <span class="lay ear-l" data-d="3"><img src="assets/gob-ear-l.webp" width="240" height="240" alt="" loading="lazy"></span>
+            <span class="lay ear-r" data-d="3"><img src="assets/gob-ear-r.webp" width="240" height="240" alt="" loading="lazy"></span>
             <span class="lay head" data-d="3.5">
-              <img class="st on" data-st="rest" src="assets/gob-rest.webp" width="240" height="240" alt="">
+              <img class="st on" data-st="rest" src="assets/gob-rest.webp" width="240" height="240" alt="" loading="lazy">
               <img class="st" data-st="open" src="assets/gob-open.webp" width="240" height="240" alt="" loading="lazy">
               <img class="st" data-st="bite" src="assets/gob-bite.webp" width="240" height="240" alt="" loading="lazy">
             </span>
-            <span class="lay hairw" data-d="8"><img class="hair" src="assets/gob-hair.webp" width="240" height="240" alt=""></span>
+            <span class="lay hairw" data-d="8"><img class="hair" src="assets/gob-hair.webp" width="240" height="240" alt="" loading="lazy"></span>
           </span>
           <span class="plaque" aria-hidden="true">SEND A BRIEF</span>
         </a>
@@ -758,7 +759,7 @@ a.pill{display:inline-block;text-decoration:none}
             <span class="snd"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Tap for sound</span>
             <span class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           </a>
-          <img class="hand" src="assets/hand.webp" width="540" height="746" alt="" fetchpriority="high">
+          <img class="hand" src="assets/hand.webp" srcset="assets/hand-360.webp 360w, assets/hand-480.webp 480w, assets/hand.webp 540w" sizes="(max-width:760px) 84vw, 600px" width="540" height="746" alt="" fetchpriority="high">
         </div>
         <svg class="burst b1" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L32 24 M12 14 L22 28 M6 34 L20 36"/></svg>
         <svg class="burst b2" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L28 24 M48 14 L38 28 M54 34 L40 36"/></svg>
@@ -1004,7 +1005,12 @@ function showReel(i) {
 showReel(0);
 /* the reel starts once the page has loaded, so its video never competes with the first paint */
 const start = () => setTimeout(() => { started = true; if (reelOK()) solo(reelVids[ri]); load(reelVids[(ri + 1) % reelVids.length]); }, 400);
-if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true});
+if (fine) { if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true}); }
+else {
+  /* phones: the poster shows first and the reel starts on the first touch or scroll (saves data, keeps the first paint still) */
+  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); start(); };
+  ['touchstart', 'scroll', 'pointerdown'].forEach(t => addEventListener(t, go, {passive: true, once: true}));
+}
 seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });
 if (!reduce) setInterval(() => { if (reelOK()) showReel((ri + 1) % reelVids.length); }, 3200);
 document.addEventListener('visibilitychange', () => { if (document.hidden && current) current.pause(); });

@@ -38,7 +38,12 @@ function showReel(i) {
 showReel(0);
 /* the reel starts once the page has loaded, so its video never competes with the first paint */
 const start = () => setTimeout(() => { started = true; if (reelOK()) solo(reelVids[ri]); load(reelVids[(ri + 1) % reelVids.length]); }, 400);
-if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true});
+if (fine) { if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true}); }
+else {
+  /* phones: the poster shows first and the reel starts on the first touch or scroll (saves data, keeps the first paint still) */
+  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); start(); };
+  ['touchstart', 'scroll', 'pointerdown'].forEach(t => addEventListener(t, go, {passive: true, once: true}));
+}
 seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });
 if (!reduce) setInterval(() => { if (reelOK()) showReel((ri + 1) % reelVids.length); }, 3200);
 document.addEventListener('visibilitychange', () => { if (document.hidden && current) current.pause(); });

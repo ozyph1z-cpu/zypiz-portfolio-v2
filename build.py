@@ -330,14 +330,14 @@ def r_hero(d):
         <a class="mascot" id="mascot" href="#contact" data-open="talk" aria-label="{e(d["cta_label"])}">
           <span class="glow"></span>
           <span class="gob" id="gob">
-            <span class="lay ear-l" data-d="3"><img src="assets/gob-ear-l.webp" width="240" height="240" alt=""></span>
-            <span class="lay ear-r" data-d="3"><img src="assets/gob-ear-r.webp" width="240" height="240" alt=""></span>
+            <span class="lay ear-l" data-d="3"><img src="assets/gob-ear-l.webp" width="240" height="240" alt="" loading="lazy"></span>
+            <span class="lay ear-r" data-d="3"><img src="assets/gob-ear-r.webp" width="240" height="240" alt="" loading="lazy"></span>
             <span class="lay head" data-d="3.5">
-              <img class="st on" data-st="rest" src="assets/gob-rest.webp" width="240" height="240" alt="">
+              <img class="st on" data-st="rest" src="assets/gob-rest.webp" width="240" height="240" alt="" loading="lazy">
               <img class="st" data-st="open" src="assets/gob-open.webp" width="240" height="240" alt="" loading="lazy">
               <img class="st" data-st="bite" src="assets/gob-bite.webp" width="240" height="240" alt="" loading="lazy">
             </span>
-            <span class="lay hairw" data-d="8"><img class="hair" src="assets/gob-hair.webp" width="240" height="240" alt=""></span>
+            <span class="lay hairw" data-d="8"><img class="hair" src="assets/gob-hair.webp" width="240" height="240" alt="" loading="lazy"></span>
           </span>
           <span class="plaque" aria-hidden="true">{e(d["cta_label"]).upper()}</span>
         </a>
@@ -357,7 +357,7 @@ def r_hero(d):
             <span class="snd">{SOUND_ICON}Tap for sound</span>
             <span class="dots" id="dots" aria-hidden="true">{"<i></i>" * len(h["reel"])}</span>
           </a>
-          <img class="hand" src="assets/hand.webp" width="540" height="746" alt="" fetchpriority="high">
+          <img class="hand" src="assets/hand.webp" srcset="assets/hand-360.webp 360w, assets/hand-480.webp 480w, assets/hand.webp 540w" sizes="(max-width:760px) 84vw, 600px" width="540" height="746" alt="" fetchpriority="high">
         </div>
         <svg class="burst b1" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L32 24 M12 14 L22 28 M6 34 L20 36"/></svg>
         <svg class="burst b2" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6 L28 24 M48 14 L38 28 M54 34 L40 36"/></svg>

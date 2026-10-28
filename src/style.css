@@ -587,3 +587,4 @@ a.pill{display:inline-block;text-decoration:none}
   .res span{font-size:12px}
   .res small{font-size:10px}
 }
+@media (max-width:760px){.hp-float{animation:none}.handphone.pop .hp-float{animation:hpshake .42s var(--snap)}}
