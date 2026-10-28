@@ -26,18 +26,19 @@ function showReel(i) {
   ri = i;
   reelVids.forEach((v, j) => { v.classList.toggle('on', j === i); if (j !== i) v.pause(); });
   if (started) load(reelVids[(i + 1) % reelVids.length]);
-  dots.forEach((d, j) => { d.classList.remove('on'); if (j === i) { void d.offsetWidth; d.classList.add('on'); } });
+  dots.forEach((d, j) => { d.classList.remove('on'); if (j === i && started) { void d.offsetWidth; d.classList.add('on'); } });
   tag.textContent = reelVids[i].dataset.label;
   phone.href = `media/full/${reelVids[i].dataset.k}.mp4`;
   phone.dataset.play = reelVids[i].dataset.k;
   const hp = $('#handphone');
-  hp.classList.remove('pop'); void hp.offsetWidth; hp.classList.add('pop');
+  if (started) { hp.classList.remove('pop'); void hp.offsetWidth; hp.classList.add('pop'); }
   reelVids[i].currentTime = 0;
   if (reelOK()) solo(reelVids[i]);
 }
 showReel(0);
 /* the reel starts once the page has loaded, so its video never competes with the first paint */
-const start = () => setTimeout(() => { started = true; if (reelOK()) solo(reelVids[ri]); load(reelVids[(ri + 1) % reelVids.length]); }, 400);
+/* nothing in the phone moves before this, so the first paint is still */
+const start = () => setTimeout(() => { started = true; showReel(ri); }, 400);
 if (fine) { if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true}); }
 else {
   /* phones: the poster shows first and the reel starts on the first touch or scroll (saves data, keeps the first paint still) */
