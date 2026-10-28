@@ -16,8 +16,6 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-FONTS = ('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Barlow:wght@400;500;600'
-         '&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&display=swap')
 SOUND_ICON = ('<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" '
               'fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>')
 PLAY_ICON = '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>'
@@ -387,10 +385,17 @@ def card(w):
     return (f'<a class="card" href="media/full/{k}.mp4" data-play="{k}" data-f="{e(w["filter"])}" data-title="{e(w["title"])}">'
             f'<span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-{k}.webp" data-src="media/{k}.mp4" aria-hidden="true"></video>'
             f'<span class="stat-pill">{e(w["pill"])}</span>'
-            f'<span class="play"><span>{PLAY_ICON}</span><em>Click for sound · drag to scrub</em></span>'
+            f'<span class="play"><span>{PLAY_ICON}</span><em>Click for sound</em></span>'
             f'<span class="dur">{SOUND_ICON}<span class="sr">Length </span>{mmss(w["duration"])}</span>'
-            f'<i class="sbar"><b></b></i><span class="stc"></span></span>'
+            '</span>'
             f'<span class="meta"><b>{e(w["title"])}</b><span>{e(w["tag"])}</span></span></a>')
+
+
+def lane(rid, items):
+    arrows = ('<button class="ln prev" type="button" aria-label="Scroll the row left" aria-controls="lane-{0}">‹</button>'
+              '<button class="ln next" type="button" aria-label="Scroll the row right" aria-controls="lane-{0}">›</button>').format(rid)
+    return (f'<div class="lane-wrap">{arrows}<div class="lane" id="lane-{rid}" tabindex="0" aria-label="Work, scroll sideways">'
+            f'<div class="row" id="{rid}">{"".join(card(x) for x in items)}</div></div></div>')
 
 
 def r_work(d):
@@ -408,10 +413,10 @@ def r_work(d):
     </div>
   </div>
   <div class="lanes" id="lanes">
-    <div class="lane"><div class="row" id="row1">{"".join(card(x) for x in w[:half])}</div></div>
-    <div class="lane rev"><div class="row" id="row2" style="--dur:84s">{"".join(card(x) for x in w[half:])}</div></div>
+    {lane("row1", w[:half])}
+    {lane("row2", w[half:])}
   </div>
-  <p class="wrap lanes-hint">Every clip opens the full cut with sound.</p>
+  <p class="wrap lanes-hint">Drag or swipe the rows. Every clip opens the full cut with sound.</p>
 </section>'''
 
 
@@ -647,7 +652,7 @@ def render(d):
         'url': s['url'], 'image': s['url'] + d['about']['photo'], 'jobTitle': 'Video editor, AI engineer and developer',
         'email': f'mailto:{c["email"]}', 'sameAs': [c['x_url']],
     }, ensure_ascii=False).replace('</', '<\\/')
-    css = open(os.path.join(ROOT, 'src/style.css'), encoding='utf-8').read()
+    css = open(os.path.join(ROOT, 'src/fonts.css'), encoding='utf-8').read() + open(os.path.join(ROOT, 'src/style.css'), encoding='utf-8').read()
     js = open(os.path.join(ROOT, 'src/main.js'), encoding='utf-8').read()
     work_js = json.dumps({w['k']: {'t': w['title']} for w in d['work']}, ensure_ascii=False).replace('</', '<\\/')
     js = js.replace('/*@WORK@*/{}', work_js)
@@ -655,7 +660,7 @@ def render(d):
         'lang': e(s['lang']), 'title': e(s['title']), 'description': e(s['description']), 'url': e(s['url']),
         'theme_color': e(s['theme_color']), 'favicon': e(s['favicon']), 'apple_touch_icon': e(s['apple_touch_icon']),
         'name': e(s['name']), 'locale': e(s['locale']), 'og_image_url': e(s['url'] + s['og_image']), 'og_image_alt': e(s['og_image_alt']),
-        'x_handle': e(c['x_handle']), 'jsonld': jsonld, 'fonts': e(FONTS), 'css': css, 'js': js,
+        'x_handle': e(c['x_handle']), 'jsonld': jsonld, 'css': css, 'js': js,
         'header': r_header(d), 'hero': r_hero(d), 'stats': r_stats(d), 'marquee': r_marquee(d), 'work': r_work(d),
         'cases': r_cases(d), 'testimonials': r_testimonials(d), 'statics': r_statics(d), 'systems': r_systems(d),
         'process': r_process(d), 'stack': r_stack(d), 'about': r_about(d), 'contact': r_contact(d), 'faq': r_faq(d),

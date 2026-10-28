@@ -98,55 +98,17 @@ function count(el) {
 }
 if (!reduce) $$('.num[data-to]').forEach(n => soon(n, () => count(n), '0px'));
 
-/* ---------- hold and drag on a card to scrub it (mouse only); a plain click opens the player ---------- */
-function scrubbable(box, v) {
-  const tc = $('.stc', box);
-  let s = null, raf = 0, moved = false;
-  const paint = () => { const d = v.duration; if (!(d > 0)) return; box.style.setProperty('--p', v.currentTime / d); tc.textContent = `${mmss(v.currentTime)} / ${mmss(d)}`; };
-  box.addEventListener('pointerdown', e => { if (e.button !== 0 || e.pointerType !== 'mouse') return; moved = false; load(v); s = {x: e.clientX, id: e.pointerId, t0: v.currentTime, on: false}; });
-  box.addEventListener('pointermove', e => {
-    if (!s || e.pointerId !== s.id) return;
-    const d = v.duration, dx = e.clientX - s.x;
-    if (!s.on) {
-      if (Math.abs(dx) < 6 || !(d > 0)) return;
-      s.on = true; v.pause();
-      try { box.setPointerCapture(e.pointerId); } catch (_) {}
-      box.classList.add('scrubbing'); $('#lanes').classList.add('scrubbing');
-    }
-    s.to = Math.max(0, Math.min(d - .05, s.t0 + dx / box.clientWidth * d));
-    if (!raf) raf = requestAnimationFrame(() => { raf = 0; if (s) { v.currentTime = s.to; paint(); } });
-  });
-  const end = e => {
-    if (!s || e.pointerId !== s.id) return;
-    if (s.on) {
-      moved = true; cancelAnimationFrame(raf); raf = 0;
-      if (s.to != null) { v.currentTime = s.to; paint(); }
-      box.classList.remove('scrubbing'); $('#lanes').classList.remove('scrubbing');
-    }
-    s = null;
-  };
-  box.addEventListener('pointerup', end);
-  box.addEventListener('pointercancel', end);
-  box.closest('.card').addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopImmediatePropagation(); moved = false; } }, true);
-  box.addEventListener('dragstart', e => e.preventDefault());
-}
-
-/* ---------- work lanes ---------- */
-/* mouse: two marquee rows, a card plays while hovered. touch / reduced motion: swipe rows, the centred card plays */
+/* ---------- work rows: they only move when the viewer moves them ----------
+   Swipe on touch, drag or the arrows with a mouse. Mouse: the hovered card plays. Touch: the centred card plays. */
 const lanes = $('#lanes'), rows = [$('#row1'), $('#row2')];
 const cards = $$('.card', lanes);
-const marquee = fine && !reduce;
-lanes.classList.add(marquee ? 'auto' : 'swipe');
-seen(lanes, on => lanes.classList.toggle('off', !on), '100px');
-cards.forEach(c => {
-  const v = $('video', c);
-  if (marquee) {
-    scrubbable($('.vid', c), v);
-    c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
-    c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
-  }
-});
 let pick = null;
+seen(lanes, on => { if (!on && pick) { stop(pick); pick = null; cardActive = false; } }, '100px');
+if (fine) cards.forEach(c => {
+  const v = $('video', c);
+  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
+  c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
+});
 const ioSwipe = new IntersectionObserver(es => {
   es.forEach(e => { e.target._r = e.isIntersecting ? e.intersectionRatio : 0; });
   const best = cards.filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
@@ -156,32 +118,56 @@ const ioSwipe = new IntersectionObserver(es => {
   pick = v; cardActive = !!v;
   if (v) solo(v); else if (reelOK()) solo(reelVids[ri]);
 }, {threshold: [0, .3, .6, .9]});
-if (!marquee) cards.forEach(c => ioSwipe.observe(c));
+if (!fine) cards.forEach(c => ioSwipe.observe(c));
+
+/* drag to scroll with a mouse (rows and the stills carousels); a drag never counts as a click */
+function draggable(el) {
+  let s = null;
+  el.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || el.scrollWidth <= el.clientWidth) return;
+    s = {x: e.clientX, left: el.scrollLeft, id: e.pointerId, moved: false};
+  });
+  el.addEventListener('pointermove', e => {
+    if (!s || e.pointerId !== s.id) return;
+    const dx = e.clientX - s.x;
+    if (!s.moved && Math.abs(dx) < 6) return;
+    if (!s.moved) { s.moved = true; el.classList.add('dragging'); try { el.setPointerCapture(e.pointerId); } catch (_) {} }
+    el.scrollLeft = s.left - dx;
+  });
+  const end = e => {
+    if (!s || e.pointerId !== s.id) return;
+    if (s.moved) { el.classList.remove('dragging'); el._dragEnd = performance.now(); }
+    s = null;
+  };
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
+  el.addEventListener('dragstart', e => e.preventDefault());
+  el.addEventListener('click', e => { if (performance.now() - (el._dragEnd || 0) < 250) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+}
+$$('.lane, .sgal, .tgal').forEach(draggable);
+
+/* arrows (mouse devices): a screen at a time; hidden at the ends */
+$$('.lane-wrap').forEach(w => {
+  const lane = $('.lane', w), prev = $('.ln.prev', w), next = $('.ln.next', w);
+  const ends = () => {
+    prev.disabled = lane.scrollLeft < 8;
+    next.disabled = lane.scrollLeft + lane.clientWidth > lane.scrollWidth - 8;
+  };
+  prev.addEventListener('click', () => lane.scrollBy({left: -lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
+  next.addEventListener('click', () => lane.scrollBy({left: lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
+  lane.addEventListener('scroll', ends, {passive: true});
+  addEventListener('resize', ends);
+  w._ends = ends; ends();
+});
 
 function renderWork(f) {
-  $$('.card[aria-hidden]', lanes).forEach(c => c.remove());
   const show = cards.filter(c => f === 'all' || c.dataset.f === f);
   cards.forEach(c => { c.hidden = !show.includes(c); });
-  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); rows[1].parentElement.hidden = false; }
-  else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); rows[1].parentElement.hidden = true; }
+  const wraps = rows.map(r => r.closest('.lane-wrap'));
+  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); wraps[1].hidden = false; }
+  else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); wraps[1].hidden = true; }
   rows.forEach(r => { r.parentElement.scrollLeft = 0; });
-  if (!marquee) return;
-  /* marquee: repeat the row until it is wider than two screens, then once more for the seamless loop */
-  rows.forEach(r => {
-    const own = $$('.card:not([hidden])', r);
-    if (!own.length) return;
-    const extra = [];
-    let w = own.length * 224;
-    while (w < innerWidth * 2) { own.forEach(c => extra.push(c)); w += own.length * 224; }
-    [...extra, ...own, ...extra].forEach(c => {
-      const k = c.cloneNode(true);
-      k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1;
-      const v = $('video', k); v.removeAttribute('src');
-      k.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
-      k.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
-      r.appendChild(k);
-    });
-  });
+  wraps.forEach(w => w._ends && w._ends());
 }
 renderWork('all');
 $$('.chip').forEach(c => c.addEventListener('click', () => {
@@ -340,16 +326,31 @@ function closeMenu() { burger.setAttribute('aria-expanded', 'false'); mnav.hidde
 burger.addEventListener('click', () => { const open = burger.getAttribute('aria-expanded') !== 'true'; burger.setAttribute('aria-expanded', open); mnav.hidden = !open; });
 addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
 
-/* ---------- section reveals: only for blocks still below the fold at load ---------- */
+/* ---------- section reveals: only for blocks still below the fold at load ----------
+   The trigger is the section, not each block: blocks inside a sideways carousel or a section that is not laid out
+   yet (content-visibility) never report their own intersection, and must not stay hidden. */
 if (!reduce) {
-  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal .still', '.tgal .still', '.case'];
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('rv-in'); e.target.classList.remove('rv'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
+  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal', '.tgal', '.case'];
+  const pending = new Map();
   groups.forEach(sel => $$(sel).forEach((el, i) => {
-    /* sections below the fold are not laid out yet (content-visibility), so measure the section */
-    if ((el.closest('section') || el).getBoundingClientRect().top < innerHeight * .92 && el.getBoundingClientRect().top < innerHeight * .92) return;
+    const sec = el.closest('section') || el;
+    if (sec.getBoundingClientRect().top < innerHeight * .92 && el.getBoundingClientRect().top < innerHeight * .92) return;
     el.style.setProperty('--rd', (Math.min(i, 5) * .07) + 's');
-    el.classList.add('rv'); io.observe(el);
+    el.classList.add('rv');
+    if (!pending.has(sec)) pending.set(sec, []);
+    pending.get(sec).push(el);
   }));
+  const show = el => { el.classList.add('rv-in'); el.classList.remove('rv'); };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const list = pending.get(e.target);
+    if (!list) return;
+    /* blocks further down a tall section wait until they are close, the rest show now */
+    const left = list.filter(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight * .95 || !r.height) { show(el); return false; } return true; });
+    if (left.length) pending.set(e.target, left); else { pending.delete(e.target); io.unobserve(e.target); }
+  }), {rootMargin: '0px 0px -8% 0px', threshold: [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1]});
+  pending.forEach((_, sec) => io.observe(sec));
+  /* safety net: anything still hidden once the user scrolled past it shows */
+  addEventListener('scroll', () => pending.forEach(list => list.forEach(el => { if (el.classList.contains('rv') && el.getBoundingClientRect().top < innerHeight) show(el); })), {passive: true});
 }
 
 /* ---------- FAQ: answers slide open and closed ---------- */

@@ -29,12 +29,91 @@
 <meta name="twitter:image:alt" content="Zypiz, AI animation and AI UGC editor: the goblin mascot next to the headline AI makes the footage, I make it bite.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Marcelo", "alternateName": "Zypiz", "url": "https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/", "image": "https://ozyph1z-cpu.github.io/zypiz-portfolio-v2/assets/photo-marcelo.webp", "jobTitle": "Video editor, AI engineer and developer", "email": "mailto:ozyph1z@gmail.com", "sameAs": ["https://x.com/zyp1z"]}</script>
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&amp;family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Permanent+Marker&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&amp;family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Permanent+Marker&amp;display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/bowlby-one-sc-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlow-400.woff2" crossorigin>
 <link rel="preload" as="image" href="assets/hand.webp" fetchpriority="high">
 <style>
+/* self-hosted Google Fonts (OFL), latin subset */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/barlow-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/barlow-500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/barlow-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/barlow-condensed-500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/barlow-condensed-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/barlow-condensed-700.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bowlby One SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/bowlby-one-sc-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/permanent-marker-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* Layout: nodenvironment's sequence (hero → numbers → work → systems → process → stack → about → CTA → FAQ) in the Zypiz cave palette. Lime = action and numbers, purple = the goblin layer. */
 :root{
   --cave:#0b0710; --cave-1:#140b1c; --cave-2:#1d1029; --edge:#2e1c3d; --rock:#4a2b63;
@@ -203,27 +282,29 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .chip:hover{color:var(--bone);border-color:var(--lilac)}
 .chip[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
 .lanes{display:grid;gap:22px;position:relative}
-.lane[hidden]{display:none}
-/* default (touch, reduced motion, no JS): native swipe rows; the centred card plays */
-.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+/* rows scroll only when the viewer moves them: swipe, drag with the mouse, or the arrows */
+.lane-wrap{position:relative;min-width:0}
+.lane-wrap[hidden]{display:none}
+.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .lane::-webkit-scrollbar{display:none}
-.row{display:flex;gap:12px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
-.lanes:not(.auto) .card{scroll-snap-align:center}
-.lanes:not(.auto) .card .play{opacity:1;place-items:end start;padding:10px}
-.lanes:not(.auto) .card .play span{width:34px;height:34px;transform:none}
-.lanes:not(.auto) .card .play svg{width:12px;height:12px;margin-left:2px}
-.lanes:not(.auto) .card .play em{display:none}
-/* mouse: two marquee rows that pause on hover; the hovered card plays */
-.lanes.auto::before,.lanes.auto::after{content:"";position:absolute;top:0;bottom:0;width:4%;z-index:3;pointer-events:none}
-.lanes.auto::before{left:0;background:linear-gradient(90deg,var(--cave),transparent)}
-.lanes.auto::after{right:0;background:linear-gradient(-90deg,var(--cave),transparent)}
-.lanes.auto .lane{overflow:hidden;scroll-snap-type:none}
-.lanes.auto .row{gap:18px;padding-inline:0;animation:lane var(--dur,70s) linear infinite;will-change:transform}
-.lanes.auto .lane.rev .row{animation-direction:reverse}
-.lanes.auto:hover .row,.lanes.off .row{animation-play-state:paused}
+.row{display:flex;gap:16px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
+.lane .card{scroll-snap-align:center}
+.lane.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.lane.dragging .card{pointer-events:none}
+.ln{position:absolute;top:calc(50% - 40px);z-index:4;width:46px;height:46px;border-radius:50%;border:1px solid var(--rock);background:rgba(11,7,16,.88);color:var(--bone);font:400 30px/1 var(--body);cursor:pointer;display:none;place-items:center;padding:0 0 4px;transition:opacity .2s,border-color .2s,transform .25s var(--snap)}
+.ln:hover{border-color:var(--lime);color:var(--lime);transform:scale(1.08)}
+.ln:disabled{opacity:0;pointer-events:none}
+.ln.prev{left:max(10px,calc((100vw - 1200px) / 2 - 56px))}
+.ln.next{right:max(10px,calc((100vw - 1200px) / 2 - 56px))}
+@media (hover:hover) and (pointer:fine){.ln{display:grid}.lane{cursor:grab}}
+@media (hover:none){
+  .card .play{opacity:1;place-items:end start;padding:10px}
+  .card .play span{width:34px;height:34px;transform:none}
+  .card .play svg{width:12px;height:12px;margin-left:2px}
+  .card .play em{display:none}
+}
 .card[hidden]{display:none}
 .lanes-hint{margin-top:14px;color:var(--soft);font:600 13px/1.3 var(--label);letter-spacing:.12em;text-transform:uppercase}
-@keyframes lane{to{transform:translateX(-50%)}}
 .card{display:block;width:206px;flex:none;cursor:pointer;color:inherit;text-decoration:none;text-align:left}
 .card .vid{display:block;position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--cave-2);border:1px solid var(--edge);transition:transform .35s var(--out),border-color .2s}
 .card:hover .vid{transform:translateY(-6px) rotate(-1deg);border-color:var(--lime)}
@@ -239,7 +320,7 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .card .meta span{color:var(--soft);font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .card .play em{position:absolute;bottom:42px;left:0;right:0;text-align:center;font:700 11px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--bone);text-shadow:0 1px 6px rgba(0,0,0,.8)}
 /* hold + drag scrubbing */
-.card .vid,.scrubbox{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.card .vid{user-select:none;-webkit-user-select:none}
 .scrubbox{position:relative}
 .sbar{position:absolute;left:10px;right:10px;bottom:10px;height:4px;border-radius:4px;background:rgba(242,236,223,.25);opacity:0;transition:opacity .2s;pointer-events:none;z-index:3}
 .sbar b{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--lime);border-radius:inherit}
@@ -247,7 +328,6 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .scrubbing{cursor:ew-resize}
 .scrubbing .sbar,.scrubbing .stc,.player .sbar{opacity:1}
 .card .vid.scrubbing .play{opacity:0}
-.lanes.scrubbing .row{animation-play-state:paused!important}
 
 /* statics + thumbnails */
 .sgal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;perspective:900px}
@@ -257,9 +337,12 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .still.th{aspect-ratio:16/9}
 .still img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--out)}
 .still span{position:absolute;left:10px;bottom:10px;font:700 12px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;background:rgba(11,7,16,.75);color:var(--bone);padding:6px 9px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .3s var(--out)}
-.still:hover{border-color:var(--lime);box-shadow:0 24px 50px -20px #000}
-.still:hover img{transform:scale(1.05)}
-.still:hover span{opacity:1;transform:none}
+@media (hover:hover){
+  .still:hover{border-color:var(--lime);box-shadow:0 24px 50px -20px #000}
+  .still:hover img{transform:scale(1.05)}
+  .still:hover span{opacity:1;transform:none}
+}
+@media (hover:none){.still{transform-style:flat}.still span{opacity:1;transform:none}}
 .imgbox{width:min(560px,calc(100vw - 32px));padding:14px}
 .imgbox img{display:block;width:100%;height:auto;border-radius:12px}
 
@@ -650,10 +733,10 @@ a.pill{display:inline-block;text-decoration:none}
     </div>
   </div>
   <div class="lanes" id="lanes">
-    <div class="lane"><div class="row" id="row1"><a class="card" href="media/full/p_trailer.mp4" data-play="p_trailer" data-f="anim" data-title="Zypiz · Still Doubting Me?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-p_trailer.webp" data-src="media/p_trailer.mp4" aria-hidden="true"></video><span class="stat-pill">6 styles · one take</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:47</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Zypiz · Still Doubting Me?</b><span>AI Animation</span></span></a><a class="card" href="media/full/g_glossa.mp4" data-play="g_glossa" data-f="anim" data-title="Glossa · Cloud Balm"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-g_glossa.webp" data-src="media/g_glossa.mp4" aria-hidden="true"></video><span class="stat-pill">Pixar-style 3D</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Glossa · Cloud Balm</b><span>AI Song Ad</span></span></a><a class="card" href="media/full/z_alexander.mp4" data-play="z_alexander" data-f="anim" data-title="Alexander · Road Through the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_alexander.webp" data-src="media/z_alexander.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 11.6K · 69.9% stayed</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Alexander · Road Through the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_vampire.mp4" data-play="z_vampire" data-f="anim" data-title="Mercy Brown · Real Vampire"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_vampire.webp" data-src="media/z_vampire.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 3.9K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:48</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Mercy Brown · Real Vampire</b><span>AI Animation</span></span></a><a class="card" href="media/full/t_yig.mp4" data-play="t_yig" data-f="anim" data-title="TEORIZA · The Curse of Yig"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-t_yig.webp" data-src="media/t_yig.mp4" aria-hidden="true"></video><span class="stat-pill">Episode intro</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:20</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>TEORIZA · The Curse of Yig</b><span>Analog Horror</span></span></a><a class="card" href="media/full/z_medusa.mp4" data-play="z_medusa" data-f="anim" data-title="Medusa · The Gorgon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_medusa.webp" data-src="media/z_medusa.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 2.3K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Medusa · The Gorgon</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kraken.mp4" data-play="z_kraken" data-f="anim" data-title="The Kraken"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kraken.webp" data-src="media/z_kraken.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:43</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>The Kraken</b><span>AI Animation</span></span></a><a class="card" href="media/full/d_snooze.mp4" data-play="d_snooze" data-f="anim" data-title="Snoozebrick · Cloud Pillow"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-d_snooze.webp" data-src="media/d_snooze.mp4" aria-hidden="true"></video><span class="stat-pill">Toy stop-motion</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Snoozebrick · Cloud Pillow</b><span>Brick Toy</span></span></a><a class="card" href="media/full/z_dracula.mp4" data-play="z_dracula" data-f="anim" data-title="Dracula · Real Blood?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_dracula.webp" data-src="media/z_dracula.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:28</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Dracula · Real Blood?</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_poseidon.mp4" data-play="z_poseidon" data-f="anim" data-title="Poseidon · God of the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_poseidon.webp" data-src="media/z_poseidon.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:46</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Poseidon · God of the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_wendigo.mp4" data-play="z_wendigo" data-f="anim" data-title="Wendigo · Swift Runner"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_wendigo.webp" data-src="media/z_wendigo.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Wendigo · Swift Runner</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_godzilla.mp4" data-play="z_godzilla" data-f="anim" data-title="Godzilla · Lucky Dragon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_godzilla.webp" data-src="media/z_godzilla.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:41</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Godzilla · Lucky Dragon</b><span>AI Animation</span></span></a></div></div>
-    <div class="lane rev"><div class="row" id="row2" style="--dur:84s"><a class="card" href="media/full/z_talos.mp4" data-play="z_talos" data-f="anim" data-title="Talos · Bronze Robot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_talos.webp" data-src="media/z_talos.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:34</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Talos · Bronze Robot</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kuchisake.mp4" data-play="z_kuchisake" data-f="anim" data-title="Kuchisake-onna"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kuchisake.webp" data-src="media/z_kuchisake.mp4" aria-hidden="true"></video><span class="stat-pill">Japanese legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:38</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Kuchisake-onna</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_whales.mp4" data-play="z_whales" data-f="anim" data-title="Whales in the Desert"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_whales.webp" data-src="media/z_whales.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Whales in the Desert</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_mapinguari.mp4" data-play="z_mapinguari" data-f="anim" data-title="Mapinguari · Ground Sloth"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_mapinguari.webp" data-src="media/z_mapinguari.mp4" aria-hidden="true"></video><span class="stat-pill">Amazon legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Mapinguari · Ground Sloth</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_cyclops.mp4" data-play="z_cyclops" data-f="anim" data-title="Cyclops · Elephant Skulls"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_cyclops.webp" data-src="media/z_cyclops.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:33</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Cyclops · Elephant Skulls</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_knight.mp4" data-play="a_knight" data-f="anim" data-title="Fallen Knight · Butterfly"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_knight.webp" data-src="media/a_knight.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Fallen Knight · Butterfly</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_ruins.mp4" data-play="a_ruins" data-f="anim" data-title="Overgrown Ruins · FPV Run"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_ruins.webp" data-src="media/a_ruins.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:05</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Overgrown Ruins · FPV Run</b><span>AI Animation</span></span></a><a class="card" href="media/full/c_pull.mp4" data-play="c_pull" data-f="ugc" data-title="Crown Cards · Pack Pull"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_pull.webp" data-src="media/c_pull.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Crown Cards · Pack Pull</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_packs.mp4" data-play="c_packs" data-f="ugc" data-title="Crown Cards · Sealed Packs"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_packs.webp" data-src="media/c_packs.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Crown Cards · Sealed Packs</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_katana.mp4" data-play="c_katana" data-f="ugc" data-title="Katana Unboxing · Hook"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_katana.webp" data-src="media/c_katana.mp4" aria-hidden="true"></video><span class="stat-pill">Ad hook</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:06</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Katana Unboxing · Hook</b><span>AI UGC</span></span></a><a class="card" href="media/full/s_sneaker.mp4" data-play="s_sneaker" data-f="ugc" data-title="Sneaker · Product Spot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-s_sneaker.webp" data-src="media/s_sneaker.mp4" aria-hidden="true"></video><span class="stat-pill">Spec ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound · drag to scrub</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:04</span><i class="sbar"><b></b></i><span class="stc"></span></span><span class="meta"><b>Sneaker · Product Spot</b><span>AI Product Ad</span></span></a></div></div>
+    <div class="lane-wrap"><button class="ln prev" type="button" aria-label="Scroll the row left" aria-controls="lane-row1">‹</button><button class="ln next" type="button" aria-label="Scroll the row right" aria-controls="lane-row1">›</button><div class="lane" id="lane-row1" tabindex="0" aria-label="Work, scroll sideways"><div class="row" id="row1"><a class="card" href="media/full/p_trailer.mp4" data-play="p_trailer" data-f="anim" data-title="Zypiz · Still Doubting Me?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-p_trailer.webp" data-src="media/p_trailer.mp4" aria-hidden="true"></video><span class="stat-pill">6 styles · one take</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:47</span></span><span class="meta"><b>Zypiz · Still Doubting Me?</b><span>AI Animation</span></span></a><a class="card" href="media/full/g_glossa.mp4" data-play="g_glossa" data-f="anim" data-title="Glossa · Cloud Balm"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-g_glossa.webp" data-src="media/g_glossa.mp4" aria-hidden="true"></video><span class="stat-pill">Pixar-style 3D</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span></span><span class="meta"><b>Glossa · Cloud Balm</b><span>AI Song Ad</span></span></a><a class="card" href="media/full/z_alexander.mp4" data-play="z_alexander" data-f="anim" data-title="Alexander · Road Through the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_alexander.webp" data-src="media/z_alexander.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 11.6K · 69.9% stayed</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span></span><span class="meta"><b>Alexander · Road Through the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_vampire.mp4" data-play="z_vampire" data-f="anim" data-title="Mercy Brown · Real Vampire"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_vampire.webp" data-src="media/z_vampire.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 3.9K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:48</span></span><span class="meta"><b>Mercy Brown · Real Vampire</b><span>AI Animation</span></span></a><a class="card" href="media/full/t_yig.mp4" data-play="t_yig" data-f="anim" data-title="TEORIZA · The Curse of Yig"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-t_yig.webp" data-src="media/t_yig.mp4" aria-hidden="true"></video><span class="stat-pill">Episode intro</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:20</span></span><span class="meta"><b>TEORIZA · The Curse of Yig</b><span>Analog Horror</span></span></a><a class="card" href="media/full/z_medusa.mp4" data-play="z_medusa" data-f="anim" data-title="Medusa · The Gorgon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_medusa.webp" data-src="media/z_medusa.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 2.3K views</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span></span><span class="meta"><b>Medusa · The Gorgon</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kraken.mp4" data-play="z_kraken" data-f="anim" data-title="The Kraken"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kraken.webp" data-src="media/z_kraken.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:43</span></span><span class="meta"><b>The Kraken</b><span>AI Animation</span></span></a><a class="card" href="media/full/d_snooze.mp4" data-play="d_snooze" data-f="anim" data-title="Snoozebrick · Cloud Pillow"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-d_snooze.webp" data-src="media/d_snooze.mp4" aria-hidden="true"></video><span class="stat-pill">Toy stop-motion</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span></span><span class="meta"><b>Snoozebrick · Cloud Pillow</b><span>Brick Toy</span></span></a><a class="card" href="media/full/z_dracula.mp4" data-play="z_dracula" data-f="anim" data-title="Dracula · Real Blood?"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_dracula.webp" data-src="media/z_dracula.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:28</span></span><span class="meta"><b>Dracula · Real Blood?</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_poseidon.mp4" data-play="z_poseidon" data-f="anim" data-title="Poseidon · God of the Sea"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_poseidon.webp" data-src="media/z_poseidon.mp4" aria-hidden="true"></video><span class="stat-pill">3D Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:46</span></span><span class="meta"><b>Poseidon · God of the Sea</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_wendigo.mp4" data-play="z_wendigo" data-f="anim" data-title="Wendigo · Swift Runner"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_wendigo.webp" data-src="media/z_wendigo.mp4" aria-hidden="true"></video><span class="stat-pill">▶ 1.2K · day 1</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:29</span></span><span class="meta"><b>Wendigo · Swift Runner</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_godzilla.mp4" data-play="z_godzilla" data-f="anim" data-title="Godzilla · Lucky Dragon"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_godzilla.webp" data-src="media/z_godzilla.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:41</span></span><span class="meta"><b>Godzilla · Lucky Dragon</b><span>AI Animation</span></span></a></div></div></div>
+    <div class="lane-wrap"><button class="ln prev" type="button" aria-label="Scroll the row left" aria-controls="lane-row2">‹</button><button class="ln next" type="button" aria-label="Scroll the row right" aria-controls="lane-row2">›</button><div class="lane" id="lane-row2" tabindex="0" aria-label="Work, scroll sideways"><div class="row" id="row2"><a class="card" href="media/full/z_talos.mp4" data-play="z_talos" data-f="anim" data-title="Talos · Bronze Robot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_talos.webp" data-src="media/z_talos.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:34</span></span><span class="meta"><b>Talos · Bronze Robot</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_kuchisake.mp4" data-play="z_kuchisake" data-f="anim" data-title="Kuchisake-onna"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_kuchisake.webp" data-src="media/z_kuchisake.mp4" aria-hidden="true"></video><span class="stat-pill">Japanese legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:38</span></span><span class="meta"><b>Kuchisake-onna</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_whales.mp4" data-play="z_whales" data-f="anim" data-title="Whales in the Desert"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_whales.webp" data-src="media/z_whales.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:36</span></span><span class="meta"><b>Whales in the Desert</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_mapinguari.mp4" data-play="z_mapinguari" data-f="anim" data-title="Mapinguari · Ground Sloth"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_mapinguari.webp" data-src="media/z_mapinguari.mp4" aria-hidden="true"></video><span class="stat-pill">Amazon legend</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:37</span></span><span class="meta"><b>Mapinguari · Ground Sloth</b><span>AI Animation</span></span></a><a class="card" href="media/full/z_cyclops.mp4" data-play="z_cyclops" data-f="anim" data-title="Cyclops · Elephant Skulls"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-z_cyclops.webp" data-src="media/z_cyclops.mp4" aria-hidden="true"></video><span class="stat-pill">Short</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:33</span></span><span class="meta"><b>Cyclops · Elephant Skulls</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_knight.mp4" data-play="a_knight" data-f="anim" data-title="Fallen Knight · Butterfly"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_knight.webp" data-src="media/a_knight.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span></span><span class="meta"><b>Fallen Knight · Butterfly</b><span>AI Animation</span></span></a><a class="card" href="media/full/a_ruins.mp4" data-play="a_ruins" data-f="anim" data-title="Overgrown Ruins · FPV Run"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-a_ruins.webp" data-src="media/a_ruins.mp4" aria-hidden="true"></video><span class="stat-pill">Dark fantasy</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:05</span></span><span class="meta"><b>Overgrown Ruins · FPV Run</b><span>AI Animation</span></span></a><a class="card" href="media/full/c_pull.mp4" data-play="c_pull" data-f="ugc" data-title="Crown Cards · Pack Pull"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_pull.webp" data-src="media/c_pull.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:23</span></span><span class="meta"><b>Crown Cards · Pack Pull</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_packs.mp4" data-play="c_packs" data-f="ugc" data-title="Crown Cards · Sealed Packs"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_packs.webp" data-src="media/c_packs.mp4" aria-hidden="true"></video><span class="stat-pill">Ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:10</span></span><span class="meta"><b>Crown Cards · Sealed Packs</b><span>AI UGC</span></span></a><a class="card" href="media/full/c_katana.mp4" data-play="c_katana" data-f="ugc" data-title="Katana Unboxing · Hook"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-c_katana.webp" data-src="media/c_katana.mp4" aria-hidden="true"></video><span class="stat-pill">Ad hook</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:06</span></span><span class="meta"><b>Katana Unboxing · Hook</b><span>AI UGC</span></span></a><a class="card" href="media/full/s_sneaker.mp4" data-play="s_sneaker" data-f="ugc" data-title="Sneaker · Product Spot"><span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-s_sneaker.webp" data-src="media/s_sneaker.mp4" aria-hidden="true"></video><span class="stat-pill">Spec ad</span><span class="play"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><em>Click for sound</em></span><span class="dur"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.5a6 6 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr">Length </span>0:04</span></span><span class="meta"><b>Sneaker · Product Spot</b><span>AI Product Ad</span></span></a></div></div></div>
   </div>
-  <p class="wrap lanes-hint">Every clip opens the full cut with sound.</p>
+  <p class="wrap lanes-hint">Drag or swipe the rows. Every clip opens the full cut with sound.</p>
 </section>
 <section class="bt" id="cases">
   <div class="wrap">
@@ -946,55 +1029,17 @@ function count(el) {
 }
 if (!reduce) $$('.num[data-to]').forEach(n => soon(n, () => count(n), '0px'));
 
-/* ---------- hold and drag on a card to scrub it (mouse only); a plain click opens the player ---------- */
-function scrubbable(box, v) {
-  const tc = $('.stc', box);
-  let s = null, raf = 0, moved = false;
-  const paint = () => { const d = v.duration; if (!(d > 0)) return; box.style.setProperty('--p', v.currentTime / d); tc.textContent = `${mmss(v.currentTime)} / ${mmss(d)}`; };
-  box.addEventListener('pointerdown', e => { if (e.button !== 0 || e.pointerType !== 'mouse') return; moved = false; load(v); s = {x: e.clientX, id: e.pointerId, t0: v.currentTime, on: false}; });
-  box.addEventListener('pointermove', e => {
-    if (!s || e.pointerId !== s.id) return;
-    const d = v.duration, dx = e.clientX - s.x;
-    if (!s.on) {
-      if (Math.abs(dx) < 6 || !(d > 0)) return;
-      s.on = true; v.pause();
-      try { box.setPointerCapture(e.pointerId); } catch (_) {}
-      box.classList.add('scrubbing'); $('#lanes').classList.add('scrubbing');
-    }
-    s.to = Math.max(0, Math.min(d - .05, s.t0 + dx / box.clientWidth * d));
-    if (!raf) raf = requestAnimationFrame(() => { raf = 0; if (s) { v.currentTime = s.to; paint(); } });
-  });
-  const end = e => {
-    if (!s || e.pointerId !== s.id) return;
-    if (s.on) {
-      moved = true; cancelAnimationFrame(raf); raf = 0;
-      if (s.to != null) { v.currentTime = s.to; paint(); }
-      box.classList.remove('scrubbing'); $('#lanes').classList.remove('scrubbing');
-    }
-    s = null;
-  };
-  box.addEventListener('pointerup', end);
-  box.addEventListener('pointercancel', end);
-  box.closest('.card').addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopImmediatePropagation(); moved = false; } }, true);
-  box.addEventListener('dragstart', e => e.preventDefault());
-}
-
-/* ---------- work lanes ---------- */
-/* mouse: two marquee rows, a card plays while hovered. touch / reduced motion: swipe rows, the centred card plays */
+/* ---------- work rows: they only move when the viewer moves them ----------
+   Swipe on touch, drag or the arrows with a mouse. Mouse: the hovered card plays. Touch: the centred card plays. */
 const lanes = $('#lanes'), rows = [$('#row1'), $('#row2')];
 const cards = $$('.card', lanes);
-const marquee = fine && !reduce;
-lanes.classList.add(marquee ? 'auto' : 'swipe');
-seen(lanes, on => lanes.classList.toggle('off', !on), '100px');
-cards.forEach(c => {
-  const v = $('video', c);
-  if (marquee) {
-    scrubbable($('.vid', c), v);
-    c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
-    c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
-  }
-});
 let pick = null;
+seen(lanes, on => { if (!on && pick) { stop(pick); pick = null; cardActive = false; } }, '100px');
+if (fine) cards.forEach(c => {
+  const v = $('video', c);
+  c.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
+  c.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
+});
 const ioSwipe = new IntersectionObserver(es => {
   es.forEach(e => { e.target._r = e.isIntersecting ? e.intersectionRatio : 0; });
   const best = cards.filter(c => !c.hidden).reduce((a, c) => ((c._r || 0) > (a?._r || 0) ? c : a), null);
@@ -1004,32 +1049,56 @@ const ioSwipe = new IntersectionObserver(es => {
   pick = v; cardActive = !!v;
   if (v) solo(v); else if (reelOK()) solo(reelVids[ri]);
 }, {threshold: [0, .3, .6, .9]});
-if (!marquee) cards.forEach(c => ioSwipe.observe(c));
+if (!fine) cards.forEach(c => ioSwipe.observe(c));
+
+/* drag to scroll with a mouse (rows and the stills carousels); a drag never counts as a click */
+function draggable(el) {
+  let s = null;
+  el.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || el.scrollWidth <= el.clientWidth) return;
+    s = {x: e.clientX, left: el.scrollLeft, id: e.pointerId, moved: false};
+  });
+  el.addEventListener('pointermove', e => {
+    if (!s || e.pointerId !== s.id) return;
+    const dx = e.clientX - s.x;
+    if (!s.moved && Math.abs(dx) < 6) return;
+    if (!s.moved) { s.moved = true; el.classList.add('dragging'); try { el.setPointerCapture(e.pointerId); } catch (_) {} }
+    el.scrollLeft = s.left - dx;
+  });
+  const end = e => {
+    if (!s || e.pointerId !== s.id) return;
+    if (s.moved) { el.classList.remove('dragging'); el._dragEnd = performance.now(); }
+    s = null;
+  };
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
+  el.addEventListener('dragstart', e => e.preventDefault());
+  el.addEventListener('click', e => { if (performance.now() - (el._dragEnd || 0) < 250) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+}
+$$('.lane, .sgal, .tgal').forEach(draggable);
+
+/* arrows (mouse devices): a screen at a time; hidden at the ends */
+$$('.lane-wrap').forEach(w => {
+  const lane = $('.lane', w), prev = $('.ln.prev', w), next = $('.ln.next', w);
+  const ends = () => {
+    prev.disabled = lane.scrollLeft < 8;
+    next.disabled = lane.scrollLeft + lane.clientWidth > lane.scrollWidth - 8;
+  };
+  prev.addEventListener('click', () => lane.scrollBy({left: -lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
+  next.addEventListener('click', () => lane.scrollBy({left: lane.clientWidth * .8, behavior: reduce ? 'auto' : 'smooth'}));
+  lane.addEventListener('scroll', ends, {passive: true});
+  addEventListener('resize', ends);
+  w._ends = ends; ends();
+});
 
 function renderWork(f) {
-  $$('.card[aria-hidden]', lanes).forEach(c => c.remove());
   const show = cards.filter(c => f === 'all' || c.dataset.f === f);
   cards.forEach(c => { c.hidden = !show.includes(c); });
-  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); rows[1].parentElement.hidden = false; }
-  else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); rows[1].parentElement.hidden = true; }
+  const wraps = rows.map(r => r.closest('.lane-wrap'));
+  if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); wraps[1].hidden = false; }
+  else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); wraps[1].hidden = true; }
   rows.forEach(r => { r.parentElement.scrollLeft = 0; });
-  if (!marquee) return;
-  /* marquee: repeat the row until it is wider than two screens, then once more for the seamless loop */
-  rows.forEach(r => {
-    const own = $$('.card:not([hidden])', r);
-    if (!own.length) return;
-    const extra = [];
-    let w = own.length * 224;
-    while (w < innerWidth * 2) { own.forEach(c => extra.push(c)); w += own.length * 224; }
-    [...extra, ...own, ...extra].forEach(c => {
-      const k = c.cloneNode(true);
-      k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1;
-      const v = $('video', k); v.removeAttribute('src');
-      k.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { cardActive = true; solo(v); } });
-      k.addEventListener('pointerleave', () => { stop(v); cardActive = false; });
-      r.appendChild(k);
-    });
-  });
+  wraps.forEach(w => w._ends && w._ends());
 }
 renderWork('all');
 $$('.chip').forEach(c => c.addEventListener('click', () => {
@@ -1188,16 +1257,31 @@ function closeMenu() { burger.setAttribute('aria-expanded', 'false'); mnav.hidde
 burger.addEventListener('click', () => { const open = burger.getAttribute('aria-expanded') !== 'true'; burger.setAttribute('aria-expanded', open); mnav.hidden = !open; });
 addEventListener('keydown', e => { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
 
-/* ---------- section reveals: only for blocks still below the fold at load ---------- */
+/* ---------- section reveals: only for blocks still below the fold at load ----------
+   The trigger is the section, not each block: blocks inside a sideways carousel or a section that is not laid out
+   yet (content-visibility) never report their own intersection, and must not stay hidden. */
 if (!reduce) {
-  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal .still', '.tgal .still', '.case'];
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('rv-in'); e.target.classList.remove('rv'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -8% 0px'});
+  const groups = ['.sec-head', '.feat', '.sgrid .sc', '.tl', '.steps', '.term', '.photo', '.about-grid > div', '.cta .wrap > *', 'details', '.stats .stat', '.sgal', '.tgal', '.case'];
+  const pending = new Map();
   groups.forEach(sel => $$(sel).forEach((el, i) => {
-    /* sections below the fold are not laid out yet (content-visibility), so measure the section */
-    if ((el.closest('section') || el).getBoundingClientRect().top < innerHeight * .92 && el.getBoundingClientRect().top < innerHeight * .92) return;
+    const sec = el.closest('section') || el;
+    if (sec.getBoundingClientRect().top < innerHeight * .92 && el.getBoundingClientRect().top < innerHeight * .92) return;
     el.style.setProperty('--rd', (Math.min(i, 5) * .07) + 's');
-    el.classList.add('rv'); io.observe(el);
+    el.classList.add('rv');
+    if (!pending.has(sec)) pending.set(sec, []);
+    pending.get(sec).push(el);
   }));
+  const show = el => { el.classList.add('rv-in'); el.classList.remove('rv'); };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const list = pending.get(e.target);
+    if (!list) return;
+    /* blocks further down a tall section wait until they are close, the rest show now */
+    const left = list.filter(el => { const r = el.getBoundingClientRect(); if (r.top < innerHeight * .95 || !r.height) { show(el); return false; } return true; });
+    if (left.length) pending.set(e.target, left); else { pending.delete(e.target); io.unobserve(e.target); }
+  }), {rootMargin: '0px 0px -8% 0px', threshold: [0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1]});
+  pending.forEach((_, sec) => io.observe(sec));
+  /* safety net: anything still hidden once the user scrolled past it shows */
+  addEventListener('scroll', () => pending.forEach(list => list.forEach(el => { if (el.classList.contains('rv') && el.getBoundingClientRect().top < innerHeight) show(el); })), {passive: true});
 }
 
 /* ---------- FAQ: answers slide open and closed ---------- */

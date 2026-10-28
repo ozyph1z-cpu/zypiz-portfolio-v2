@@ -166,27 +166,29 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .chip:hover{color:var(--bone);border-color:var(--lilac)}
 .chip[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
 .lanes{display:grid;gap:22px;position:relative}
-.lane[hidden]{display:none}
-/* default (touch, reduced motion, no JS): native swipe rows; the centred card plays */
-.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+/* rows scroll only when the viewer moves them: swipe, drag with the mouse, or the arrows */
+.lane-wrap{position:relative;min-width:0}
+.lane-wrap[hidden]{display:none}
+.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .lane::-webkit-scrollbar{display:none}
-.row{display:flex;gap:12px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
-.lanes:not(.auto) .card{scroll-snap-align:center}
-.lanes:not(.auto) .card .play{opacity:1;place-items:end start;padding:10px}
-.lanes:not(.auto) .card .play span{width:34px;height:34px;transform:none}
-.lanes:not(.auto) .card .play svg{width:12px;height:12px;margin-left:2px}
-.lanes:not(.auto) .card .play em{display:none}
-/* mouse: two marquee rows that pause on hover; the hovered card plays */
-.lanes.auto::before,.lanes.auto::after{content:"";position:absolute;top:0;bottom:0;width:4%;z-index:3;pointer-events:none}
-.lanes.auto::before{left:0;background:linear-gradient(90deg,var(--cave),transparent)}
-.lanes.auto::after{right:0;background:linear-gradient(-90deg,var(--cave),transparent)}
-.lanes.auto .lane{overflow:hidden;scroll-snap-type:none}
-.lanes.auto .row{gap:18px;padding-inline:0;animation:lane var(--dur,70s) linear infinite;will-change:transform}
-.lanes.auto .lane.rev .row{animation-direction:reverse}
-.lanes.auto:hover .row,.lanes.off .row{animation-play-state:paused}
+.row{display:flex;gap:16px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
+.lane .card{scroll-snap-align:center}
+.lane.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.lane.dragging .card{pointer-events:none}
+.ln{position:absolute;top:calc(50% - 40px);z-index:4;width:46px;height:46px;border-radius:50%;border:1px solid var(--rock);background:rgba(11,7,16,.88);color:var(--bone);font:400 30px/1 var(--body);cursor:pointer;display:none;place-items:center;padding:0 0 4px;transition:opacity .2s,border-color .2s,transform .25s var(--snap)}
+.ln:hover{border-color:var(--lime);color:var(--lime);transform:scale(1.08)}
+.ln:disabled{opacity:0;pointer-events:none}
+.ln.prev{left:max(10px,calc((100vw - 1200px) / 2 - 56px))}
+.ln.next{right:max(10px,calc((100vw - 1200px) / 2 - 56px))}
+@media (hover:hover) and (pointer:fine){.ln{display:grid}.lane{cursor:grab}}
+@media (hover:none){
+  .card .play{opacity:1;place-items:end start;padding:10px}
+  .card .play span{width:34px;height:34px;transform:none}
+  .card .play svg{width:12px;height:12px;margin-left:2px}
+  .card .play em{display:none}
+}
 .card[hidden]{display:none}
 .lanes-hint{margin-top:14px;color:var(--soft);font:600 13px/1.3 var(--label);letter-spacing:.12em;text-transform:uppercase}
-@keyframes lane{to{transform:translateX(-50%)}}
 .card{display:block;width:206px;flex:none;cursor:pointer;color:inherit;text-decoration:none;text-align:left}
 .card .vid{display:block;position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--cave-2);border:1px solid var(--edge);transition:transform .35s var(--out),border-color .2s}
 .card:hover .vid{transform:translateY(-6px) rotate(-1deg);border-color:var(--lime)}
@@ -202,7 +204,7 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .card .meta span{color:var(--soft);font-size:12px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
 .card .play em{position:absolute;bottom:42px;left:0;right:0;text-align:center;font:700 11px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--bone);text-shadow:0 1px 6px rgba(0,0,0,.8)}
 /* hold + drag scrubbing */
-.card .vid,.scrubbox{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.card .vid{user-select:none;-webkit-user-select:none}
 .scrubbox{position:relative}
 .sbar{position:absolute;left:10px;right:10px;bottom:10px;height:4px;border-radius:4px;background:rgba(242,236,223,.25);opacity:0;transition:opacity .2s;pointer-events:none;z-index:3}
 .sbar b{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--lime);border-radius:inherit}
@@ -210,7 +212,6 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .scrubbing{cursor:ew-resize}
 .scrubbing .sbar,.scrubbing .stc,.player .sbar{opacity:1}
 .card .vid.scrubbing .play{opacity:0}
-.lanes.scrubbing .row{animation-play-state:paused!important}
 
 /* statics + thumbnails */
 .sgal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;perspective:900px}
@@ -220,9 +221,12 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .still.th{aspect-ratio:16/9}
 .still img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--out)}
 .still span{position:absolute;left:10px;bottom:10px;font:700 12px/1 var(--label);letter-spacing:.12em;text-transform:uppercase;background:rgba(11,7,16,.75);color:var(--bone);padding:6px 9px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .3s var(--out)}
-.still:hover{border-color:var(--lime);box-shadow:0 24px 50px -20px #000}
-.still:hover img{transform:scale(1.05)}
-.still:hover span{opacity:1;transform:none}
+@media (hover:hover){
+  .still:hover{border-color:var(--lime);box-shadow:0 24px 50px -20px #000}
+  .still:hover img{transform:scale(1.05)}
+  .still:hover span{opacity:1;transform:none}
+}
+@media (hover:none){.still{transform-style:flat}.still span{opacity:1;transform:none}}
 .imgbox{width:min(560px,calc(100vw - 32px));padding:14px}
 .imgbox img{display:block;width:100%;height:auto;border-radius:12px}
 
