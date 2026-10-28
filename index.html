@@ -703,6 +703,8 @@ a.pill{display:inline-block;text-decoration:none}
   .res small{font-size:10px}
 }
 @media (max-width:760px){.hp-float{animation:none}.handphone.pop .hp-float{animation:hpshake .42s var(--snap)}}
+/* phones: the hero holds still until the first touch or scroll */
+.calm .gob,.calm .gob .hair,.calm .arrow path{animation-play-state:paused}
 
 </style>
 </head>
@@ -1008,7 +1010,8 @@ const start = () => setTimeout(() => { started = true; showReel(ri); }, 400);
 if (fine) { if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true}); }
 else {
   /* phones: the poster shows first and the reel starts on the first touch or scroll (saves data, keeps the first paint still) */
-  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); start(); };
+  document.documentElement.classList.add('calm');
+  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); document.documentElement.classList.remove('calm'); start(); };
   ['touchstart', 'scroll', 'pointerdown'].forEach(t => addEventListener(t, go, {passive: true, once: true}));
 }
 seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });

@@ -42,7 +42,8 @@ const start = () => setTimeout(() => { started = true; showReel(ri); }, 400);
 if (fine) { if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true}); }
 else {
   /* phones: the poster shows first and the reel starts on the first touch or scroll (saves data, keeps the first paint still) */
-  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); start(); };
+  document.documentElement.classList.add('calm');
+  const go = () => { ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, go)); document.documentElement.classList.remove('calm'); start(); };
   ['touchstart', 'scroll', 'pointerdown'].forEach(t => addEventListener(t, go, {passive: true, once: true}));
 }
 seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });

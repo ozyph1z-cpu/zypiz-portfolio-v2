@@ -588,3 +588,5 @@ a.pill{display:inline-block;text-decoration:none}
   .res small{font-size:10px}
 }
 @media (max-width:760px){.hp-float{animation:none}.handphone.pop .hp-float{animation:hpshake .42s var(--snap)}}
+/* phones: the hero holds still until the first touch or scroll */
+.calm .gob,.calm .gob .hair,.calm .arrow path{animation-play-state:paused}
