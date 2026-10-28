@@ -148,10 +148,12 @@ h1 .bite path{stroke:var(--lime);stroke-width:5;fill:none;stroke-linecap:round;s
 .link-btn:hover{color:var(--lime);border-color:var(--lime)}
 
 /* marquee */
-.marquee{overflow:hidden;border-bottom:1px solid var(--edge);padding-block:16px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.mtrack{display:flex;gap:26px;width:max-content;animation:slide 44s linear infinite;font:700 15px/1 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.marquee{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain;border-bottom:1px solid var(--edge);padding-block:16px;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee::-webkit-scrollbar{display:none}
+@media (hover:hover) and (pointer:fine){.marquee{cursor:grab}}
+.marquee.dragging{cursor:grabbing;user-select:none}
+.mtrack{display:flex;gap:26px;width:max-content;padding-inline:16px;font:700 15px/1 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
 .mtrack i{font-style:normal;color:var(--lime)}
-@keyframes slide{to{transform:translateX(-50%)}}
 
 /* sections */
 section{padding-block:72px;scroll-margin-top:70px}
@@ -169,10 +171,9 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 /* rows scroll only when the viewer moves them: swipe, drag with the mouse, or the arrows */
 .lane-wrap{position:relative;min-width:0}
 .lane-wrap[hidden]{display:none}
-.lane{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.lane{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .lane::-webkit-scrollbar{display:none}
-.row{display:flex;gap:16px;width:max-content;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
-.lane .card{scroll-snap-align:center}
+.row{display:flex;gap:16px;width:max-content;margin-inline:auto;padding-inline:max(16px,env(safe-area-inset-left,0px),calc((100vw - 1200px) / 2 + 16px))}
 .lane.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
 .lane.dragging .card{pointer-events:none}
 .ln{position:absolute;top:calc(50% - 40px);z-index:4;width:46px;height:46px;border-radius:50%;border:1px solid var(--rock);background:rgba(11,7,16,.88);color:var(--bone);font:400 30px/1 var(--body);cursor:pointer;display:none;place-items:center;padding:0 0 4px;transition:opacity .2s,border-color .2s,transform .25s var(--snap)}
@@ -192,7 +193,8 @@ h2{font:400 clamp(28px,4vw,48px)/1.05 var(--display);margin-top:10px}
 .card{display:block;width:206px;flex:none;cursor:pointer;color:inherit;text-decoration:none;text-align:left}
 .card .vid{display:block;position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:var(--cave-2);border:1px solid var(--edge);transition:transform .35s var(--out),border-color .2s}
 .card:hover .vid{transform:translateY(-6px) rotate(-1deg);border-color:var(--lime)}
-.card video{width:100%;height:100%;object-fit:cover;display:block;background:var(--cave-2)}
+.card .pv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card video{position:relative;width:100%;height:100%;object-fit:cover;display:block;background:transparent}
 .card .stat-pill{position:absolute;left:10px;top:10px;z-index:2;background:rgba(11,7,16,.82);color:var(--lime);font:700 12px/1 var(--label);letter-spacing:.06em;padding:6px 9px;border-radius:999px}
 .card .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .25s}
 .card .play span{width:52px;height:52px;border-radius:50%;background:rgba(242,236,223,.92);display:grid;place-items:center;transform:scale(.8);transition:transform .3s var(--snap)}

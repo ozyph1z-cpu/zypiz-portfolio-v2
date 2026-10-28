@@ -315,7 +315,8 @@ def r_hero(d):
     vids = []
     for i, r in enumerate(h['reel']):
         src = f'media/reel_{r["k"]}.mp4' if r['k'] in cuts else f'media/{r["k"]}.mp4'
-        vids.append(f'<video{" class=\"on\"" if i == 0 else ""} muted loop playsinline preload="none" poster="assets/poster-{e(r["k"])}.webp" '
+        poster = 'poster' if i == 0 else 'data-poster'
+        vids.append(f'<video{" class=\"on\"" if i == 0 else ""} muted loop playsinline preload="none" {poster}="assets/poster-{e(r["k"])}.webp" '
                     f'data-src="{src}" data-k="{e(r["k"])}" data-label="{e(r["label"])}" aria-hidden="true"></video>')
     first = h['reel'][0]
     return f'''<section class="hero" aria-label="Intro">
@@ -383,7 +384,8 @@ def r_marquee(d):
 def card(w):
     k = e(w['k'])
     return (f'<a class="card" href="media/full/{k}.mp4" data-play="{k}" data-f="{e(w["filter"])}" data-title="{e(w["title"])}">'
-            f'<span class="vid"><video muted loop playsinline preload="none" poster="assets/poster-{k}.webp" data-src="media/{k}.mp4" aria-hidden="true"></video>'
+            f'<span class="vid"><img class="pv" src="assets/poster-{k}.webp" width="270" height="480" alt="" loading="lazy" decoding="async">'
+            f'<video muted loop playsinline preload="none" data-src="media/{k}.mp4" aria-hidden="true"></video>'
             f'<span class="stat-pill">{e(w["pill"])}</span>'
             f'<span class="play"><span>{PLAY_ICON}</span><em>Click for sound</em></span>'
             f'<span class="dur">{SOUND_ICON}<span class="sr">Length </span>{mmss(w["duration"])}</span>'

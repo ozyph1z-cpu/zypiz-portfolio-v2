@@ -5,7 +5,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const seen = (el, fn, margin = '0px') => new IntersectionObserver(es => es.forEach(e => fn(e.isIntersecting, e)), {rootMargin: margin}).observe(el);
 const soon = (el, fn, margin = '0px 0px 160px 0px') => new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { fn(); o.disconnect(); } }), {rootMargin: margin}).observe(el);
-const load = v => { if (!v.src && v.dataset.src) v.src = v.dataset.src; };
+const load = v => { if (!v.poster && v.dataset.poster) v.poster = v.dataset.poster; if (!v.src && v.dataset.src) v.src = v.dataset.src; };
 const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
 
 /* one video at a time: starting one pauses every other */
@@ -20,12 +20,12 @@ function stop(v) { v.pause(); if (current === v) current = null; }
 /* ---------- hero reel ---------- */
 const phone = $('#phone'), tag = $('#phoneTag'), dots = $$('#dots i');
 const reelVids = $$('video', phone);
-let ri = 0, heroOn = true, cardActive = false;
-const reelOK = () => heroOn && !cardActive && !document.hidden && !$('dialog[open]');
+let ri = 0, heroOn = true, cardActive = false, started = false;
+const reelOK = () => started && heroOn && !cardActive && !document.hidden && !$('dialog[open]');
 function showReel(i) {
   ri = i;
   reelVids.forEach((v, j) => { v.classList.toggle('on', j === i); if (j !== i) v.pause(); });
-  load(reelVids[(i + 1) % reelVids.length]);
+  if (started) load(reelVids[(i + 1) % reelVids.length]);
   dots.forEach((d, j) => { d.classList.remove('on'); if (j === i) { void d.offsetWidth; d.classList.add('on'); } });
   tag.textContent = reelVids[i].dataset.label;
   phone.href = `media/full/${reelVids[i].dataset.k}.mp4`;
@@ -33,10 +33,12 @@ function showReel(i) {
   const hp = $('#handphone');
   hp.classList.remove('pop'); void hp.offsetWidth; hp.classList.add('pop');
   reelVids[i].currentTime = 0;
-  if (reelOK()) solo(reelVids[i]); else load(reelVids[i]);
+  if (reelOK()) solo(reelVids[i]);
 }
-reelVids[0].preload = 'auto';
 showReel(0);
+/* the reel starts once the page has loaded, so its video never competes with the first paint */
+const start = () => setTimeout(() => { started = true; if (reelOK()) solo(reelVids[ri]); load(reelVids[(ri + 1) % reelVids.length]); }, 400);
+if (document.readyState === 'complete') start(); else addEventListener('load', start, {once: true});
 seen(phone, on => { heroOn = on; if (on && reelOK()) solo(reelVids[ri]); else stop(reelVids[ri]); });
 if (!reduce) setInterval(() => { if (reelOK()) showReel((ri + 1) % reelVids.length); }, 3200);
 document.addEventListener('visibilitychange', () => { if (document.hidden && current) current.pause(); });
@@ -166,7 +168,8 @@ function renderWork(f) {
   const wraps = rows.map(r => r.closest('.lane-wrap'));
   if (f === 'all') { cards.forEach((c, i) => rows[i < Math.ceil(cards.length / 2) ? 0 : 1].appendChild(c)); wraps[1].hidden = false; }
   else { show.forEach(c => rows[0].appendChild(c)); cards.filter(c => c.hidden).forEach(c => rows[1].appendChild(c)); wraps[1].hidden = true; }
-  rows.forEach(r => { r.parentElement.scrollLeft = 0; });
+  /* row 1 starts at its beginning, row 2 at its end, so scrolling the page moves them apart */
+  rows.forEach((r, i) => { const l = r.parentElement; l.scrollLeft = i ? l.scrollWidth : 0; });
   wraps.forEach(w => w._ends && w._ends());
 }
 renderWork('all');
@@ -399,3 +402,25 @@ if (fine && !reduce) {
 
 /* ---------- decorative loops only run while their block is on screen ---------- */
 $$('.hero, .marquee, .results, #systems, #stack').forEach(el => seen(el, on => el.classList.toggle('idle', !on), '50px'));
+
+/* ---------- scroll-linked strips: scrolling the page slides the work rows and the formats strip sideways ----------
+   They never move on their own; dragging (mouse) or swiping (touch) moves them too. The formats strip loops. */
+const mq = $('.marquee'), mtrack = $('#mtrack');
+draggable(mq);
+const loopW = () => { const half = mtrack.children[mtrack.children.length / 2]; return half ? half.offsetLeft - mtrack.firstElementChild.offsetLeft : 0; };
+const wrapLoop = () => { const w = loopW(); if (!w) return; if (mq.scrollLeft >= w * 1.5) mq.scrollLeft -= w; else if (mq.scrollLeft < w * .5) mq.scrollLeft += w; };
+mq.scrollLeft = loopW() * .75;
+mq.addEventListener('scroll', wrapLoop, {passive: true});
+const linked = [[$('#lane-row1'), 1], [$('#lane-row2'), -1], [mq, 1]];
+linked.forEach(l => seen(l[0], on => { l.on = on; }, '80px'));
+if (!reduce) {
+  let lastY = scrollY, queued = 0, raf = 0;
+  addEventListener('scroll', () => {
+    queued += scrollY - lastY; lastY = scrollY;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      const dy = queued; queued = 0; raf = 0;
+      linked.forEach(l => { if (l.on && !l[0].classList.contains('dragging') && !l[0].closest('[hidden]')) l[0].scrollLeft += dy * .55 * l[1]; });
+    });
+  }, {passive: true});
+}
