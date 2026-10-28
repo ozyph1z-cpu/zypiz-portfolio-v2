@@ -543,5 +543,6 @@ a.pill{display:inline-block;text-decoration:none}
   backdrop-filter:hue-rotate(-165deg) saturate(1.5);-webkit-backdrop-filter:hue-rotate(-165deg) saturate(1.5);
   mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-size:100% 100%;-webkit-mask-size:100% 100%}
 .lens.on{opacity:1}
-/* second pass with the same mask: dark backgrounds turn into visible green dots (lighten keeps the swapped colours) */
-.lens.tint{z-index:56;backdrop-filter:none;-webkit-backdrop-filter:none;background:#285c0f;mix-blend-mode:lighten}
+/* the bubble's edge: a thin Zypiz-green line on top of everything */
+.ring{position:fixed;left:0;top:0;z-index:57;pointer-events:none;opacity:0;transition:opacity .35s;overflow:visible}
+.ring.on{opacity:1}
