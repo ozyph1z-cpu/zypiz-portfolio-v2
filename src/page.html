@@ -56,11 +56,7 @@
 </main>
 {{footer}}
 {{dialogs}}
-<div class="lens" id="lens" aria-hidden="true"></div>
-<svg class="ring" id="ring" aria-hidden="true" focusable="false"><defs><filter id="ringF" x="-30%" y="-30%" width="160%" height="160%">
-<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/><feColorMatrix in="b" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 24 -10" result="blob"/>
-<feMorphology in="blob" operator="erode" radius="1" result="inner"/><feComposite in="blob" in2="inner" operator="out" result="edge"/>
-<feFlood flood-color="#b7f229" flood-opacity=".45"/><feComposite in2="edge" operator="in"/></filter></defs><g id="ringG" filter="url(#ringF)"></g></svg>
+<div class="cur" id="cur" aria-hidden="true"><i class="lens"></i><i class="bub"></i><i class="bub"></i><i class="bub"></i><i class="bub"></i><i class="bub head"></i></div>
 <div class="gc" id="gc" aria-hidden="true"></div>
 <script>
 {{js}}

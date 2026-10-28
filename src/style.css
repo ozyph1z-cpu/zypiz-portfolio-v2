@@ -538,11 +538,14 @@ a.pill{display:inline-block;text-decoration:none}
 /* below the fold: skip layout and paint until near the screen; decorative loops pause off screen */
 #statics,#systems,#process,#stack,#about,#contact,#faq,#cases{content-visibility:auto;contain-intrinsic-size:auto 900px}
 .idle *,.idle *::before,.idle *::after{animation-play-state:paused!important}
-/* cursor lens: a halftone bubble with a liquid trail that swaps purple and green in text and backgrounds (mouse only) */
-.lens{position:fixed;left:0;top:0;z-index:55;pointer-events:none;opacity:0;transition:opacity .35s;
-  backdrop-filter:hue-rotate(-165deg) saturate(1.5);-webkit-backdrop-filter:hue-rotate(-165deg) saturate(1.5);
-  mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-size:100% 100%;-webkit-mask-size:100% 100%}
-.lens.on{opacity:1}
-/* the bubble's edge: a thin Zypiz-green line on top of everything */
-.ring{position:fixed;left:0;top:0;z-index:57;pointer-events:none;opacity:0;transition:opacity .35s;overflow:visible}
-.ring.on{opacity:1}
+/* cursor bubble (mouse only). Everything here moves by transform alone, so the GPU does the work:
+   the lens swaps purple and green in what is under it (static halftone mask), the bubbles are thin Zypiz-green rings. */
+.cur{position:fixed;inset:0;z-index:55;pointer-events:none;opacity:0;transition:opacity .3s}
+.cur.on{opacity:1}
+.cur i{position:absolute;left:0;top:0;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);border-radius:50%;will-change:transform}
+.cur .lens{--s:84px;backdrop-filter:hue-rotate(-165deg) saturate(1.5);-webkit-backdrop-filter:hue-rotate(-165deg) saturate(1.5);transition:opacity .25s;
+  -webkit-mask:radial-gradient(circle,#000 1.6px,transparent 2.1px) 0 0/7px 7px,radial-gradient(closest-side,#000 55%,transparent);-webkit-mask-composite:source-in;
+  mask:radial-gradient(circle,#000 1.6px,transparent 2.1px) 0 0/7px 7px,radial-gradient(closest-side,#000 55%,transparent);mask-composite:intersect}
+.cur.media .lens{opacity:0}
+.cur .bub{--s:30px;box-shadow:inset 0 0 0 1px rgba(183,242,41,.4)}
+.cur .bub.head{--s:84px;box-shadow:inset 0 0 0 1px rgba(183,242,41,.45)}

@@ -462,64 +462,39 @@ if (!reduce) {
   }, {passive: true});
 }
 
-/* ---------- cursor lens: a liquid bubble that follows the mouse ----------
-   Inside it purple and green trade places (backdrop-filter hue rotation, halftone mask, images and videos cut out),
-   and a thin Zypiz-green line traces its edge on top of everything.
-   Cost control: the shape is 14 circles merged by a "goo" filter (blur + alpha threshold); the line is a live SVG whose
-   circles are moved in place, the mask is one small SVG image redrawn only while the bubble moves, and the loop stops
-   as soon as the trail settles. Mouse only, never with reduced motion. */
+/* ---------- cursor bubble: follows the mouse, swaps purple and green under it, leaves a short trail of rings ----------
+   Per frame it only writes transforms (no layout reads, no images redrawn), and it sleeps when the trail has settled.
+   Over images and videos the colour swap fades out, so only text and backgrounds change. Mouse only, never with reduced motion. */
 if (fine && !reduce && (CSS.supports('backdrop-filter', 'hue-rotate(1deg)') || CSS.supports('-webkit-backdrop-filter', 'hue-rotate(1deg)'))) {
-  const lens = $('#lens'), ring = $('#ring'), ringG = $('#ringG');
-  const N = 9, R = 46, PAD = R + 22, GRID = 7;
-  const pts = Array.from({length: N}, () => ({x: -500, y: -500}));
-  const dots = pts.map(() => { const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); ringG.appendChild(c); return c; });
-  const media = () => $$('img, video, .still, .case-vid, .ico').filter(el => !el.closest('dialog'));
-  let mediaEls = media(), mx = -500, my = -500, raf = 0, still = 0, inside = false;
-  addEventListener('load', () => { mediaEls = media(); });
-  const f = n => Math.round(n);
-  const show = on => { lens.classList.toggle('on', on); ring.classList.toggle('on', on); };
+  const cur = $('#cur'), lens = $('.lens', cur), head = $('.bub.head', cur), trail = $$('.bub:not(.head)', cur);
+  const SIZE = [.62, .46, .33, .22];
+  const pts = trail.map(() => ({x: 0, y: 0}));
+  let mx = 0, my = 0, hx = 0, hy = 0, raf = 0, inside = false;
+  const MEDIA = 'img, video, .still, .card .vid, .case-vid, .phone, .photo';
+  const put = (el, x, y, s = 1, o = 1) => { el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s})`; el.style.opacity = o; };
   function frame() {
     raf = 0;
-    pts[0].x += (mx - pts[0].x) * .3; pts[0].y += (my - pts[0].y) * .3;
-    for (let i = 1; i < N; i++) { pts[i].x += (pts[i - 1].x - pts[i].x) * .24; pts[i].y += (pts[i - 1].y - pts[i].y) * .24; }
-    let L = 1e9, T = 1e9, Rt = -1e9, B = -1e9;
-    for (const p of pts) { L = Math.min(L, p.x); T = Math.min(T, p.y); Rt = Math.max(Rt, p.x); B = Math.max(B, p.y); }
-    L = Math.floor(L - PAD); T = Math.floor(T - PAD);
-    const W = Math.ceil(Rt + PAD) - L, H = Math.ceil(B + PAD) - T;
-    const rad = pts.map((p, i) => R * (1 - i / N * .75));
-    /* the green line: move the live circles */
-    ring.setAttribute('width', W); ring.setAttribute('height', H);
-    ring.style.transform = `translate(${L}px,${T}px)`;
-    pts.forEach((p, i) => { const c = dots[i]; c.setAttribute('cx', f(p.x - L)); c.setAttribute('cy', f(p.y - T)); c.setAttribute('r', f(rad[i])); });
-    /* the colour swap: halftone mask with holes over images and videos */
-    let holes = '';
-    for (const el of mediaEls) {
-      const r = el.getBoundingClientRect();
-      if (r.right < L || r.left > L + W || r.bottom < T || r.top > T + H || !r.width) continue;
-      holes += `<rect x="${f(r.left - L)}" y="${f(r.top - T)}" width="${f(r.width)}" height="${f(r.height)}"/>`;
-    }
-    const ox = -((L % GRID) + GRID) % GRID, oy = -((T % GRID) + GRID) % GRID; /* dots stay on a fixed screen grid */
-    const circles = pts.map((p, i) => `<circle cx="${f(p.x - L)}" cy="${f(p.y - T)}" r="${f(rad[i])}"/>`).join('');
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><defs>`
-      + `<filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 24 -10"/></filter>`
-      + `<pattern id="d" x="${ox}" y="${oy}" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.9" fill="#fff"/></pattern>`
-      + `<mask id="m"><g fill="#fff" filter="url(#g)">${circles}</g>${holes ? `<g>${holes}</g>` : ''}</mask></defs>`
-      + `<rect width="100%" height="100%" fill="url(#d)" mask="url(#m)"/></svg>`;
-    const url = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-    lens.style.cssText = `transform:translate(${L}px,${T}px);width:${W}px;height:${H}px;mask-image:${url};-webkit-mask-image:${url}`;
-    const moving = Math.abs(pts[N - 1].x - mx) + Math.abs(pts[N - 1].y - my) > .5;
-    still = moving ? 0 : still + 1;
-    if (still < 2) raf = requestAnimationFrame(frame); /* stops as soon as the trail has caught up */
+    hx += (mx - hx) * .55; hy += (my - hy) * .55;            /* the head stays right on the pointer */
+    put(lens, hx, hy, 1, ''); put(head, hx, hy);
+    let px = hx, py = hy, moving = Math.abs(mx - hx) + Math.abs(my - hy) > .3;
+    pts.forEach((p, i) => {
+      p.x += (px - p.x) * .34; p.y += (py - p.y) * .34;       /* each ring chases the one in front */
+      const d = Math.hypot(p.x - hx, p.y - hy);
+      put(trail[i], p.x, p.y, SIZE[i] * 84 / 30, Math.min(1, d / 40));  /* rings fade out as they catch up */
+      if (Math.abs(p.x - px) + Math.abs(p.y - py) > .3) moving = true;
+      px = p.x; py = p.y;
+    });
+    if (moving) raf = requestAnimationFrame(frame);
   }
   addEventListener('pointermove', e => {
     if (e.pointerType !== 'mouse') return;
-    mx = e.clientX; my = e.clientY; still = 0;
-    if (!inside) { inside = true; pts.forEach(p => { p.x = mx; p.y = my; }); }
-    show(!$('dialog[open]'));
+    mx = e.clientX; my = e.clientY;
+    if (!inside) { inside = true; hx = mx; hy = my; pts.forEach(p => { p.x = mx; p.y = my; }); }
+    cur.classList.toggle('on', !$('dialog[open]'));
+    cur.classList.toggle('media', !!e.target.closest?.(MEDIA));
     if (!raf) raf = requestAnimationFrame(frame);
   }, {passive: true});
-  addEventListener('scroll', () => { if (inside && !raf) raf = requestAnimationFrame(frame); }, {passive: true});
-  document.addEventListener('mouseleave', () => { inside = false; show(false); });
-  $$('dialog').forEach(d => d.addEventListener('close', () => { if (inside) show(true); }));
-  document.addEventListener('click', () => { if ($('dialog[open]')) show(false); });
+  document.addEventListener('mouseleave', () => { inside = false; cur.classList.remove('on'); });
+  $$('dialog').forEach(d => d.addEventListener('close', () => { if (inside) cur.classList.add('on'); }));
+  document.addEventListener('click', () => { if ($('dialog[open]')) cur.classList.remove('on'); });
 }
