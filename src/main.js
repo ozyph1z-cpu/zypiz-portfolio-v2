@@ -470,7 +470,7 @@ if (!reduce) {
    as soon as the trail settles. Mouse only, never with reduced motion. */
 if (fine && !reduce && (CSS.supports('backdrop-filter', 'hue-rotate(1deg)') || CSS.supports('-webkit-backdrop-filter', 'hue-rotate(1deg)'))) {
   const lens = $('#lens'), ring = $('#ring'), ringG = $('#ringG');
-  const N = 14, R = 82, PAD = R + 30, GRID = 9;
+  const N = 9, R = 46, PAD = R + 22, GRID = 7;
   const pts = Array.from({length: N}, () => ({x: -500, y: -500}));
   const dots = pts.map(() => { const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); ringG.appendChild(c); return c; });
   const media = () => $$('img, video, .still, .case-vid, .ico').filter(el => !el.closest('dialog'));
@@ -486,7 +486,7 @@ if (fine && !reduce && (CSS.supports('backdrop-filter', 'hue-rotate(1deg)') || C
     for (const p of pts) { L = Math.min(L, p.x); T = Math.min(T, p.y); Rt = Math.max(Rt, p.x); B = Math.max(B, p.y); }
     L = Math.floor(L - PAD); T = Math.floor(T - PAD);
     const W = Math.ceil(Rt + PAD) - L, H = Math.ceil(B + PAD) - T;
-    const rad = pts.map((p, i) => R * (1 - i / N * .7));
+    const rad = pts.map((p, i) => R * (1 - i / N * .75));
     /* the green line: move the live circles */
     ring.setAttribute('width', W); ring.setAttribute('height', H);
     ring.style.transform = `translate(${L}px,${T}px)`;
@@ -501,8 +501,8 @@ if (fine && !reduce && (CSS.supports('backdrop-filter', 'hue-rotate(1deg)') || C
     const ox = -((L % GRID) + GRID) % GRID, oy = -((T % GRID) + GRID) % GRID; /* dots stay on a fixed screen grid */
     const circles = pts.map((p, i) => `<circle cx="${f(p.x - L)}" cy="${f(p.y - T)}" r="${f(rad[i])}"/>`).join('');
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><defs>`
-      + `<filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 24 -10"/></filter>`
-      + `<pattern id="d" x="${ox}" y="${oy}" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="3" fill="#fff"/></pattern>`
+      + `<filter id="g" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 24 -10"/></filter>`
+      + `<pattern id="d" x="${ox}" y="${oy}" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.9" fill="#fff"/></pattern>`
       + `<mask id="m"><g fill="#fff" filter="url(#g)">${circles}</g>${holes ? `<g>${holes}</g>` : ''}</mask></defs>`
       + `<rect width="100%" height="100%" fill="url(#d)" mask="url(#m)"/></svg>`;
     const url = `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
