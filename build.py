@@ -98,10 +98,11 @@ def validate(d):
         v.file(site.get(k), f'site.{k}')
 
     c = v.get(d, 'contact', dict, 'contact') or {}
-    for k in ('email', 'discord', 'x_handle', 'x_url'):
+    for k in ('email', 'whatsapp', 'whatsapp_url', 'discord', 'x_handle', 'x_url'):
         v.text(c, k, 'contact')
     v.link(f'mailto:{c.get("email")}', 'contact.email', SECTIONS)
     v.link(c.get('x_url'), 'contact.x_url', SECTIONS)
+    v.link(c.get('whatsapp_url'), 'contact.whatsapp_url', SECTIONS)
 
     for i, n in enumerate(v.get(d, 'nav', list, 'nav') or []):
         v.text(n, 'label', f'nav[{i}]')
@@ -286,6 +287,7 @@ def badges(items):
 def contact_links(c, cls):
     return (f'<ul class="{cls}">'
             f'<li><a href="mailto:{e(c["email"])}" data-copy="{e(c["email"])}"><b>Email</b><span>{e(c["email"])}</span></a></li>'
+            f'<li><a href="{e(c["whatsapp_url"])}" target="_blank" rel="noopener"><b>WhatsApp</b><span>{e(c["whatsapp"])}</span></a></li>'
             f'<li><a href="https://discord.com/app" data-copy="{e(c["discord"])}" target="_blank" rel="noopener"><b>Discord</b><span>{e(c["discord"])}</span></a></li>'
             f'<li><a href="{e(c["x_url"])}" target="_blank" rel="noopener"><b>X</b><span>{e(c["x_handle"])}</span></a></li>'
             '</ul>')
@@ -626,6 +628,7 @@ def r_dialogs(d):
   <h2 id="talkTitle">I know you want to work with me.</h2>
   <p>Message me here:</p>
   <button class="opt" type="button" data-copy="{e(c["email"])}"><span><b>Email</b><small>{e(c["email"])}</small></span><em>Copy</em></button>
+  <a class="opt" href="{e(c["whatsapp_url"])}" target="_blank" rel="noopener"><span><b>WhatsApp</b><small>{e(c["whatsapp"])}</small></span><em>Open ↗</em></a>
   <button class="opt" type="button" data-copy="{e(c["discord"])}"><span><b>Discord</b><small>{e(c["discord"])}</small></span><em>Copy</em></button>
   <a class="opt" href="{e(c["x_url"])}" target="_blank" rel="noopener"><span><b>X</b><small>{e(c["x_handle"])}</small></span><em>Open ↗</em></a>
 </dialog>
@@ -651,7 +654,7 @@ def render(d):
     jsonld = json.dumps({
         '@context': 'https://schema.org', '@type': 'Person', 'name': 'Marcelo', 'alternateName': s['name'],
         'url': s['url'], 'image': s['url'] + d['about']['photo'], 'jobTitle': 'Video editor, AI engineer and developer',
-        'email': f'mailto:{c["email"]}', 'sameAs': [c['x_url']],
+        'email': f'mailto:{c["email"]}', 'telephone': c['whatsapp'], 'sameAs': [c['x_url']],
     }, ensure_ascii=False).replace('</', '<\\/')
     css = open(os.path.join(ROOT, 'src/fonts.css'), encoding='utf-8').read() + open(os.path.join(ROOT, 'src/style.css'), encoding='utf-8').read()
     js = open(os.path.join(ROOT, 'src/main.js'), encoding='utf-8').read()
